@@ -8,7 +8,7 @@ entrenadorCtrl.getEntrenador = async(req, res) => {
 }
 
 entrenadorCtrl.getEntrenadores = async(req, res) => {
-      let entrenadores = await REntrenadorfind();
+      let entrenadores = await Entrenador.find();
       res.json(entrenadores);
 }
 
