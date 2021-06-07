@@ -13,7 +13,7 @@ entrenadorCtrl.getEntrenadores = async(req, res) => {
 }
 
 //Método POST
-rentrenadorCtrl.addEntrenador = async(req, res) => {
+entrenadorCtrl.addEntrenador = async(req, res) => {
       let entrenador = new Entrenador(req.body);
       try {
             await entrenador.save();

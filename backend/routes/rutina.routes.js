@@ -1,7 +1,7 @@
 const rutinaCtrl = require("../controllers/rutina.controller");
 
 // manejador de rutas
-const express = require(express);
+const express = require("express");
 const router = express.Router();
 
 router.get('/:id', rutinaCtrl.getRutina);

@@ -7,6 +7,8 @@ app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
 app.use('/api/plan', require('./routes/plan.route.js'));
+app.use('/api/rutina', require('./routes/rutina.routes'));
+app.use('/api/entrenador', require('./routes/entrenador.routes'));
 //app.use('/api/agente, require('./routes/agente.route.js'));
 
 app.set("port", process.env.PORT || 3000);
