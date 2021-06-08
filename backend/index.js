@@ -6,6 +6,8 @@ const cors = require("cors");
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
+
+app.use('/api/pago', require('./routes/pago.route.js'));
 app.use('/api/plan', require('./routes/plan.route.js'));
 app.use('/api/rutina', require('./routes/rutina.routes'));
 app.use('/api/entrenador', require('./routes/entrenador.routes'));
