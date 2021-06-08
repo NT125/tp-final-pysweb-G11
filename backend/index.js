@@ -13,6 +13,7 @@ app.use('/api/rutina', require('./routes/rutina.routes'));
 app.use('/api/entrenador', require('./routes/entrenador.routes'));
 app.use('/api/usuarios', require('./routes/usuario.route'));
 
+app.use('/api/alumno', require('./routes/alumno.route'));
 
 //app.use('/api/agente, require('./routes/agente.route.js'));
 
