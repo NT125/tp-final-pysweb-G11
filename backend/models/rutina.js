@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
+const Ejercicio = require("./rutina");
 
 const RutinaSchema = new Schema({
-      ejercicios: {type:String, required:true}, //CAMBIAR POR tipo Ejercicio
+      ejercicios: {type: Array, required:true},
       nivel: {type: Number, required:true}
 })
 
