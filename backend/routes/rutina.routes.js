@@ -7,7 +7,9 @@ const router = express.Router();
 router.get('/:id', rutinaCtrl.getRutina);
 router.get('/', rutinaCtrl.getRutinas);
 router.post('/', rutinaCtrl.addRutina);
-router.put('/:id', rutinaCtrl.editRutina);
+router.put('/', rutinaCtrl.editRutina);
 router.delete('/:id', rutinaCtrl.deleteRutina);
+
+router.post('/:id/ejercicio', rutinaCtrl.addEjercicio);
 
 module.exports = router;

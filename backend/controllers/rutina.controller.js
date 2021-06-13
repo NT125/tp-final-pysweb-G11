@@ -1,4 +1,5 @@
 const Rutina = require("../models/rutina");
+const Ejercicio = require("../models/ejercicio");
 const rutinaCtrl = {};
 
 //Métodos GET
@@ -61,5 +62,23 @@ rutinaCtrl.deleteRutina = async(req, res) => {
             })
       }
 }
+
+rutinaCtrl.addEjercicio = async (req, res) => {
+      const vejercicio = new Ejercicio(req.body);
+      const vrutina = await Rutina.findById(req.params.id);
+      vrutina.ejercicios.push(vejercicio);
+      try {
+          await Rutina.updateOne({_id: req.params.id}, vrutina);
+          res.json({
+              'status': '1',
+              'msg': 'Ejercicio guardado'
+          })
+      } catch (error) {
+      res.json({
+          'status': '0',
+          'msg': 'Error procesando la operacion'
+      })
+      }
+  }
 
 module.exports = rutinaCtrl;

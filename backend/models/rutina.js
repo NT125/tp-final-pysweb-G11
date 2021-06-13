@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 const {Schema} = mongoose;
-const Ejercicio = require("./rutina");
+const Ejercicio = require("./ejercicio");
 
 const RutinaSchema = new Schema({
-      ejercicios: {type: Array, required:true},
+      ejercicios:[{type:Ejercicio.schema}],
       nivel: {type: Number, required:true}
 })
 
