@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const PagoSchema = new Schema({
  monto: {type: Number, required: true},
- fechaPago: {type: Date, required: true},
+ fechaPago: {type: String, required: true},
  metodoPago: {type: String, required: true},
  completo: {type: Boolean, required: true},
  cuota: {type: Number, required: false}

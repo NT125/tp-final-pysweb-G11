@@ -8,10 +8,10 @@ if(count>0)return;
 const values= await Promise.all([
     new Rol({nombre:'entrenador'}).save(),
     new Rol({nombre:'alumno'}).save(),
-]) 
+])
  console.log(values);
- } catch (error) {
-    console.error(error)
+ }catch (error) {
+   console.error(error)
 }
 
 };

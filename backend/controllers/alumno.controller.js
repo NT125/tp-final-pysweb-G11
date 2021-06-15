@@ -4,10 +4,12 @@ const Pago=require('../models/pago')
 const Rutina=require('../models/rutina')
 const Asistencia=require('../models/asistencia')
 const Usuario=require('../models/usuario')
+const Plan=require('../models/plan')
+const Rol=require('../models/rol')
 const alumnoCtrl = {}
 
 alumnoCtrl.getAlumnos = async (req, res) => {
-    var alumnos = await Alumno.find().populate("registro").populate("rutina");
+    var alumnos = await Alumno.find().populate("registro").populate("rutina").populate("usuario").populate("plan");
     res.json(alumnos);
 }
 
@@ -135,7 +137,7 @@ alumnoCtrl.getPago = async (req, res) => {
 
 
 alumnoCtrl.addPlan = async (req, res) => {
-    const vplan = new Pago(req.body);
+    const vplan = new Plan(req.body);
     const valumno = await Alumno.findById(req.params.id);
     valumno.plan=vplan;
     try {
@@ -265,6 +267,11 @@ alumnoCtrl.addUsuario = async (req, res) => {
     const log = await Usuario.find().where('username').equals(req.body.username)
     if (log[0] == null) {
         try {
+            if (vusuario.perfil == null) {
+                const rol = await Rol.findOne({ nombre: "alumno" });
+                vusuario.perfil = rol;
+            }
+            vusuario.password = await Usuario.encryptPassword(req.body.password);
             await Alumno.updateOne({_id: req.params.id}, valumno);
             await vusuario.save();
             res.json({

@@ -19,7 +19,7 @@ router.get('/:id/registro/:idregistro',autCtrl.verifyToken ,alumnoCtrl.getRegist
 router.put('/:id/registro', autCtrl.verifyToken, alumnoCtrl.editRegistro);
 
 //ABM de Pago
-router.post('/:id/pago',autCtrl.verifyToken, alumnoCtrl.addPago);
+router.post('/:id/pago',autCtrl.verifyToken, alumnoCtrl.addPago);   
 router.put('/:id/pago',autCtrl.verifyToken, alumnoCtrl.editPago);
 router.get('/:id/pagos',autCtrl.verifyToken, alumnoCtrl.getPagos);
 router.get('/:id/pago/:idpago',autCtrl.verifyToken, alumnoCtrl.getPago);
