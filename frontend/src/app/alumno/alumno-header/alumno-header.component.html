@@ -1,1 +1,57 @@
-<p>alumno-header works!</p>
+<header class="p-3 bg-dark text-white">
+      <!--userbar (qsy como se llama)-->
+      <div class="text-start">
+            <div class="my-5 display-1"><b>¡Hola, usuario!</b></div>
+            <div class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati architecto.
+            </div>
+      </div>
+
+      <!--
+          NAV PARA PANTALLAS GRANDES (PC)
+          Los botones del nav son puramente para moverse por la página, excepto el login
+        -->
+      <nav class="navbar navbar-expand-lg navbar-dark d-none d-sm-block nav-fill">
+            <div class="container-fluid">
+
+                  <div>
+                        <a class="navbar-brand" href="#"><i class="fa fa-dumbbell" aria-hidden="true"></i></a>
+                  </div>
+
+                  <div class="text-center">
+                        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                              <li><a href="#" class="nav-link px-2 text-white">Inicio</a></li>
+                              <li><a href="#" class="nav-link px-2 text-white">Rutinas</a></li>
+                              <li><a href="#" class="nav-link px-2 text-white">Precios y Planes</a></li>
+                              <li><a href="#" class="nav-link px-2 text-white">Nosotros</a></li>
+                              <li><a href="#" class="nav-link px-2 text-white">Contacto</a></li>
+
+                              <li><a href="#" class="nav-link px-2 text-white">Asistencias</a></li>
+
+                              <li><a href="#" class="nav-link px-2 text-white">Pagos</a></li>
+                        </ul>
+                  </div>
+
+                  <div class="text-end">
+                        <button type="button" class="btn btn-block btn-sm me-2"
+                              style="background-color: #c8f500;">Iniciar
+                              Sesión</button>
+                  </div>
+
+            </div>
+      </nav>
+
+      <!--NAV PARA PANTALLAS DE CELULAR-->
+      <nav class="nav bg-dark d-sm-none d-block">
+            <div class="row">
+                  <div class="col-4 text-center">
+                        <a class="navbar-brand text-white" href="#"><i class="fa fa-dumbbell"
+                                    aria-hidden="true"></i><b></b></a>
+                  </div>
+                  <div class="col-6">
+                        <button type="button" class="btn btn-block btn-sm me-2"
+                              style="background-color: #c8f500;">Iniciar
+                              Sesión</button>
+                  </div>
+            </div>
+      </nav>
+</header>
