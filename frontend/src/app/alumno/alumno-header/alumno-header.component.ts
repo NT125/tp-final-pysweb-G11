@@ -6,8 +6,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./alumno-header.component.css']
 })
 export class AlumnoHeaderComponent implements OnInit {
+  tabAsist: boolean;
+  tabRutina: boolean;
+  tabPago:boolean;
 
-  constructor() { }
+  constructor() {
+    this.tabAsist = true;
+    this.tabRutina = false;
+    this.tabPago = false;
+  }
+
+  clickAsist(){
+    this.tabAsist = true;
+    this.tabRutina = false;
+    this.tabPago = false;
+  }
+
+  clickRutina(){
+    this.tabAsist = false;
+    this.tabRutina = true;
+    this.tabPago = false;
+  }
+
+  clickPago(){
+    this.tabAsist = false;
+    this.tabRutina = false;
+    this.tabPago = true;
+  }
 
   ngOnInit(): void {
   }
