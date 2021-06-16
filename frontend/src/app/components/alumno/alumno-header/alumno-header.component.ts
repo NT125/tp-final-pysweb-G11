@@ -16,6 +16,7 @@ export class AlumnoHeaderComponent implements OnInit {
     this.tabPago = false;
   }
 
+  // Funciones púramente para estilos de la página
   clickAsist(){
     this.tabAsist = true;
     this.tabRutina = false;
