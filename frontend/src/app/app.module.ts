@@ -9,6 +9,7 @@ import { HomeComponent } from './components/layout/home/home.component';
 import { AsistenciasComponent } from './components/alumno/asistencias/asistencias.component';
 import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-header.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
+import { PagosComponent } from './components/alumno/pagos/pagos.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { RutinasComponent } from './components/alumno/rutinas/rutinas.component'
     HomeComponent,
     AsistenciasComponent,
     AlumnoHeaderComponent,
-    RutinasComponent
+    RutinasComponent,
+    PagosComponent
   ],
   imports: [
     BrowserModule,

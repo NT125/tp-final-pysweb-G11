@@ -26,19 +26,19 @@
       <!--nuevo nav-->
       <div>
             <nav class="nav-justified">
-                  <!--ngStyle para cambiar color de pestaña seleccionada-->
+                  <!--ngStyle para aplicar estilos por condición-->
                   <ul class="nav nav-tabs" style="border-bottom-color: #c8f500;">
                         <li class="nav-item">
-                              <a class="nav-link" href="#" [ngStyle]="{'background-color' : tabAsist ? '#c8f500' : 'transparent'}" (click)="clickAsist()">
+                              <a class="nav-link" [routerLink]="[ 'tusAsistencias']" [ngStyle]="{'background-color' : tabAsist ? '#c8f500' : 'transparent'}" (click)="clickAsist()">
                                     <div [ngStyle]="{'color' : tabAsist ? 'black' : '#c8f500'}">Asistencias</div>
                               </a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="#" [ngStyle]="{'background-color' : tabRutina ? '#c8f500' : 'transparent'}" (click)="clickRutina()">
+                              <a class="nav-link" [routerLink]="[ 'tusRutinas']" [ngStyle]="{'background-color' : tabRutina ? '#c8f500' : 'transparent'}" (click)="clickRutina()">
                                     <div [ngStyle]="{'color' : tabRutina ? 'black' : '#c8f500'}">Rutinas</div></a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" href="#" [ngStyle]="{'background-color' : tabPago ? '#c8f500' : 'transparent'}" (click)="clickPago()">
+                              <a class="nav-link" [routerLink]="[ 'tusPagos']" [ngStyle]="{'background-color' : tabPago ? '#c8f500' : 'transparent'}" (click)="clickPago()">
                                     <div [ngStyle]="{'color' : tabPago ? 'black' : '#c8f500'}">Pagos</div></a>
                         </li>
                   </ul>
