@@ -10,6 +10,8 @@ import { AsistenciasComponent } from './components/alumno/asistencias/asistencia
 import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-header.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { PagosComponent } from './components/alumno/pagos/pagos.component';
     AsistenciasComponent,
     AlumnoHeaderComponent,
     RutinasComponent,
-    PagosComponent
+    PagosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
