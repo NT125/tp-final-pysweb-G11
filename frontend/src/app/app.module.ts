@@ -11,6 +11,8 @@ import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
 import { LoginComponent } from './components/login/login.component';
+//import { LoginService } from './services/login.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,13 +26,14 @@ import { LoginComponent } from './components/login/login.component';
     AlumnoHeaderComponent,
     RutinasComponent,
     PagosComponent,
-    LoginComponent
+  //  LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [/*LoginService*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
