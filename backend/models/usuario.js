@@ -10,11 +10,10 @@ estado: {type:Boolean, required: true}
 UsuarioSchema.statics.encryptPassword= async(password) =>{
    const salt= await bcrypt.genSalt(10);
    return await bcrypt.hash(password,salt);
-   
 }
+
 UsuarioSchema.statics.comparePassword= async(password , receivedPassword) => {
     return await bcrypt.compare(password, receivedPassword)
 }
-
 
 module.exports = mongoose.model('Usuario', UsuarioSchema);

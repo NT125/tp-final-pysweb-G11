@@ -65,29 +65,11 @@ alumnoCtrl.deleteAlumno = async (req, res)=>{
  }
 }
 
-alumnoCtrl.addRegistro = async (req, res) => {
-    const vregistro = new Registro(req.body);
-    const valumno = await Alumno.findById(req.params.id);
-    valumno.registro.push(vregistro);
-    try {
-        await Alumno.updateOne({_id: req.params.id}, valumno);
-        res.json({
-            'status': '1',
-            'msg': 'Registro guardado'
-        })
-    } catch (error) {
-    res.json({
-        'status': '0',
-        'msg': 'Error procesando la operacion'
-    })
-    }
-}
-
 alumnoCtrl.addPago = async (req, res) => {
     const vpago = new Pago(req.body);
     const valumno = await Alumno.findById(req.params.id);
-    valumno.pago.push(vpago);
     try {
+        valumno.pago.push(vpago);
         await Alumno.updateOne({_id: req.params.id}, valumno);
         res.json({
             'status': '1',
@@ -103,66 +85,116 @@ alumnoCtrl.addPago = async (req, res) => {
 
 alumnoCtrl.editPago = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
-    let pago = await alumno.pago.find(r => r._id == req.body._id);
-    pago.set(req.body);
-    const index = alumno.pago.findIndex(element => element._id == req.body._id);
-    alumno.pago.set(index, pago);
-
-    try {
-        await Alumno.updateOne({ _id: req.params.id }, alumno);
-        res.json({
-            'status': '1',
-            'msg': 'Pago updated'
-        })
-    } catch (error) {
+    try{
+        let pago = await alumno.pago.find(r => r._id == req.body._id);  
+        try {
+            pago.set(req.body);
+            const index = alumno.pago.findIndex(element => element._id == req.body._id);
+            alumno.pago.set(index, pago);
+            await Alumno.updateOne({ _id: req.params.id }, alumno);
+            res.json({
+                'status': '1',
+                'msg': 'Pago updated'
+            })
+        }catch (error) {
+            res.json({
+                'status': '0',
+                'msg': 'Error procesando la operacion'
+            })
+        }
+    }catch(error){
         res.json({
             'status': '0',
             'msg': 'Error procesando la operacion'
         })
     }
-
 }
 
 alumnoCtrl.getPagos = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
-    let pagos = await alumno.pago;
-    res.json(pagos);
+    try{
+        let pagos = await alumno.pago;
+        res.json(pagos);
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        }) 
+    }
 }
 
 alumnoCtrl.getPago = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
-    let pago = await alumno.pago.find(r => r._id == req.params.idpago);
-    res.json(pago);
+    try{
+        let pago = await alumno.pago.find(r => r._id == req.params.idpago);
+        res.json(pago);
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        }) 
+    }
 }
 
-
 alumnoCtrl.addPlan = async (req, res) => {
-    const vplan = new Plan(req.body);
-    const valumno = await Alumno.findById(req.params.id);
-    valumno.plan=vplan;
-    try {
-        await Alumno.updateOne({_id: req.params.id}, valumno);
+    const vplan = await Plan.findById(req.body._id);;
+    if(vplan!=null){
+        const valumno = await Alumno.findById(req.params.id);
+        try {
+            valumno.plan=vplan;
+            await Alumno.updateOne({_id: req.params.id}, valumno);
+                res.json({
+                    'status': '1',
+                    'msg': 'Plan guardado'
+                })
+        } catch (error) {
+            res.json({
+                'status': '0',
+                'msg': 'Error procesando la operacion'
+            })
+        }
+    }else{
         res.json({
-            'status': '1',
-            'msg': 'Plan guardada'
+            'status': '2',
+            'msg': 'Plan no Existente'
         })
-    } catch (error) {
-    res.json({
-        'status': '0',
-        'msg': 'Error procesando la operacion'
-    })
     }
 }
 
 alumnoCtrl.addRutina = async (req, res) => {
     const vrutina = await Rutina.findById(req.body._id);
+    if(vrutina!=null){
+        const valumno = await Alumno.findById(req.params.id);
+        try {
+            valumno.rutina.push(vrutina);
+            await Alumno.updateOne({_id: req.params.id}, valumno);
+            res.json({
+                'status': '1',
+                'msg': 'Rutina guardada'
+            })
+        } catch (error) {
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        })
+        }
+    }else{
+        res.json({
+            'status': '2',
+            'msg': 'Rutina no existente'
+        })
+    }
+}
+
+alumnoCtrl.addRegistro = async (req, res) => {
+    const vregistro = new Registro(req.body);
     const valumno = await Alumno.findById(req.params.id);
-    valumno.rutina.push(vrutina);
     try {
+        valumno.registro.push(vregistro);
         await Alumno.updateOne({_id: req.params.id}, valumno);
         res.json({
             'status': '1',
-            'msg': 'Rutina guardada'
+            'msg': 'Registro guardado'
         })
     } catch (error) {
     res.json({
@@ -174,36 +206,57 @@ alumnoCtrl.addRutina = async (req, res) => {
 
 alumnoCtrl.getRegistros = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
-    let registros = await alumno.registro;
-    res.json(registros);
-}
-
-alumnoCtrl.getRegistro = async (req, res) => {
-    var alumno = await Alumno.findById(req.params.id);
-    let registro = await alumno.registro.find(r => r._id == req.params.idregistro);
-    res.json(registro);
-}
-
-alumnoCtrl.editRegistro = async (req, res) => {
-    var alumno = await Alumno.findById(req.params.id);
-    let registro = await alumno.registro.find(r => r._id == req.body._id);
-    registro.set(req.body);
-    const index = alumno.registro.findIndex(element => element._id == req.body._id);
-    alumno.registro.set(index, registro);
-
-    try {
-        await Alumno.updateOne({ _id: req.params.id }, alumno);
-        res.json({
-            'status': '1',
-            'msg': 'Registro updated'
-        })
-    } catch (error) {
+    try{
+        let registros = await alumno.registro;
+        res.json(registros);
+    }catch(error){
         res.json({
             'status': '0',
             'msg': 'Error procesando la operacion'
         })
     }
+}
 
+alumnoCtrl.getRegistro = async (req, res) => {
+    var alumno = await Alumno.findById(req.params.id);
+    try{
+        let registro = await alumno.registro.find(r => r._id == req.params.idregistro);
+        res.json(registro);
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        })
+    }
+}
+
+//HASTA ACA LLEGUE
+alumnoCtrl.editRegistro = async (req, res) => {
+    var alumno = await Alumno.findById(req.params.id);
+    try{
+        let registro = await alumno.registro.find(r => r._id == req.body._id);
+        registro.set(req.body);
+        const index = alumno.registro.findIndex(element => element._id == req.body._id);
+        alumno.registro.set(index, registro);
+
+        try {
+            await Alumno.updateOne({ _id: req.params.id }, alumno);
+            res.json({
+                'status': '1',
+                'msg': 'Registro updated'
+            })
+        } catch (error) {
+            res.json({
+                'status': '0',
+                'msg': 'Error procesando la operacion'
+            })
+        }
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        })
+    }
 }
 
 alumnoCtrl.getAlumnoPorCategoria = async (req, res) => {
@@ -224,8 +277,8 @@ alumnoCtrl.getAlumnoPorFechaInicio = async (req, res) => {
 alumnoCtrl.addAsistencia = async (req, res) => {
     const vasistencia = new Asistencia(req.body);
     const valumno = await Alumno.findById(req.params.id);
-    valumno.asistencia.push(vasistencia);
     try {
+        valumno.asistencia.push(vasistencia);
         await Alumno.updateOne({_id: req.params.id}, valumno);
         res.json({
             'status': '1',
@@ -241,17 +294,31 @@ alumnoCtrl.addAsistencia = async (req, res) => {
 
 alumnoCtrl.editAsistencia = async (req, res)=>{
     var alumno = await Alumno.findById(req.params.id);
-    let asistencia = await alumno.asistencia.find(r => r._id == req.body._id);
-    asistencia.set(req.body);
-    const index = alumno.registro.findIndex(element => element._id == req.body._id);
-    alumno.asistencia.set(index, asistencia);
-    try {
-        await Alumno.updateOne({ _id: req.params.id }, alumno);
-        res.json({
-            'status': '1',
-            'msg': 'Asistencia updated'
-        })
-    } catch (error) {
+    try{
+        let asistencia = await alumno.asistencia.find(r => r._id == req.body._id);
+        try{
+                asistencia.set(req.body);
+            const index = alumno.registro.findIndex(element => element._id == req.body._id);
+            alumno.asistencia.set(index, asistencia);
+            try {
+                await Alumno.updateOne({ _id: req.params.id }, alumno);
+                res.json({
+                    'status': '1',
+                    'msg': 'Asistencia updated'
+                })
+            } catch (error) {
+                res.json({
+                    'status': '0',
+                    'msg': 'Error procesando la operacion'
+                })
+            }
+        }catch(error){
+            res.json({
+                'status': '0',
+                'msg': 'Error procesando la operacion'
+            })
+        }
+    }catch(error){
         res.json({
             'status': '0',
             'msg': 'Error procesando la operacion'
@@ -260,42 +327,68 @@ alumnoCtrl.editAsistencia = async (req, res)=>{
 }
 
 alumnoCtrl.addUsuario = async (req, res) => {
-    const vusuario = new Usuario(req.body);
     const valumno = await Alumno.findById(req.params.id);
-    valumno.usuario=vusuario;
-    var x = new Boolean(false);
-    const log = await Usuario.find().where('username').equals(req.body.username)
-    if (log[0] == null) {
-        try {
-            if (vusuario.perfil == null) {
-                const rol = await Rol.findOne({ nombre: "alumno" });
-                vusuario.perfil = rol;
+        const vusuario = new Usuario(req.body);
+        const log = await Usuario.find().where('username').equals(req.body.username)
+        try{
+        if(valumno.usuario==null){
+            if (log[0] == null) {
+                    valumno.usuario=vusuario;
+                    if (vusuario.perfil == null) {
+                        const rol = await Rol.findOne({ nombre: "alumno" });
+                        vusuario.perfil = rol;
+                    }
+                    vusuario.password = await Usuario.encryptPassword(req.body.password);
+                    await Alumno.updateOne({_id: req.params.id}, valumno);
+                    await vusuario.save();
+                    res.json({
+                        'status': '1',
+                        'msg': 'Usuario guardado.'
+                    })
+            }else{
+                res.json({
+                    'status': '2',
+                    'msg': 'Usuario Existente, Con el mismo Username'
+                })
             }
-            vusuario.password = await Usuario.encryptPassword(req.body.password);
-            await Alumno.updateOne({_id: req.params.id}, valumno);
-            await vusuario.save();
+        }else{
             res.json({
-                'status': '1',
-                'msg': 'Usuario guardado.'
-            })
-        } catch (error) {
-            res.json({
-                'status': '0',
-                'msg': 'Error procesando operacion.'
+                'status': '3',
+                'msg': 'Este alumno ya posee un usuario'
             })
         }
-    }else{
+    }catch(error){
         res.json({
-            'status': '2',
-            'msg': 'Usuario Existente, Con el mismo Username'
+            'status': '0',
+            'msg': 'Error procesando operacion.'
         })
     }
 }
 
 alumnoCtrl.editUsuario = async (req, res) => {
     const valumno = await Alumno.findById(req.params.id);
-    const vusuario = new Usuario(req.body);
-    valumno.usuario.set(vusuario); 
+    console.log(valumno.usuario._id);
+    try{
+        if(req.body._id==valumno.usuario._id){
+            const vusuario = new Usuario(req.body);
+            await Usuario.updateOne({_id: req.body._id}, vusuario);
+            valumno.usuario=vusuario;
+            res.json({
+                'status': '1',
+                'msg': 'Usuario modificado.'
+            })
+        }else{
+            res.json({
+                'status': '2',
+                'msg': 'Usuario no encontrado'
+            })
+        }        
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando operacion.'
+        })
+    }
 }
 
 module.exports = alumnoCtrl;
