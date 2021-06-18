@@ -10,18 +10,12 @@ import { AsistenciasComponent } from './components/alumno/asistencias/asistencia
 import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-header.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
-<<<<<<< HEAD
 import { LoginComponent } from './components/login/login.component';
 //import { LoginService } from './services/login.service';
 import { FormsModule } from '@angular/forms';
-=======
-import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
+import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
-import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
->>>>>>> 273e2d50a1ca2ee0eb794c16d079f9b0c84fa08b
-
-import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,20 +23,14 @@ import { LoginComponent } from './components/login/login.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    HomeComponent,
+    EntrenadorHomeComponent,
+    EntrenadorHeaderComponent,
+    NuevoAlumnoComponent,
     AsistenciasComponent,
     AlumnoHeaderComponent,
     RutinasComponent,
     PagosComponent,
-<<<<<<< HEAD
-  //  LoginComponent
-=======
-    EntrenadorHeaderComponent,
-    EntrenadorHomeComponent,
-    NuevoAlumnoComponent,
-    NuevoUsuarioComponent,
     LoginComponent
->>>>>>> 273e2d50a1ca2ee0eb794c16d079f9b0c84fa08b
   ],
   imports: [
     BrowserModule,

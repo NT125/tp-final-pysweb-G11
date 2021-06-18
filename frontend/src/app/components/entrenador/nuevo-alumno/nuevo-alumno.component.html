@@ -3,15 +3,55 @@
             Volver</button>
       <h1 class="display-5"><b>Ingrese los datos del alumno</b></h1>
       <br>
-      <form class="container px-auto">
-            <label for="apnom" class="lead">Nombre y Apellido</label>
+      <form class="container mb-3 p-5 rounded">
+            <label for="al-apnom" class="lead">Nombre y Apellido</label>
             <div class="row">
-                  <div class="col">
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Nombre">
-                  </div>
-                  <div class="col">
-                        <input type="text" class="form-control" name="apellido" id="apellido" placeholder="Apellido">
+                  <div class="col-lg-6 col-sm-12">
+                        <input type="text" class="form-control" name="al-nombre" id="al-nombre" placeholder="Nombre">
+                  </div><br>
+                  <div class="col-lg-6 col-sm-12">
+                        <input type="text" class="form-control" name="al-apellido" id="al-apellido"
+                              placeholder="Apellido">
                   </div>
             </div>
+
+            <br>
+
+            <label for="al-dni" class="lead">Número de Documento</label>
+            <input type="text" class="form-control" name="al-dni" id="al-dni" placeholder="DNI">
+
+            <br>
+
+            <label for="al-bday" class="lead">Fecha de Nacimiento</label>
+            <input type="date" class="form-control" name="al-bday" id="al-bday">
+
+            <br>
+
+            <label for="al-tel" class="lead">Número de Teléfono</label>
+            <input type="text" name="al-tel" id="al-tel" class="form-control" placeholder="N° de Teléfono">
+
+            <br>
+
+            <label for="al-domicilio" class="lead">Domicilio</label>
+            <input type="text" name="al-domicilio" id="al-domicilio" class="form-control" placeholder="Dirección">
+
+            <br>
+
+            <label for="al-email" class="lead">Dirección de correo electrónico</label>
+            <input type="email" name="al-email" id="al-email" class="form-control" placeholder="Correo electrónico">
+
+            <br>
+
+            <label for="al-sday" class="lead">¿Cuando empezará a entrenar aquí?</label>
+            <input type="date" class="form-control" name="al-sday" id="al-sday">
+
+            <br>
+
+            <label for="al-plan" class="lead">Seleccione el plan a pagar</label>
+            <select class="form-select" aria-label="Default select example">
+                  <option value="pbasico">Plan Básico, 3 días por semana ($300)</option>
+                  <option value="pfull">Plan Full, 5 días por semana ($500)</option>
+                  <option value="plibre">Plan Libre ($???)</option>
+            </select>
       </form>
 </div>
