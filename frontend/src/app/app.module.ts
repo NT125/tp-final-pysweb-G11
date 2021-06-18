@@ -10,8 +10,12 @@ import { AsistenciasComponent } from './components/alumno/asistencias/asistencia
 import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-header.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
-import { LoginComponent } from './components/login/login.component';
+import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
+import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
+import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
+import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
 
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import { LoginComponent } from './components/login/login.component';
     AlumnoHeaderComponent,
     RutinasComponent,
     PagosComponent,
+    EntrenadorHeaderComponent,
+    EntrenadorHomeComponent,
+    NuevoAlumnoComponent,
+    NuevoUsuarioComponent,
     LoginComponent
   ],
   imports: [
