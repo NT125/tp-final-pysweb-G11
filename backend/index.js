@@ -2,12 +2,13 @@ var express = require("express");
 var app = express();
 const { mongoose } = require("./database");
 const cors = require("cors");
-iniciadorCtrl.createRol();
-iniciadorCtrl.createHorarios();
+const iniciadorCtrl=require("./libs/inicioSetup");
+
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
-rolCtrl.createRol();
+iniciadorCtrl.createRol();
+iniciadorCtrl.createHorarios();
 app.use('/api/plan', require('./routes/plan.route.js'));
 app.use('/api/rutina', require('./routes/rutina.routes'));
 app.use('/api/usuarios', require('./routes/usuario.route'));
