@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
+const Rol= require('./rol');
 const {Schema} = mongoose;
 const UsuarioSchema = new Schema({
 username: {type: String, required: true},
 password: {type:String, required:true},
-imagen:{type:String, required:true},
-perfil: {ref:"Rol",type:Schema.Types.ObjectId},
-estado: {type:Boolean}
+perfil: {type:Schema.Types.ObjectId, ref: Rol},
+estado: {type:Boolean, required: true}
 });
 UsuarioSchema.statics.encryptPassword= async(password) =>{
    const salt= await bcrypt.genSalt(10);
