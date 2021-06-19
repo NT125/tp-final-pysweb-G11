@@ -2,7 +2,8 @@ var express = require("express");
 var app = express();
 const { mongoose } = require("./database");
 const cors = require("cors");
-const rolCtrl=require("./libs/inicioSetup");
+iniciadorCtrl.createRol();
+iniciadorCtrl.createHorarios();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
