@@ -18,11 +18,11 @@ export class EntrenadorHomeComponent implements OnInit {
     this.router.navigate(['/entrenador/nuevo-alumno']);
   }
 
-  /*
   goNuevoUsuario(){
     this.router.navigate(['/entrenador/nuevo-usuario']);
   }
 
+  /*
   goNuevoAlumno(){
     this.router.navigate(['/entrenador/nuevo-alumno']);
   }

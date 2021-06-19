@@ -16,8 +16,8 @@ const routes: Routes = [
   { path: 'tusPagos', component: PagosComponent },
   {path: 'login', component: LoginComponent}, 
   { path: 'entrenador', component: EntrenadorHomeComponent }, 
-  { path: 'entrenador/nuevo-alumno', component: NuevoAlumnoComponent},
-  { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent} 
+  { path: 'entrenador/nuevo-alumno', component: NuevoAlumnoComponent },
+  { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent } 
 
 ];
 

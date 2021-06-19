@@ -12,10 +12,13 @@ import { RutinasComponent } from './components/alumno/rutinas/rutinas.component'
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
 import { LoginComponent } from './components/login/login.component';
 //import { LoginService } from './services/login.service';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
 import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UsernavComponent } from './components/layout/usernav/usernav.component';
+import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +33,15 @@ import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo
     AlumnoHeaderComponent,
     RutinasComponent,
     PagosComponent,
-    LoginComponent
+    LoginComponent,
+    UsernavComponent,
+    NuevoUsuarioComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
+    FormsModule
   ],
   providers: [/*LoginService*/],
   bootstrap: [AppComponent]

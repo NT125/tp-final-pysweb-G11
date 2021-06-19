@@ -1,1 +1,22 @@
-<p>nuevo-usuario works!</p>
+<div class="text-light container">
+      <button class="btn btn-danger bg-gradient mb-3" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Volver</button>
+      <br>
+      <form class="mb-5">
+            <legend>Crear un nuevo usuario</legend><br>
+            <select name="alumno" id="alumno" class="form-select mb-3" disabled [(ngModel)]="usuario.perfil">
+                  <option value="default" selected>Nombre del alumno</option>
+            </select>
+            Nombre de Usuario:
+            <input type="text" name="username" id="username" class="form-control" [(ngModel)]="usuario.username"><br>
+            Contraseña:
+            <input type="text" name="password" id="password" class="form-control" [(ngModel)]="usuario.password"><br>
+            <div class="form-check mb-3">
+                  <input type="checkbox" name="estado" id="estado" class="form-check-input" [(ngModel)]="usuario.estado">
+                  <label for="estado" class="form-check-label">Estado</label>
+            </div>
+
+            <button type="button" class="btn btn-outline-danger text-light" (click)="createUsuario()">Enviar</button>
+      </form>
+            
+</div>
