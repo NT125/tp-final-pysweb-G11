@@ -12,6 +12,18 @@
       font-family:Staatliches;
 }
 
+
+/*botones*/
+button.primary-custom{
+      color: black;
+      background-color: #c8f500;
+}
+
+button.primary-custom:hover{
+      background-color: #a0c400;
+}
+
+
 button.outline-custom{
       color: white;
       border-color: #c8f500;

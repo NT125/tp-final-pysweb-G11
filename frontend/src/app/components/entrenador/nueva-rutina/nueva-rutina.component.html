@@ -1,0 +1,73 @@
+<div class="container">
+
+      <div class="row py-5 my-auto text-white">
+            <div class="col-lg-6 col-sm-12">
+                  <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
+                        <legend>Crear una rutina</legend><br>
+                        Nivel:
+                        <select name="nivel" id="nivel" class="form-select">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                        </select><br>
+                        Ejercicios:
+                        <div class="row">
+                              <div class="col-10">
+
+                                    <select name="ejercicios" id="ejercicios" class="form-select"
+                                          [(ngModel)]="ejercicio">
+                                          <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
+                                                {{ejercicio.descripcion}}</option>
+                                    </select>
+                              </div>
+                              <div class="col-2 text-end">
+                                    <button class="btn primary-custom" (click)="addEjerciciosRutina()"><i
+                                                class="fa fa-plus" aria-hidden="true"></i></button>
+                              </div>
+                        </div>
+
+                        <div *ngIf="table">
+                              <table class="table table-borderless table-hover my-3 table-dark text-center">
+                                    <thead>
+                                          <tr>
+                                                <td>Descripción</td>
+                                                <td>Zona</td>
+                                                <td>Repetic.</td>
+                                                <td>Intensidad</td>
+                                                <td></td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr *ngFor="let item of ejerciciosRutina">
+                                                <td >{{item.descripcion}}</td>
+                                                <td>{{item.zona}}</td>
+                                                <td>{{item.repeticiones}}</td>
+                                                <td>{{item.intensidad}}</td>
+                                                <td><button class="btn text-light"><i class="fa fa-times"
+                                                                  aria-hidden="true"></i></button></td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+
+                        </div>
+
+                        <div class="d-grid mt-5 gap-2 col-6 mx-auto">
+                              <button type="button" class="btn outline-custom">Crear
+                                    Rutina</button>
+                        </div>
+                  </form>
+            </div>
+            <div class="text-center col-lg-6 col-sm-12">
+                  <h1 class="title display-1">Generar Nuevas Rutinas</h1>
+                  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
+                        obcaecati
+                        nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
+                        esse
+                        explicabo voluptatem commodi vero, cachai? <br>
+                  </p>
+            </div>
+      </div>
+
+</div>

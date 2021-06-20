@@ -19,6 +19,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
 import { LoginService } from './services/login.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva-rutina.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     RutinasComponent,
     PagosComponent,
     LoginComponent,
-    NuevoUsuarioComponent
+    NuevoUsuarioComponent,
+    NuevaRutinaComponent
   ],
   imports: [
     HttpClientModule,

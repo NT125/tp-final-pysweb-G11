@@ -46,7 +46,7 @@
             <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" href="#">Generar Rutinas</a>
+            <a class="nav-link" [routerLink]="['entrenador/nueva-rutina']">Generar Rutinas</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" href="#">Anotar pagos</a>
@@ -57,7 +57,7 @@
         </ul>
 
         <div class="d-flex">
-          <button class="btn btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesión</button>
+          <button class="btn primary-custom btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesión</button>
           <span class="text-large" *ngIf="loginserv.userLoggedIn()"></span>
 
           <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='alumno'">
@@ -68,7 +68,7 @@
           </div>
 
           <div class="dropdown">            
-            <button class="btn btn-block btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()">
+            <button class="btn primary-custom btn-block btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()">
               <b>{{loginserv.userLogged()}}</b>
             </button>
 
