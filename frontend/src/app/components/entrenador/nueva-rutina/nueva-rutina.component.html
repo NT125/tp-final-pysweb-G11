@@ -5,14 +5,14 @@
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         <legend>Crear una rutina</legend><br>
                         Nivel:
-                        <select name="nivel" id="nivel" class="form-select">
+                        <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
                               <option value="1">1</option>
                               <option value="2">2</option>
                               <option value="3">3</option>
                               <option value="4">4</option>
                               <option value="5">5</option>
                         </select><br>
-                        Ejercicios:
+                              Ejercicios:
                         <div class="row">
                               <div class="col-10">
 
@@ -28,8 +28,8 @@
                               </div>
                         </div>
 
-                        <div *ngIf="table">
-                              <table class="table table-borderless table-hover my-3 table-dark text-center">
+                        <div class="table-responsive" *ngIf="table">
+                              <table class="align-middle table table-borderless table-hover my-3 table-dark text-center">
                                     <thead>
                                           <tr>
                                                 <td>Descripción</td>
@@ -45,7 +45,7 @@
                                                 <td>{{item.zona}}</td>
                                                 <td>{{item.repeticiones}}</td>
                                                 <td>{{item.intensidad}}</td>
-                                                <td><button class="btn text-light"><i class="fa fa-times"
+                                                <td><button class="btn text-light" (click)="deleteEjerciciosRutina()"><i class="fa fa-times"
                                                                   aria-hidden="true"></i></button></td>
                                           </tr>
                                     </tbody>
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="d-grid mt-5 gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom">Crear
+                              <button type="button" class="btn outline-custom" (click)="createRutina()">Crear
                                     Rutina</button>
                         </div>
                   </form>
