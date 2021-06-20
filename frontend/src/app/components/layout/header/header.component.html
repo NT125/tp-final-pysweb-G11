@@ -72,7 +72,7 @@
               <b>{{loginserv.userLogged()}}</b>
             </button>
 
-            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+            <ul *ngIf="loginserv.userLoggedIn()" class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span class="text-danger">Cerrar Sesión</span></a></li>
             </ul>            
           </div>
