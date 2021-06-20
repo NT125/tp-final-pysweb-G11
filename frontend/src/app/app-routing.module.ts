@@ -6,10 +6,11 @@ import { RutinasComponent } from './components/alumno/rutinas/rutinas.component'
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
+import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/entrenador', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   { path: 'tusAsistencias', component: AsistenciasComponent },
   { path: 'tusRutinas', component: RutinasComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent}, 
   { path: 'entrenador', component: EntrenadorHomeComponent }, 
   { path: 'entrenador/nuevo-alumno', component: NuevoAlumnoComponent },
-  { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent } 
+  { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent },
+  { path: 'home', component: HomeComponent } 
 
 ];
 
