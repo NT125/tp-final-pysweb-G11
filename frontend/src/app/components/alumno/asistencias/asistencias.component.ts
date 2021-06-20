@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Asistencia } from 'src/app/models/asistencia';
+import { AlumnoService } from 'src/app/services/alumno.service';
 
 @Component({
   selector: 'app-asistencias',
@@ -7,9 +9,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsistenciasComponent implements OnInit {
 
-  constructor() { }
+  asistenciascont: number=0;
+  asistencia: Asistencia;
+  arraydeAsistencias: Array<Asistencia>;
+  constructor(private alumnoserv: AlumnoService) {
+    this.cargarAsistencia();
+   }
 
   ngOnInit(): void {
   }
 
+  cargarAsistencia(){
+    this.arraydeAsistencias=new Array<Asistencia>();
+    this.alumnoserv.getAsistencias().subscribe(
+      result=>{
+        result.forEach(element => {
+          let vAsistencia=new Asistencia();
+          Object.assign(vAsistencia,element);
+          this.arraydeAsistencias.push(vAsistencia);
+          this.asistenciascont++;
+        });
+      }
+    )
+  }
 }

@@ -19,10 +19,9 @@ export class NuevaRutinaComponent implements OnInit {
   ejerciciosRutina: Array<Ejercicio>;
 
   constructor(
-              private ejercicioService: EjercicioService, 
-              private rutinaService: RutinaService
-              ) 
-  {
+    private ejercicioService: EjercicioService,
+    private rutinaService: RutinaService
+  ) {
     this.table = false;
     this.ejerciciosRutina = new Array<Ejercicio>();
 
@@ -31,44 +30,44 @@ export class NuevaRutinaComponent implements OnInit {
     console.log(this.ejercicios)
   }
 
-  addEjerciciosRutina(){
+  addEjerciciosRutina() {
     this.table = true;
     this.ejerciciosRutina.push(this.ejercicio);
   }
 
-  deleteEjerciciosRutina(){
+  deleteEjerciciosRutina() {
     console.log(this.ejerciciosRutina)
   }
 
-  checkNivel(){
+  checkNivel() {
     console.log(this.rutina.nivel)
   }
 
-  createRutina(){
+  createRutina() {
     this.rutinaService.createRutina(this.ejerciciosRutina, this.rutina.nivel).subscribe(
-      (result)=>{
+      (result) => {
         this.rutina = new Rutina();
         alert(result.msg);
         console.log(this.rutina);
         this.ejerciciosRutina = new Array<Ejercicio>();
         this.table = false;
       },
-      (error)=>{
+      (error) => {
         alert(error.msg);
       }
     )
   }
-  
-  getEjercicios(){
+
+  getEjercicios() {
     this.ejercicioService.getEjercicios().subscribe(
-      (result)=>{
+      (result) => {
         (result).forEach((element) => {
           this.ejercicio = new Ejercicio();
-          Object.assign (this.ejercicio, element);
+          Object.assign(this.ejercicio, element);
           this.ejercicios.push(this.ejercicio);
         });
       },
-      (error)=>{
+      (error) => {
         alert(error.msg);
       }
     )

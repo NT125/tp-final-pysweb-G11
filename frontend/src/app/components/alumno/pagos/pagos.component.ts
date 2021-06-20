@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pago } from 'src/app/models/pago';
-import { PagoService } from 'src/app/services/pago.service';
+import { AlumnoService } from 'src/app/services/alumno.service';
 
 @Component({
   selector: 'app-pagos',
@@ -12,7 +12,7 @@ export class PagosComponent implements OnInit {
   totaldepagos: number=0;
   arraydePagos: Array<Pago>;
   pago: Pago;
-  constructor(private pagoserv: PagoService) {
+  constructor(private alumnoserv: AlumnoService) {
     this.cargarPagos();
    }
 
@@ -21,7 +21,7 @@ export class PagosComponent implements OnInit {
 
   cargarPagos(){
     this.arraydePagos= new Array<Pago>();
-    this.pagoserv.getPagos().subscribe(
+    this.alumnoserv.getPagos().subscribe(
       result=>{
         result.forEach(element => {
           let vpago= new Pago();

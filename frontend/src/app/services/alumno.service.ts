@@ -1,36 +1,55 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { LoginService } from './login.service';
+
 @Injectable({
   providedIn: 'root',
 })
 export class AlumnoService {
-  url: string = 'http://localhost:3000/api/alumno/';
 
-  constructor(private _http: HttpClient) {}
+  url:string="http://localhost:3000/api/alumno/"+this.loginserv.alumnoLogged();
+  constructor(private http: HttpClient,private loginserv: LoginService) { }
 
-  createAlumno(
-    apellido: String,
-    nombre: String,
-    dni: String,
-    bday: String,
-    cel: Number,
-    sday: String,
-    domicilio: String,
-    email: String
-  ): Observable<any> {
+  ngOnInit(): void {
+  }
 
-    let body = {
-      "apellido": apellido,
-      "nombre": nombre,
-      "nro_documento": dni,
-      "fecha_nacimiento": bday,
-      "celular": cel,
-      "fecha_inicio": sday,
-      "domicilio": domicilio,
-      "email": email
+  getPagos():Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
     }
+    console.log(this.url);
+    return this.http.get(this.url+"/pagos",httpOption);
+  }
 
-    return this._http.post(this.url, body)
+  getRutinas():Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    console.log(this.url);
+    return this.http.get(this.url+"/rutinas",httpOption);
+  }
+
+  getAsistencias():Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    console.log(this.url);
+    return this.http.get(this.url+"/asistencias",httpOption);
   }
 }
