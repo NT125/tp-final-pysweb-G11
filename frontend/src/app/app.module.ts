@@ -16,8 +16,10 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
 import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
+import { LoginService } from './services/login.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,11 @@ import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nue
     AppRoutingModule,
     FormsModule
   ],
-  providers: [/*LoginService*/],
+  providers: [LoginService,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

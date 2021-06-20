@@ -28,6 +28,8 @@ export class LoginService {
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("perfil");
     sessionStorage.removeItem("userid");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("idalumno");
   }
 
   public userLoggedIn() {
@@ -49,9 +51,21 @@ export class LoginService {
     return perfil;
   }
 
+  public alumnoLogged() {
+    var alumnoid = sessionStorage.getItem("idalumno");
+    return alumnoid;
+  }
+
   public idLogged() {
     var id = sessionStorage.getItem("userid");
     return id;
   }
 
+  getToken(): string {
+    if (sessionStorage.getItem("token") != null) {
+      return sessionStorage.getItem("token");
+    } else {
+      return "";
+    }
+  }
 }

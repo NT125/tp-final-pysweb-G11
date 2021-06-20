@@ -13,21 +13,20 @@
       </div>
       <div class="row">
             <!--Calendario-->
-            <div class="col-8">
-                  <!--placeholder-->
-                  <iframe
-                        src="https://calendar.google.com/calendar/embed?src=iptto43c0jvvqnn606h6ht14kg%40group.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires"
-                        style="border: 0" width="800" height="600" frameborder="0" scrolling="no">
-                  </iframe>
+            <div class="col-10 row row-cols-3">
+                  <div class="card" *ngFor="let item of arraydePagos" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">{{item.monto}}</li>
+                          <li class="list-group-item">{{item.fechaPago}}</li>
+                          <li class="list-group-item">{{item.metodoPago}}</li>
+                        </ul>
+                      </div>
+                      
             </div>
             <!--Estadísticas-->
-            <div class="col-4">
+            <div class="col-2">
                   <div class="my-5 text-end">
-                        <span class="display-5" style="color: #83ff8d;">ASISTENCIAS: </span>
-                        <span class="display-5">9</span>
-                        <br>
-                        <span class="display-5" style="color: #ff8189;">INASISTENCIAS: </span>
-                        <span class="display-5">3</span>
+                        <h4 class="display-5" style="color: #83ff8d;">ASISTENCIAS: {{totaldepagos}}</h4>
                   </div>
             </div>
       </div>
