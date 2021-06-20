@@ -1,22 +1,42 @@
-<div class="text-light container">
-      <button class="btn btn-danger bg-gradient mb-3" (click)="goBack()"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-            Volver</button>
-      <br>
-      <form class="mb-5">
-            <legend>Crear un nuevo usuario</legend><br>
-            <select name="alumno" id="alumno" class="form-select mb-3" disabled [(ngModel)]="usuario.perfil">
-                  <option value="default" selected>Nombre del alumno</option>
-            </select>
-            Nombre de Usuario:
-            <input type="text" name="username" id="username" class="form-control" [(ngModel)]="usuario.username"><br>
-            Contraseña:
-            <input type="text" name="password" id="password" class="form-control" [(ngModel)]="usuario.password"><br>
-            <div class="form-check mb-3">
-                  <input type="checkbox" name="estado" id="estado" class="form-check-input" [(ngModel)]="usuario.estado">
-                  <label for="estado" class="form-check-label">Estado</label>
-            </div>
+<div class="container">
 
-            <button type="button" class="btn btn-outline-danger text-light" (click)="createUsuario()">Enviar</button>
-      </form>
-            
+      <div class="row p-5 my-auto text-white">
+            <div class="col-lg-6 col-sm-12">
+                  <form class="mb-5 p-5 rounded bg-gradient">
+                        <legend>Crear un nuevo usuario</legend><br>
+                        Alumno:
+                        <select name="alumno" id="alumno" class="form-select mb-3" disabled
+                              [(ngModel)]="usuario.perfil">
+                              <option value="default" selected>Nombre del alumno</option>
+                        </select>
+                        Nombre de Usuario:
+                        <input type="text" name="username" id="username" class="form-control"
+                              [(ngModel)]="usuario.username"><br>
+                        Contraseña:
+                        <input type="text" name="password" id="password" class="form-control"
+                              [(ngModel)]="usuario.password"><br>
+                        <div class="form-check mb-3">
+                              <input type="checkbox" name="estado" id="estado" class="form-check-input"
+                                    [(ngModel)]="usuario.estado">
+                              <label for="estado" class="form-check-label">Estado</label>
+                        </div>
+
+
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                              <button type="button" class="btn outline-custom" (click)="createUsuario()">Crear
+                                    Usuario</button>
+                        </div>
+                  </form>
+            </div>
+            <div class="text-center col-lg-6 col-sm-12">
+                  <h1 class="title display-1">Generar Usuario</h1>
+                  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
+                        obcaecati
+                        nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
+                        esse
+                        explicabo voluptatem commodi vero, cachai? <br>
+                  </p>
+            </div>
+      </div>
+
 </div>

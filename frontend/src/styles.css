@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+      font-family: Rubik;
+}
+
+.title{
+      font-family: Bungee;
+}
+
+.gym-name{
+      font-size: 21px;
+      font-family:Staatliches;
+}
+
+button.outline-custom{
+      color: white;
+      border-color: #c8f500;
+}
+
+button.outline-custom:hover{
+      color: black;
+      background-color: #c8f500;
+}

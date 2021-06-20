@@ -1,7 +1,9 @@
-h5{
-      color: #ff5959;
+.homepage-bg{
+      background: url("../../../../assets/img/gym-background.png");
+      background-position: 100%;
 }
 
-.card-body{
-      height: 11rem;
+.add-bg{
+      background: url("../../../../assets/img/add-alumno.jpg");      
+      background-position: 100%;
 }

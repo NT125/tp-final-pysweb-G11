@@ -22,7 +22,6 @@ export class NuevoAlumnoComponent implements OnInit {
 
   createAlumno() {
     console.log(this.alumno)
-    /*
     this.alumno = new Alumno();
     this.alumnoService
       .createAlumno(
@@ -43,7 +42,7 @@ export class NuevoAlumnoComponent implements OnInit {
         (error)=>{
           alert(error.msg);
       }
-    );*/
+    );
   }
 
   //navegación

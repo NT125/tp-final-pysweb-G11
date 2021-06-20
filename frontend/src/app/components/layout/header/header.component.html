@@ -1,9 +1,9 @@
-<header class="p-3 bg-dark text-white">
+<header class="container p-3 bg-dark text-white">
 
   <nav class="navbar navbar-expand-lg navbar-dark nav-fill">
     <div class="container-fluid">
       <div>
-        <a class="navbar-brand" href="#"><i class="fa fa-dumbbell" aria-hidden="true"></i><b>ÉRCULES</b></a>
+        <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span class="gym-name">ÉRCULES</span></a>
       </div>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           
           <!--Home page (visitante)-->
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="!loginserv.userLoggedIn()">
             <a class="nav-link" [routerLink]="['home']">Inicio</a>
           </li>
           <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
@@ -40,10 +40,10 @@
 
           <!--Entrenador-->
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" href="#">Registrar Alumno</a>
+            <a class="nav-link" [routerLink]="['entrenador/nuevo-alumno']">Inscribir Alumno</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" href="#">Generar Usuario</a>
+            <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" href="#">Generar Rutinas</a>
@@ -57,13 +57,29 @@
         </ul>
 
         <div class="d-flex">
-          <button class="btn btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesion</button>
-          <button class="btn btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()" [routerLink]="['login']" (click)="logout()">
-          Cerrar Sesion {{loginserv.userLogged()}}
-          </button>
+          <button class="btn btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesión</button>
+          <span class="text-large" *ngIf="loginserv.userLoggedIn()"></span>
+
+          <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='alumno'">
+            ALUMNO
+          </div>
+          <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='entrenador'">
+            ENTRENADOR
+          </div>
+
+          <div class="dropdown">            
+            <button class="btn btn-block btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()">
+              <b>{{loginserv.userLogged()}}</b>
+            </button>
+
+            <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span class="text-danger">Cerrar Sesión</span></a></li>
+            </ul>            
+          </div>
+
         </div>
       </div>
     </div>
   </nav>
-  
+
 </header>
