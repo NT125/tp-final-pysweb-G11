@@ -17,7 +17,6 @@ import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home
 import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
 import { HttpClientModule } from '@angular/common/http';
-import { UsernavComponent } from './components/layout/usernav/usernav.component';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nue
     RutinasComponent,
     PagosComponent,
     LoginComponent,
-    UsernavComponent,
     NuevoUsuarioComponent
   ],
   imports: [
