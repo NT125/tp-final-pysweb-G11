@@ -29,10 +29,12 @@ router.post('/:id/plan',autCtrl.verifyToken, alumnoCtrl.addPlan);
 
 //ABM de Rutina
 router.post('/:id/rutina',autCtrl.verifyToken, alumnoCtrl.addRutina);
+router.get('/:id/rutinas',autCtrl.verifyToken, alumnoCtrl.getRutinas);
 
 //ABM de Asistencia
 router.post('/:id/asistencia', autCtrl.verifyToken, alumnoCtrl.addAsistencia);
 router.put('/:id/asistencia',autCtrl.verifyToken, alumnoCtrl.editAsistencia);
+router.get('/:id/asistencias',autCtrl.verifyToken, alumnoCtrl.getAsistencias);
 
 //ABM de Usuario
 router.post('/:id/usuario',autCtrl.verifyToken, alumnoCtrl.addUsuario);

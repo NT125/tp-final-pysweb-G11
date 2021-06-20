@@ -186,6 +186,19 @@ alumnoCtrl.addRutina = async (req, res) => {
     }
 }
 
+alumnoCtrl.getRutinas = async (req, res) => {
+    var alumno = await Alumno.findById(req.params.id);
+    try{
+        let rutinas = await alumno.rutina;
+        res.json(rutinas);
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        }) 
+    }
+}
+
 alumnoCtrl.addRegistro = async (req, res) => {
     const vregistro = new Registro(req.body);
     const valumno = await Alumno.findById(req.params.id);
@@ -323,6 +336,19 @@ alumnoCtrl.editAsistencia = async (req, res)=>{
             'status': '0',
             'msg': 'Error procesando la operacion'
         })
+    }
+}
+
+alumnoCtrl.getAsistencias = async (req, res) => {
+    var alumno = await Alumno.findById(req.params.id);
+    try{
+        let asistencia = await alumno.asistencia;
+        res.json(asistencia);
+    }catch(error){
+        res.json({
+            'status': '0',
+            'msg': 'Error procesando la operacion'
+        }) 
     }
 }
 
