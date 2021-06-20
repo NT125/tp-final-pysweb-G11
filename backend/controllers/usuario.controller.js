@@ -1,7 +1,9 @@
 const Usuario = require('../models/usuario');
-const Rol = require('../models/rol')
+const Rol = require('../models/rol');
+const Alumno = require('../models/alumno')
 const jwt = require('jsonwebtoken');
 const usuarioCtrl = {}
+
 usuarioCtrl.createUsuario = async (req, res) => {
     const usuario = new Usuario(req.body);
 
@@ -57,14 +59,18 @@ usuarioCtrl.loginUsuario = async (req, res) => {
                 })
             }
             else {
+                
+
                 const unToken = jwt.sign({ id: user._id }, "secretkey");
+                const idalumno = await Alumno.findOne().where('usuario').equals(user._id);
                 res.json({
                     status: 1,
                     msg: "success",
                     username: user.username,
                     perfil: user.perfil,
-                    token: unToken
-
+                    token: unToken,
+                    userid: user._id,
+                    idalumno: idalumno
                 });
             }
         }
