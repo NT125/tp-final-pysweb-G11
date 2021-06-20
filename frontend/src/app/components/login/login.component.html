@@ -1,16 +1,20 @@
-<div class="text-center">
+<div class="text-center" id="body">
     <div class="d-grid gap- col-3 mx-auto">
         <form>
+          <img src="../../../assets/img/programmer.png" alt="" width="30%">
           <h1 class="h3 mb-3 fw-normal" style="color: white; text-align: center;">Iniciar Sesion</h1>
+          <img src="../../../assets/img/user.png" alt="" class="img">
           <div class="form-floating">
             <input type="text" class="form-control" id="floatingInput" name="username" [(ngModel)]="username">
-            <label for="floatingInput">Usuario o Email</label>
+            <label for="floatingInput">Usuario o Correo Electronico</label>
           </div>
+          <img src="../../../assets/img/lock.png" alt="" class="img">
           <div class="form-floating">
             <input type="password" class="form-control" id="floatingPassword" name="password" [(ngModel)]="password">
             <label for="floatingPassword">Contraseña</label>
+            <br>
           </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit" (click)="login()">Ingresar</button>
+          <button class="w-100 btn btn-lg btn-primary" (click)="login()">Login</button>
         </form>
         <div class="alert-danger" *ngIf="msglogin=='Credenciales incorrectas..'" >{{msglogin}}</div>
     </div>

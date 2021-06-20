@@ -11,7 +11,6 @@ import { AlumnoHeaderComponent } from './components/alumno/alumno-header/alumno-
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
 import { LoginComponent } from './components/login/login.component';
-//import { LoginService } from './services/login.service';
 import { FormControl, FormsModule } from '@angular/forms';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
 import { EntrenadorHeaderComponent } from './components/entrenador/entrenador-header/entrenador-header.component';
