@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,6 +11,14 @@ export class EjercicioService {
   constructor(private _http: HttpClient) {}
 
   getEjercicios():Observable<any>{
-    return this._http.get(this.url);
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this._http.get(this.url, httpOption);
   }
 }
