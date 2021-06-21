@@ -417,4 +417,9 @@ alumnoCtrl.editUsuario = async (req, res) => {
     }
 }
 
+alumnoCtrl.getAlumnosinUsuario = async (req, res) => {
+    var alumnos = await Alumno.find().where('usuario').equals(null);
+    res.json(alumnos);
+}
+
 module.exports = alumnoCtrl;

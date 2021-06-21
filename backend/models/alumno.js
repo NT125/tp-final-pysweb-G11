@@ -16,7 +16,7 @@ const AlumnoSchema = new Schema({
  fecha_inicio:{type:String,required:true},
  domicilio:{type:String,required:true},
  email:{type:String,required:true},
- nivel:{type:String,required:true},
+ nivel:{type:String},
  asistencia:[{type:Asistencia.schema}],
  registro:[{type:Registro.schema}],
  pago:[{type:Pago.schema}],

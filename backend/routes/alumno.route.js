@@ -46,6 +46,7 @@ router.get('/:nivel/nivel',autCtrl.verifyToken, alumnoCtrl.getAlumnoPorCategoria
 router.get('/:nro_documento/dni',autCtrl.verifyToken, alumnoCtrl.getAlumnoPorDNI);
 //Busqueda por Fecha Inicio
 router.get('/:fecha_inicio/fechainicio',autCtrl.verifyToken,alumnoCtrl.getAlumnoPorFechaInicio);
-
+//Busca alumnos sin usuario
+router.get('/:nada/usuarios',autCtrl.verifyToken,alumnoCtrl.getAlumnosinUsuario)
 //exportamos el modulo de rutas
 module.exports = router;
