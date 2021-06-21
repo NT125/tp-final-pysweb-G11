@@ -1,6 +1,7 @@
 <div class="container">
+      <a class="btn" [routerLink]="['/entrenador/rutina']" ><i class="fa fa-caret-left text-custom" aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
 
-      <div class="row py-5 my-auto text-white">
+      <div class="row my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         Rutina:
@@ -13,40 +14,40 @@
                                     <div class="row">
                                           <div class="col-6 mb-3">
                                                 Descripción:
-                                                <input type="text" name="" id="" class="form-control">
+                                                <input type="text" name="desc" class="form-control" [(ngModel)]="ejercicios[0]">
                                           </div>
                                           <div class="col-6 mb-3">
                                                 Zona:
-                                                <select name="" id="" class="form-select">
-                                                      <option value="">Brazo</option>
-                                                      <option value="">Pierna</option>
-                                                      <option value="">Espalda</option>
-                                                      <option value="">Abdominal</option>
-                                                      <option value="">Pecho</option>
-                                                </select>
-                                          </div>
-                                          <div class="col-6">
-                                                Intensidad:
-                                                <select name="" id="" class="form-select">
-                                                      <option value="">Baja</option>
-                                                      <option value="">Media</option>
-                                                      <option value="">Alta</option>
+                                                <select name="zona" class="form-select" [(ngModel)]="ejercicios[1]">
+                                                      <option value="Brazo">Brazo</option>
+                                                      <option value="Pierna">Pierna</option>
+                                                      <option value="Espalda">Espalda</option>
+                                                      <option value="Abdominal">Abdominal</option>
+                                                      <option value="Pecho">Pecho</option>
                                                 </select>
                                           </div>
                                           <div class="col-6">
                                                 Repeticiones:
-                                                <input type="number" class="form-control">
+                                                <input type="number" name="reps" class="form-control" [(ngModel)]="ejercicios[2]">
+                                          </div>
+                                          <div class="col-6">
+                                                Intensidad:
+                                                <select name="intensidad" class="form-select" [(ngModel)]="ejercicios[3]">
+                                                      <option value="Baja">Baja</option>
+                                                      <option value="Media">Media</option>
+                                                      <option value="Alta">Alta</option>
+                                                </select>
                                           </div>
                                     </div>
                               </form>
                               <div class="d-grid mt-3 text-center">
-                                    <button class="btn btn-lg primary-custom"><i class="fa fa-plus"
+                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()" [disabled]="!ejercicios[0] || !ejercicios[1] || !ejercicios[2] || !ejercicios[3]"><i class="fa fa-plus"
                                                 aria-hidden="true"></i></button>
                               </div>
                         </div>
                         <br>
                         <h5>Ejercicios:</h5>
-                        <div class="table-responsive">
+                        <div class="table-responsive" *ngIf="table">
                               <table
                                     class="align-middle table table-borderless table-hover my-3 table-dark text-center">
                                     <thead>
@@ -59,12 +60,12 @@
                                           </tr>
                                     </thead>
                                     <tbody>
-                                          <tr>
-                                                <td>desc</td>
-                                                <td>zona</td>
-                                                <td>rep</td>
-                                                <td>int</td>
-                                                <td><button class="btn text-light"><i class="fa fa-times"
+                                          <tr *ngFor="let item of ejerciciosRutina; let index=index;">
+                                                <td>{{ item[0] }}</td>
+                                                <td>{{ item[1] }}</td>
+                                                <td>{{ item[2] }}</td>
+                                                <td>{{ item[3] }}</td>
+                                                <td><button class="btn text-light" (click)="deleteEjercicioRutina(index)"><i class="fa fa-times"
                                                                   aria-hidden="true"></i></button></td>
                                           </tr>
                                     </tbody>
@@ -73,8 +74,8 @@
                         </div>
 
                         <div class="d-grid mt-5 gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom">Crear
-                                    Rutina</button>
+                              <button type="button" class="btn outline-custom" (click)="showEjerciciosRutina()">Actualizar
+                                    Rutina</button> <!--se puede obtener el listado de ejercicios directamente? así este componente hace de actualizar tmbn-->
                         </div>
                   </form>
             </div>

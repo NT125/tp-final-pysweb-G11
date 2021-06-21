@@ -46,7 +46,7 @@
             <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/rutina/nueva-rutina']">Gestionar Rutinas</a>
+            <a class="nav-link" [routerLink]="['entrenador/rutina']">Gestionar Rutinas</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" href="#">Anotar pagos</a>

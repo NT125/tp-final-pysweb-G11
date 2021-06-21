@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-rutina',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuRutinaComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
+
+  //navegación para buttons u otros elementos que no sean <a>
+  goNuevaRutina(){
+    this.router.navigateByUrl("/entrenador/rutina/nueva-rutina");
+  }
+
+  goAddEjercicios(){
+    this.router.navigateByUrl("/entrenador/rutina/add-ejercicios")
+  }
 
   ngOnInit(): void {
   }
