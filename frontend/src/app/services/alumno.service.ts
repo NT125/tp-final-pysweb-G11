@@ -11,9 +11,6 @@ export class AlumnoService {
   url:string="http://localhost:3000/api/alumno/"+this.loginserv.alumnoLogged();
   constructor(private http: HttpClient,private loginserv: LoginService) { }
 
-  ngOnInit(): void {
-  }
-
   getPagos():Observable<any>{
     let httpOption= {
       headers: new HttpHeaders({
@@ -52,4 +49,5 @@ export class AlumnoService {
     console.log(this.url);
     return this.http.get(this.url+"/asistencias",httpOption);
   }
+
 }

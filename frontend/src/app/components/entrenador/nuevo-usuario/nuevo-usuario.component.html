@@ -2,12 +2,11 @@
 
       <div class="row py-5 my-auto text-white">
             <div class="col-lg-6 col-sm-12">
-                  <form class="mb-5 p-5 card bg-dark rounded bg-gradient">
+                  <form #nuevousuario="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
                         <legend>Crear un nuevo usuario</legend><br>
                         Alumno:
-                        <select name="alumno" id="alumno" class="form-select mb-3" disabled
-                              [(ngModel)]="usuario.perfil">
-                              <option value="default" selected>Nombre del alumno</option>
+                        <select name="idalumno" id="alumno" class="form-select mb-3" [(ngModel)]="idalumno">
+                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.nombre}}, {{item.apellido}}</option>
                         </select>
                         Nombre de Usuario:
                         <input type="text" name="username" id="username" class="form-control"
@@ -15,15 +14,9 @@
                         Contraseña:
                         <input type="text" name="password" id="password" class="form-control"
                               [(ngModel)]="usuario.password"><br>
-                        <div class="form-check mb-3">
-                              <input type="checkbox" name="estado" id="estado" class="form-check-input"
-                                    [(ngModel)]="usuario.estado">
-                              <label for="estado" class="form-check-label">Estado</label>
-                        </div>
-
 
                         <div class="d-grid gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom" (click)="createUsuario()">Crear
+                              <button type="button" class="btn outline-custom" (click)="createUsuario(nuevousuario)">Crear
                                     Usuario</button>
                         </div>
                   </form>

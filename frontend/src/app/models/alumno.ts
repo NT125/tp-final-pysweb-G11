@@ -13,7 +13,7 @@ export class Alumno {
     asistencia: 'Asistencia.schema';
     registro: 'Registro.schema';
     pago: 'Pago.schema';
-    plan: 'Plan';
+    plan: String;
     rutina: 'Rutina';
 
     alumno(id?: string, usuario?: 'Usuario', apellido?: String, nombre?: String, nro_documento?: String, fecha_nacimiento?: String, celular?: Number, fecha_inicio?: String, domicilio?: String,
