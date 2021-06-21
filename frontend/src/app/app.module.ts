@@ -20,6 +20,8 @@ import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nue
 import { LoginService } from './services/login.service';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva-rutina.component';
+import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-rutina.component';
+import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva
     PagosComponent,
     LoginComponent,
     NuevoUsuarioComponent,
-    NuevaRutinaComponent
+    NuevaRutinaComponent,
+    MenuRutinaComponent,
+    AddEjerciciosComponent
   ],
   imports: [
     HttpClientModule,

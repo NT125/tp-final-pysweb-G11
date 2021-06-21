@@ -1,0 +1,89 @@
+<div class="container">
+
+      <div class="row py-5 my-auto text-white">
+            <div class="col-lg-6 col-sm-12">
+                  <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
+                        Rutina:
+                        <select name="" id="" class="form-select form-select-sm mb-3">
+                              <option value=""></option>
+                        </select><br>
+                        <legend>Crear Ejercicios:</legend>
+                        <div class="row">
+                              <form class="rounded">
+                                    <div class="row">
+                                          <div class="col-6 mb-3">
+                                                Descripción:
+                                                <input type="text" name="" id="" class="form-control">
+                                          </div>
+                                          <div class="col-6 mb-3">
+                                                Zona:
+                                                <select name="" id="" class="form-select">
+                                                      <option value="">Brazo</option>
+                                                      <option value="">Pierna</option>
+                                                      <option value="">Espalda</option>
+                                                      <option value="">Abdominal</option>
+                                                      <option value="">Pecho</option>
+                                                </select>
+                                          </div>
+                                          <div class="col-6">
+                                                Intensidad:
+                                                <select name="" id="" class="form-select">
+                                                      <option value="">Baja</option>
+                                                      <option value="">Media</option>
+                                                      <option value="">Alta</option>
+                                                </select>
+                                          </div>
+                                          <div class="col-6">
+                                                Repeticiones:
+                                                <input type="number" class="form-control">
+                                          </div>
+                                    </div>
+                              </form>
+                              <div class="d-grid mt-3 text-center">
+                                    <button class="btn btn-lg primary-custom"><i class="fa fa-plus"
+                                                aria-hidden="true"></i></button>
+                              </div>
+                        </div>
+                        <br>
+                        <h5>Ejercicios:</h5>
+                        <div class="table-responsive">
+                              <table
+                                    class="align-middle table table-borderless table-hover my-3 table-dark text-center">
+                                    <thead>
+                                          <tr>
+                                                <td>Descripción</td>
+                                                <td>Zona</td>
+                                                <td>Repetic.</td>
+                                                <td>Intensidad</td>
+                                                <td></td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr>
+                                                <td>desc</td>
+                                                <td>zona</td>
+                                                <td>rep</td>
+                                                <td>int</td>
+                                                <td><button class="btn text-light"><i class="fa fa-times"
+                                                                  aria-hidden="true"></i></button></td>
+                                          </tr>
+                                    </tbody>
+                              </table>
+
+                        </div>
+
+                        <div class="d-grid mt-5 gap-2 col-6 mx-auto">
+                              <button type="button" class="btn outline-custom">Crear
+                                    Rutina</button>
+                        </div>
+                  </form>
+            </div>
+            <div class="text-center col-lg-6 col-sm-12">
+                  <h1 class="title display-1">Añadir Ejercicios</h1>
+                  <p class="lead">Complete las rutinas que creó añadiéndole ejercicios para realizar. Anote la zona a
+                        trabajar, la intensidad, las repeticiones y añada una descripción.<br>
+                  </p>
+            </div>
+      </div>
+
+</div>

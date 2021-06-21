@@ -39,10 +39,6 @@ export class NuevaRutinaComponent implements OnInit {
     console.log(this.ejerciciosRutina)
   }
 
-  checkNivel() {
-    console.log(this.rutina.nivel)
-  }
-
   createRutina() {
     this.rutinaService.createRutina(this.ejerciciosRutina, this.rutina.nivel).subscribe(
       (result) => {

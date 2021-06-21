@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark nav-fill">
     <div class="container-fluid">
       <div>
-        <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span class="gym-name">ÉRCULES</span></a>
+        <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span class="gym-font">ÉRCULES</span></a>
       </div>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
             <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/nueva-rutina']">Generar Rutinas</a>
+            <a class="nav-link" [routerLink]="['entrenador/rutina/nueva-rutina']">Gestionar Rutinas</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" href="#">Anotar pagos</a>
@@ -76,7 +76,6 @@
               <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span class="text-danger">Cerrar Sesión</span></a></li>
             </ul>            
           </div>
-
         </div>
       </div>
     </div>

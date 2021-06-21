@@ -1,8 +1,9 @@
 <div class="container">
-
-      <div class="row py-5 my-auto text-white">
+      <a class="btn" [routerLink]="['/entrenador/rutina']" ><i class="fa fa-caret-left text-custom" aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
+      <div class="row my-auto text-white">
             <div class="col-lg-6 col-sm-12">
-                  <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
+                  <div class=" card bg-dark rounded bg-gradient">
+                        <form class="p-5" #rutinaForm="ngForm">
                         <legend>Crear una rutina</legend><br>
                         Nombre:
                         <input type="text" name="" id="" class="form-control"><br>
@@ -13,85 +14,22 @@
                               <option value="3">3</option>
                               <option value="4">4</option>
                               <option value="5">5</option>
-                        </select><br>
-                              <h5>Ejercicios:</h5>
-                        <div class="row">
-                              <div class="">
-                                    <form class="rounded">
-                                          <div class="row">
-                                                <div class="col-6 mb-3">
-                                                      Descripción:
-                                                      <input type="text" name="" id="" class="form-control">
-                                                </div>
-                                                <div class="col-6 mb-3">
-                                                      Zona:
-                                                      <select name="" id="" class="form-select">
-                                                            <option value="">Brazo</option>
-                                                            <option value="">Pierna</option>
-                                                            <option value="">Espalda</option>
-                                                            <option value="">Abdominal</option>
-                                                            <option value="">Pecho</option>
-                                                      </select>
-                                                </div>
-                                                <div class="col-6">
-                                                      Intensidad:
-                                                      <select name="" id="" class="form-select">
-                                                            <option value="">Baja</option>
-                                                            <option value="">Media</option>
-                                                            <option value="">Alta</option>
-                                                      </select>
-                                                </div>
-                                                <div class="col-6">
-                                                      Repeticiones:
-                                                      <input type="number" class="form-control">
-                                                </div>
-                                          </div>
-                                    </form>
-                              </div>
-                              <div class="d-grid mt-3 text-center">
-                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></button>
-                              </div>
-                        </div>
-
-                        <div class="table-responsive" *ngIf="table">
-                              <table class="align-middle table table-borderless table-hover my-3 table-dark text-center">
-                                    <thead>
-                                          <tr>
-                                                <td>Descripción</td>
-                                                <td>Zona</td>
-                                                <td>Repetic.</td>
-                                                <td>Intensidad</td>
-                                                <td></td>
-                                          </tr>
-                                    </thead>
-                                    <tbody>
-                                          <tr *ngFor="let item of ejerciciosRutina">
-                                                <td >{{item.descripcion}}</td>
-                                                <td>{{item.zona}}</td>
-                                                <td>{{item.repeticiones}}</td>
-                                                <td>{{item.intensidad}}</td>
-                                                <td><button class="btn text-light" (click)="deleteEjerciciosRutina()"><i class="fa fa-times"
-                                                                  aria-hidden="true"></i></button></td>
-                                          </tr>
-                                    </tbody>
-                              </table>
-
-                        </div>
+                        </select>
 
                         <div class="d-grid mt-5 gap-2 col-6 mx-auto">
                               <button type="button" class="btn outline-custom" (click)="createRutina()">Crear
                                     Rutina</button>
                         </div>
                   </form>
+
+                  </div>
+                  
             </div>
             <div class="text-center col-lg-6 col-sm-12">
                   <h1 class="title display-1">Generar Nuevas Rutinas</h1>
-                  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
-                        obcaecati
-                        nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
-                        esse
-                        explicabo voluptatem commodi vero, cachai? <br>
+                  <p class="lead">Aquí configurarás las nuevas rutinas que desees crear. Cuando finalices se creará una
+                        rutina vacía, sin ejercicios. Deberás añadir los ejercicios <a style="color: #c8f500;"
+                              [routerLink]="['/entrenador/rutina/add-ejercicios']">aquí</a>.<br>
                   </p>
             </div>
       </div>

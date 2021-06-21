@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { AsistenciasComponent } from './components/alumno/asistencias/asistencias.component';
 import { PagosComponent } from './components/alumno/pagos/pagos.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
+import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
+import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-rutina.component';
 import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva-rutina.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
@@ -24,7 +26,9 @@ const routes: Routes = [
   { path: 'entrenador', component: EntrenadorHomeComponent }, 
   { path: 'entrenador/nuevo-alumno', component: NuevoAlumnoComponent },
   { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent },
-  { path: 'entrenador/nueva-rutina', component: NuevaRutinaComponent }
+  { path: 'entrenador/rutina', component: MenuRutinaComponent },
+  { path: 'entrenador/rutina/nueva-rutina', component: NuevaRutinaComponent },
+  { path: 'entrenador/rutina/add-ejercicios', component: AddEjerciciosComponent }
 
 ];
 

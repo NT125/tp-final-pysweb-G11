@@ -7,13 +7,17 @@
       font-family: Bungee;
 }
 
-.gym-name{
+.gym-font{
       font-size: 21px;
       font-family:Staatliches;
 }
 
 .txtsmall{
       font-size: 12px;
+}
+
+.text-custom{
+      color:#c8f500;
 }
 
 /*botones*/
