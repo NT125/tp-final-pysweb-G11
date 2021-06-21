@@ -12,6 +12,9 @@
       font-family:Staatliches;
 }
 
+.txtsmall{
+      font-size: 12px;
+}
 
 /*botones*/
 button.primary-custom{

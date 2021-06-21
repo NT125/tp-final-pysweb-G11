@@ -1,21 +1,49 @@
-<div class="text-center" id="body">
-    <div class="d-grid gap- col-3 mx-auto">
-        <form>
-          <img src="../../../assets/img/programmer.png" alt="" width="30%">
-          <h1 class="h3 mb-3 fw-normal" style="color: white; text-align: center;">Iniciar Sesion</h1>
-          <img src="../../../assets/img/user.png" alt="" class="img">
-          <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" name="username" [(ngModel)]="username">
-            <label for="floatingInput">Usuario o Correo Electronico</label>
-          </div>
-          <img src="../../../assets/img/lock.png" alt="" class="img">
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" [(ngModel)]="password">
-            <label for="floatingPassword">Contraseña</label>
-            <br>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" (click)="login()">Login</button>
-        </form>
-        <div class="alert-danger" *ngIf="msglogin=='Credenciales incorrectas..'" >{{msglogin}}</div>
-    </div>
+<div>
+
+  <div class="my-5 d-flex align-items-center justify-content-center" style="height: 28rem;">
+    <form class="bg-gradient p-5 rounded">
+      <div class="text-center mb-3">
+        <h1 class="text-white"><b><small>Iniciar Sesión</small></b></h1>
+        <small class="text-secondary">Acceda a su espacio</small>
+      </div>
+      <br>
+      <div class="text-danger mb-2" *ngIf="msglogin=='Usuario y/o contraseña incorrectos'"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{msglogin}}</div>
+
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" placeholder="Usuario123" name="username" [(ngModel)]="username">
+        <label for="floatingInput">Usuario</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" placeholder="Password" name="password" [(ngModel)]="password">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <div class="mt-3 text-center">
+        <span class="text-secondary"><small>No te olvides la contraseña o cagas</small></span>
+        <button type="reset" class="w-100 btn btn-lg primary-custom" (click)="login()">Iniciar Sesión</button>
+      </div>
+    </form>
+  </div>
+
+  <!--
+  <div class="d-grid  mx-auto">
+    <form>
+      <img src="../../../assets/img/programmer.png" alt="" width="30%">
+      <h1 class="h3 mb-3 fw-normal" style="color: white; text-align: center;">Iniciar Sesion</h1>
+      <img src="../../../assets/img/user.png" alt="" class="img">
+      <div class="form-floating">
+        <input type="text" class="form-control" id="floatingInput" name="username" [(ngModel)]="username">
+        <label for="floatingInput">Usuario o Correo Electronico</label>
+      </div>
+      <img src="../../../assets/img/lock.png" alt="" class="img">
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" name="password" [(ngModel)]="password">
+        <label for="floatingPassword">Contraseña</label>
+        <br>
+      </div>
+      <span class="text-small text-secondary"><small>No te olvides la contraseña o cagas</small></span>
+      <button type="reset" class="w-100 btn btn-lg btn-primary" (click)="login()">Login</button>
+    </form>
+    <div class="text-danger" *ngIf="msglogin=='Usuario y/o contraseña incorrectos'">{{msglogin}}</div>
+  </div>
+  -->
 </div>

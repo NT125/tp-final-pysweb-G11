@@ -1,12 +1,13 @@
 <div class="container">
-
+      
       <div class="row py-5 my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <form #nuevousuario="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
                         <legend>Crear un nuevo usuario</legend><br>
                         Alumno:
                         <select name="idalumno" id="alumno" class="form-select mb-3" [(ngModel)]="idalumno">
-                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.nombre}}, {{item.apellido}}</option>
+                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.nombre}}
+                                    {{item.apellido}}</option>
                         </select>
                         Nombre de Usuario:
                         <input type="text" name="username" id="username" class="form-control"
@@ -16,7 +17,8 @@
                               [(ngModel)]="usuario.password"><br>
 
                         <div class="d-grid gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom" (click)="createUsuario(nuevousuario)">Crear
+                              <button type="button" class="btn outline-custom"
+                                    (click)="createUsuario(nuevousuario)">Crear
                                     Usuario</button>
                         </div>
                   </form>

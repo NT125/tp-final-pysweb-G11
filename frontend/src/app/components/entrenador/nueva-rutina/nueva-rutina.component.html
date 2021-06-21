@@ -4,6 +4,8 @@
             <div class="col-lg-6 col-sm-12">
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         <legend>Crear una rutina</legend><br>
+                        Nombre:
+                        <input type="text" name="" id="" class="form-control"><br>
                         Nivel:
                         <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
                               <option value="1">1</option>
@@ -12,18 +14,42 @@
                               <option value="4">4</option>
                               <option value="5">5</option>
                         </select><br>
-                              Ejercicios:
+                              <h5>Ejercicios:</h5>
                         <div class="row">
-                              <div class="col-10">
-
-                                    <select name="ejercicios" id="ejercicios" class="form-select"
-                                          [(ngModel)]="ejercicio">
-                                          <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio">
-                                                {{ejercicio.descripcion}}</option>
-                                    </select>
+                              <div class="">
+                                    <form class="rounded">
+                                          <div class="row">
+                                                <div class="col-6 mb-3">
+                                                      Descripción:
+                                                      <input type="text" name="" id="" class="form-control">
+                                                </div>
+                                                <div class="col-6 mb-3">
+                                                      Zona:
+                                                      <select name="" id="" class="form-select">
+                                                            <option value="">Brazo</option>
+                                                            <option value="">Pierna</option>
+                                                            <option value="">Espalda</option>
+                                                            <option value="">Abdominal</option>
+                                                            <option value="">Pecho</option>
+                                                      </select>
+                                                </div>
+                                                <div class="col-6">
+                                                      Intensidad:
+                                                      <select name="" id="" class="form-select">
+                                                            <option value="">Baja</option>
+                                                            <option value="">Media</option>
+                                                            <option value="">Alta</option>
+                                                      </select>
+                                                </div>
+                                                <div class="col-6">
+                                                      Repeticiones:
+                                                      <input type="number" class="form-control">
+                                                </div>
+                                          </div>
+                                    </form>
                               </div>
-                              <div class="col-2 text-end">
-                                    <button class="btn primary-custom" (click)="addEjerciciosRutina()"><i
+                              <div class="d-grid mt-3 text-center">
+                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()"><i
                                                 class="fa fa-plus" aria-hidden="true"></i></button>
                               </div>
                         </div>

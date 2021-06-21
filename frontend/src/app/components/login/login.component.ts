@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
   login(){
     this.loginserv.login(this.username,this.password).subscribe(  
       (result) => {
+        this.msglogin = "";
         var user = result;
+        console.log(user.status);
         if (user.status == 1) {
           //guardamos el user en cookies en el cliente
           sessionStorage.setItem("user", user.username);
@@ -35,7 +37,8 @@ export class LoginComponent implements OnInit {
           this.router.navigateByUrl(this.returnUrl);
         } else {
           //usuario no encontrado muestro mensaje en la vista
-          this.msglogin = "Credenciales incorrectas..";
+          console.log(user.status);
+          this.msglogin = "Usuario y/o contraseña incorrectos";
         }
       },
       error => {
