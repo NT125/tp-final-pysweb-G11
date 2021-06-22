@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { Ejercicio } from 'src/app/models/ejercicio';
 import { Rutina } from 'src/app/models/rutina';
 import { RutinaService } from 'src/app/services/rutina.service';
@@ -16,7 +17,7 @@ export class AddEjerciciosComponent implements OnInit {
 
   arraydeRutinas: Array<Rutina>;
   arraydeEjercicios: Array<Ejercicio>;
-  constructor(private rutinaserv: RutinaService) {
+  constructor(private rutinaserv: RutinaService, private toastr: ToastrService) {
     this.table = false;  
     this.ejercicios=new Ejercicio();
     this.cargarRutinas();
@@ -27,7 +28,9 @@ export class AddEjerciciosComponent implements OnInit {
     this.rutinaserv.addEjercicio(this.idrutina,this.ejercicios).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se agrego el ejercicio correctamente");
+          this.toastr.success('Se agrego el ejercicio correctamente"', ' ', {
+            timeOut: 1000,
+          });
           this.cargarEjercicios(this.idrutina);
         }else{
           alert("Se produjo algun tipo de error")
@@ -71,7 +74,9 @@ export class AddEjerciciosComponent implements OnInit {
     this.rutinaserv.deleteEjercicio(this.idrutina,ide).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("se elimno correctamente")
+          this.toastr.error('Se elimino correctamente', ' ', {
+            timeOut: 2000,
+          });
           this.cargarEjercicios(this.idrutina);
         }
       }

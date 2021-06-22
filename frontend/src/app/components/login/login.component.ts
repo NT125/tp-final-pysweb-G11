@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   password: string;
   returnUrl: string='/entrenador';
   msglogin: string;
-  constructor(private loginserv: LoginService,private router:Router,private route:ActivatedRoute) { 
+  constructor(private loginserv: LoginService,private router:Router,private route:ActivatedRoute, private toastr: ToastrService) { 
 
   }
 
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
         } else {
           //usuario no encontrado muestro mensaje en la vista
           console.log(user.status);
-          this.msglogin = "Usuario y/o contraseña incorrectos";
+          this.toastr.warning("Usuario y/o contraseña incorrectos") ;
         }
       },
       error => {

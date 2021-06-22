@@ -22,6 +22,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
 import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva-rutina.component';
 import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-rutina.component';
 import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -40,13 +42,16 @@ import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/a
     NuevoUsuarioComponent,
     NuevaRutinaComponent,
     MenuRutinaComponent,
-    AddEjerciciosComponent
+    AddEjerciciosComponent,
+    
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
   ],
   providers: [LoginService,{
     provide: HTTP_INTERCEPTORS,
