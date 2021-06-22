@@ -24,6 +24,7 @@ import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-ru
 import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    AlifeFileToBase64Module
   ],
   providers: [LoginService,{
     provide: HTTP_INTERCEPTORS,

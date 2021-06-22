@@ -15,7 +15,14 @@
                         Contraseña:
                         <input type="text" name="password" id="password" class="form-control"
                               [(ngModel)]="usuario.password"><br>
-
+                        Foto de Perfil:
+                        <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
+                        <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img" id="imagen" class="form-control">
+                        <br>
+                        <div *ngIf="imagennoagregada==false" class="text-center">
+                              <img src="{{usuario.fotoperfil}}" height="100px" width="100px" alt="">
+                        </div>
+                        <br>
                         <div class="d-grid gap-2 col-6 mx-auto">
                               <button type="button" class="btn outline-custom"
                                     (click)="createUsuario(nuevousuario)">Crear

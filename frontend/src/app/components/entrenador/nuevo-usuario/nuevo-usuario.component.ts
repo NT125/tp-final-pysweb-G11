@@ -15,6 +15,8 @@ export class NuevoUsuarioComponent implements OnInit {
   usuario: Usuario = new Usuario();
   idalumno: string;
   arraydeAlumnos: Array<Alumno>;
+  imagennoagregada:boolean=true;
+
   constructor(private router: Router,private entrenadorserv:EntrenadorService, private toastr: ToastrService) {
     this.usuario = new Usuario();
     this.cargarAlumnos();
@@ -37,8 +39,7 @@ export class NuevoUsuarioComponent implements OnInit {
   } 
 
   createUsuario(nuevousuario: NgForm){
-    console.log(this.usuario);
-    console.log(this.idalumno);
+    this.usuario.estado=true;
     this.entrenadorserv.addUsuario(this.usuario,this.idalumno).subscribe(
       result=>{
         if(result.status=="1"){
@@ -62,6 +63,29 @@ export class NuevoUsuarioComponent implements OnInit {
     nuevousuario.reset();
   }
   
+  onFileChanged(e){
+    this.usuario.fotoperfil=null;
+    if(e[0]==null){
+      this.imagennoagregada=true;
+    }else{
+      if(/.(gif|jpeg|jpg|png|webp)$/i.test(e[0].name)){
+        if(e[0].size<30000){
+          this.usuario.fotoperfil=e[0].base64;
+         this.imagennoagregada=false;
+          console.log(e[0])
+        }else{
+          this.imagennoagregada=true;
+          alert("Solo se permiten imagenes menores a 30kb")
+          console.log(e[0])
+        }
+      }else{
+        this.imagennoagregada=true;
+        alert("No esta permitido este tipo de imagen")
+        console.log(e[0])
+      }
+    }
+  }
+
   //navegación
   goBack() {
     this.router.navigate(['/entrenador']);
