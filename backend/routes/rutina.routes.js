@@ -11,5 +11,7 @@ router.put('/', rutinaCtrl.editRutina);
 router.delete('/:id', rutinaCtrl.deleteRutina);
 
 router.post('/:id/ejercicio', rutinaCtrl.addEjercicio);
+router.get('/:id/ejercicios', rutinaCtrl.getEjercicios);
+router.delete('/:id/ejercicio/:idejercicio', rutinaCtrl.deleteEjercicio);
 
 module.exports = router;

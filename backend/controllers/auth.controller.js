@@ -48,7 +48,6 @@ authCtrl.isAdmin = async (req, res, next) => {
          } else {
             next();  
          }
-         
       } catch (error) {
          res.json({ 'status': '0', 'msg': 'Unauthorized request.' });
       }

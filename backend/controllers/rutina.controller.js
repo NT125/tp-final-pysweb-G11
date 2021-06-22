@@ -81,4 +81,42 @@ rutinaCtrl.addEjercicio = async (req, res) => {
       }
   }
 
+  rutinaCtrl.getEjercicios = async (req, res) => {
+      var rutina = await Rutina.findById(req.params.id);
+      try{
+          let ejercicios = await rutina.ejercicios;
+          res.json(ejercicios);
+      }catch(error){
+          res.json({
+              'status': '0',
+              'msg': 'Error procesando la operacion'
+          }) 
+      }
+  }
+
+  rutinaCtrl.deleteEjercicio = async(req, res) => {
+      var vrutina = await Rutina.findById(req.params.id);
+      try {
+            const index = vrutina.ejercicios.findIndex(element => element._id == req.params.idejercicio);
+            if(index>=0){
+                  vrutina.ejercicios.splice(index,1);
+                  await Rutina.updateOne({_id: req.params.id}, vrutina);
+                  res.json({
+                        'status': 1,
+                        'msg' : 'El ejercicio ha sido eliminada'
+                  })
+            }else{
+                  res.json({
+                        'status' : 0,
+                        'msg' : 'Ocurrió un error al eliminar los datos.'
+                  })
+            }
+      } catch (error) {
+            res.json({
+                  'status' : 0,
+                  'msg' : 'Ocurrió un error al eliminar los datos.'
+            })
+      }
+ }
+
 module.exports = rutinaCtrl;
