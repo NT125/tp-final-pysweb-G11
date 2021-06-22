@@ -6,7 +6,7 @@
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         Rutina:
                         <select name="idrutina" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina">
-                              <option *ngFor="let item of arraydeRutinas" [value]="item._id">Nivel: {{item.nombre}}, nivel: {{item.nivel}}</option>
+                              <option *ngFor="let item of arraydeRutinas" [value]="item._id">{{item.nombre}}, Nivel {{item.nivel}}</option>
                         </select><br>
                         <legend>Crear Ejercicios:</legend>
                         <div class="row">

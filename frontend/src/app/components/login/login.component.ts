@@ -39,12 +39,15 @@ export class LoginComponent implements OnInit {
         } else {
           //usuario no encontrado muestro mensaje en la vista
           console.log(user.status);
-          this.toastr.warning("Usuario y/o contraseña incorrectos") ;
+          this.toastr.error('Usuario y/o contraseña incorrectos', ' ', {
+            timeOut: 2000,
+          });
         }
       },
       error => {
-        alert("Error de conexion");
-        console.log("error en conexion");
+        this.toastr.error('Error de conexion', ' ', {
+            timeOut: 2000,
+          });
         console.log(error);
       });
        

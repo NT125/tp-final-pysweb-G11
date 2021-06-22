@@ -28,13 +28,14 @@ export class AddEjerciciosComponent implements OnInit {
     this.rutinaserv.addEjercicio(this.idrutina,this.ejercicios).subscribe(
       result=>{
         if(result.status=="1"){
-          this.toastr.success('Se agrego el ejercicio correctamente"', ' ', {
-            timeOut: 1000,
+          this.toastr.success('Se agrego el ejercicio correctamente', ' ', {
+            timeOut: 2000,
           });
           this.cargarEjercicios(this.idrutina);
         }else{
-          alert("Se produjo algun tipo de error")
-        }
+          this.toastr.error('Ocurrió un error al agregar', ' ', {
+          timeOut: 2000,
+          });        }
       }
     )
     this.ejercicios.descripcion="";
@@ -74,7 +75,7 @@ export class AddEjerciciosComponent implements OnInit {
     this.rutinaserv.deleteEjercicio(this.idrutina,ide).subscribe(
       result=>{
         if(result.status=="1"){
-          this.toastr.error('Se elimino correctamente', ' ', {
+          this.toastr.error('Ejercicio eliminado', ' ', {
             timeOut: 2000,
           });
           this.cargarEjercicios(this.idrutina);

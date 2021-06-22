@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Ejercicio } from 'src/app/models/ejercicio';
 import { Rutina } from 'src/app/models/rutina';
 import { RutinaService } from 'src/app/services/rutina.service';
@@ -12,7 +13,7 @@ export class NuevaRutinaComponent implements OnInit {
 
   rutina: Rutina;
   
-  constructor(private rutinaserv: RutinaService){
+  constructor(private rutinaserv: RutinaService, private toastr: ToastrService){
     this.rutina=new Rutina();
   }
 
@@ -20,9 +21,13 @@ export class NuevaRutinaComponent implements OnInit {
     this.rutinaserv.addRutina(this.rutina).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se agrego la rutina Correctamente")
+          this.toastr.success('Se agrego correctamente', ' ', {
+            timeOut: 2000,
+          });
         }else{
-          alert("Se produjo algun error")
+          this.toastr.error('Error inesperado', ' ', {
+            timeOut: 2000,
+          });
         }
       }
     )

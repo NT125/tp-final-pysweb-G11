@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Usuario } from 'src/app/models/usuario';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
@@ -14,7 +15,7 @@ export class NuevoUsuarioComponent implements OnInit {
   usuario: Usuario = new Usuario();
   idalumno: string;
   arraydeAlumnos: Array<Alumno>;
-  constructor(private router: Router,private entrenadorserv:EntrenadorService) {
+  constructor(private router: Router,private entrenadorserv:EntrenadorService, private toastr: ToastrService) {
     this.usuario = new Usuario();
     this.cargarAlumnos();
   }
@@ -41,12 +42,18 @@ export class NuevoUsuarioComponent implements OnInit {
     this.entrenadorserv.addUsuario(this.usuario,this.idalumno).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se creo Correctamente");
+          this.toastr.success('Usuario Creado', ' ', {
+            timeOut: 2000,
+          });
           
         }else if(result.status=="2"){
-          alert("Elija otro Nombre de Usuario, Este ya existe")
-        }else{
-          alert("Este alumno ya posee un usuario")
+          this.toastr.warning('Este nombre de usuario ya existe', ' ', {
+            timeOut: 2000,
+          });       
+         }else{
+          this.toastr.warning('Este alumno ya posee un usuario', ' ', {
+            timeOut: 2000,
+          });
         }
         this.cargarAlumnos();
       }

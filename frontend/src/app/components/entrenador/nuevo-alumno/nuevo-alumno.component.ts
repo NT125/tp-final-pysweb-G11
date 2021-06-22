@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Plan } from 'src/app/models/plan';
 import { AlumnoService } from 'src/app/services/alumno.service';
@@ -19,7 +20,7 @@ export class NuevoAlumnoComponent implements OnInit {
   tipoPlan: String;
 
   arraydePlanes: Array<Plan>;
-  constructor(private entrenadorserv: EntrenadorService,private planserv: PlanService, private router: Router) {
+  constructor(private entrenadorserv: EntrenadorService,private planserv: PlanService, private router: Router,private toastr: ToastrService) {
     this.alumno = new Alumno();
     this.cargarPlanes();
   }
@@ -41,7 +42,9 @@ export class NuevoAlumnoComponent implements OnInit {
     console.log(this.alumno)
     this.entrenadorserv.addAlumno(this.alumno).subscribe(
         (result) => {
-          alert(result.msg);
+          this.toastr.success('Alumno inscripto', ' ', {
+            timeOut: 2000,
+          });
           console.log(this.alumno);
       },
         (error)=>{
