@@ -1,10 +1,14 @@
+import { Ejercicio } from "./ejercicio";
+
 export class Rutina {
     _id: string;
-    ejercicios: "Ejercicio.schema";
+    nombre: string;
+    ejercicios: Ejercicio;
     nivel: Number;
 
-    rutina(id?: string, ejercicios?: "Ejercicio.schema", nivel?: Number){
+    rutina(id?: string, nombre?: string,ejercicios?: Ejercicio, nivel?: Number){
         this._id = id;
+        this.nombre=nombre;
         this.ejercicios = ejercicios;
         this.nivel = nivel;
     }

@@ -5,8 +5,8 @@
             <div class="col-lg-6 col-sm-12">
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         Rutina:
-                        <select name="" id="" class="form-select form-select-sm mb-3">
-                              <option value=""></option>
+                        <select name="idrutina" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina">
+                              <option *ngFor="let item of arraydeRutinas" [value]="item._id">Nivel: {{item.nombre}}, nivel: {{item.nivel}}</option>
                         </select><br>
                         <legend>Crear Ejercicios:</legend>
                         <div class="row">
@@ -14,11 +14,11 @@
                                     <div class="row">
                                           <div class="col-6 mb-3">
                                                 Descripción:
-                                                <input type="text" name="desc" class="form-control" [(ngModel)]="ejercicios[0]">
+                                                <input type="text" name="descripcion" class="form-control" [(ngModel)]="ejercicios.descripcion">
                                           </div>
                                           <div class="col-6 mb-3">
                                                 Zona:
-                                                <select name="zona" class="form-select" [(ngModel)]="ejercicios[1]">
+                                                <select name="zona" class="form-select" [(ngModel)]="ejercicios.zona">
                                                       <option value="Brazo">Brazo</option>
                                                       <option value="Pierna">Pierna</option>
                                                       <option value="Espalda">Espalda</option>
@@ -28,11 +28,11 @@
                                           </div>
                                           <div class="col-6">
                                                 Repeticiones:
-                                                <input type="number" name="reps" class="form-control" [(ngModel)]="ejercicios[2]">
+                                                <input type="number" name="repeticiones" class="form-control" [(ngModel)]="ejercicios.repeticiones">
                                           </div>
                                           <div class="col-6">
                                                 Intensidad:
-                                                <select name="intensidad" class="form-select" [(ngModel)]="ejercicios[3]">
+                                                <select name="intensidad" class="form-select" [(ngModel)]="ejercicios.intensidad">
                                                       <option value="Baja">Baja</option>
                                                       <option value="Media">Media</option>
                                                       <option value="Alta">Alta</option>
@@ -41,7 +41,7 @@
                                     </div>
                               </form>
                               <div class="d-grid mt-3 text-center">
-                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()" [disabled]="!ejercicios[0] || !ejercicios[1] || !ejercicios[2] || !ejercicios[3]"><i class="fa fa-plus"
+                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()"><i class="fa fa-plus"
                                                 aria-hidden="true"></i></button>
                               </div>
                         </div>
@@ -60,23 +60,20 @@
                                           </tr>
                                     </thead>
                                     <tbody>
-                                          <tr *ngFor="let item of ejerciciosRutina; let index=index;">
-                                                <td>{{ item[0] }}</td>
-                                                <td>{{ item[1] }}</td>
-                                                <td>{{ item[2] }}</td>
-                                                <td>{{ item[3] }}</td>
-                                                <td><button class="btn text-light" (click)="deleteEjercicioRutina(index)"><i class="fa fa-times"
+                                          <tr *ngFor="let item of arraydeEjercicios">
+                                                <td>{{ item.descripcion }}</td>
+                                                <td>{{ item.zona }}</td>
+                                                <td>{{ item.repeticiones }}</td>
+                                                <td>{{ item.intensidad }}</td>
+                                                <td><button class="btn text-light" (click)="deleteEjercicio(item._id)"><i class="fa fa-times"
                                                                   aria-hidden="true"></i></button></td>
                                           </tr>
                                     </tbody>
                               </table>
 
                         </div>
-
-                        <div class="d-grid mt-5 gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom" (click)="showEjerciciosRutina()">Actualizar
-                                    Rutina</button> <!--se puede obtener el listado de ejercicios directamente? así este componente hace de actualizar tmbn-->
-                        </div>
+                        
+                    
                   </form>
             </div>
             <div class="text-center col-lg-6 col-sm-12">

@@ -6,7 +6,8 @@
                         <form class="p-5" #rutinaForm="ngForm">
                         <legend>Crear una rutina</legend><br>
                         Nombre:
-                        <input type="text" name="" id="" class="form-control"><br>
+                        <input type="text" name="nombre" id="" class="form-control" [(ngModel)]="rutina.nombre">
+                        <br>
                         Nivel:
                         <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
                               <option value="1">1</option>
