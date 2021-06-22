@@ -6,7 +6,8 @@ const UsuarioSchema = new Schema({
 username: {type: String, required: true},
 password: {type:String, required:true},
 perfil: {type:Schema.Types.ObjectId, ref: Rol},
-estado: {type:Boolean, required: true}
+fotoperfil: {type: String},
+estado: {type: Boolean, required: true}
 });
 UsuarioSchema.statics.encryptPassword= async(password) =>{
    const salt= await bcrypt.genSalt(10);
