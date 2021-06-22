@@ -8,10 +8,9 @@ const Plan=require('../models/plan')
 const Rol=require('../models/rol')
 const alumnoCtrl = {}
 
-alumnoCtrl.getAlumnos = async (req, res) => {
-    var alumnos = await Alumno.find().populate("registro").populate("rutina").populate("usuario").populate("plan");
-    res.json(alumnos);
-}
+
+
+//ABM Alumno
 
 alumnoCtrl.createAlumno = async (req, res) => {
     var alumno = new Alumno(req.body);
@@ -28,12 +27,6 @@ alumnoCtrl.createAlumno = async (req, res) => {
         })
     }
 }
-
-alumnoCtrl.getAlumno = async (req, res) => {
-    const alumno = await Alumno.findById(req.params.id);
-    res.json(alumno);
-}
-
 alumnoCtrl.editAlumno = async (req, res) => {
     const valumno = new Alumno(req.body);
     try {
@@ -65,6 +58,31 @@ alumnoCtrl.deleteAlumno = async (req, res)=>{
  }
 }
 
+
+alumnoCtrl.getAlumnos = async (req, res) => {
+    var alumnos = await Alumno.find().populate("registro").populate("rutina").populate("usuario").populate("plan");
+    res.json(alumnos);
+}
+
+alumnoCtrl.getAlumno = async (req, res) => {
+    const alumno = await Alumno.findById(req.params.id);
+    res.json(alumno);
+}
+alumnoCtrl.getAlumnoPorCategoria = async (req, res) => {
+    var alumno = await Alumno.find().where('nivel').equals(req.params.nivel);
+    res.json(alumno);
+}
+
+alumnoCtrl.getAlumnoPorDNI = async (req, res) => {
+    var alumno = await Alumno.find().where('nro_documento').equals(req.params.nro_documento);
+    res.json(alumno);
+}
+
+alumnoCtrl.getAlumnoPorFechaInicio = async (req, res) => {
+    var alumno = await Alumno.find().where('fecha_inicio').equals(req.params.fecha_inicio);
+    res.json(alumno);
+}
+//ABM PAGOS
 alumnoCtrl.addPago = async (req, res) => {
     const vpago = new Pago(req.body);
     const valumno = await Alumno.findById(req.params.id);
@@ -136,6 +154,7 @@ alumnoCtrl.getPago = async (req, res) => {
     }
 }
 
+//ABM PLAN
 alumnoCtrl.addPlan = async (req, res) => {
     const vplan = await Plan.findById(req.body._id);;
     if(vplan!=null){
@@ -161,6 +180,7 @@ alumnoCtrl.addPlan = async (req, res) => {
     }
 }
 
+//ABM RUTINA
 alumnoCtrl.addRutina = async (req, res) => {
     const vrutina = await Rutina.findById(req.body._id);
     if(vrutina!=null){
@@ -199,6 +219,7 @@ alumnoCtrl.getRutinas = async (req, res) => {
     }
 }
 
+//ABM REGISTRO
 alumnoCtrl.addRegistro = async (req, res) => {
     const vregistro = new Registro(req.body);
     const valumno = await Alumno.findById(req.params.id);
@@ -243,7 +264,6 @@ alumnoCtrl.getRegistro = async (req, res) => {
     }
 }
 
-//HASTA ACA LLEGUE
 alumnoCtrl.editRegistro = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
     try{
@@ -272,21 +292,8 @@ alumnoCtrl.editRegistro = async (req, res) => {
     }
 }
 
-alumnoCtrl.getAlumnoPorCategoria = async (req, res) => {
-    var alumno = await Alumno.find().where('nivel').equals(req.params.nivel);
-    res.json(alumno);
-}
 
-alumnoCtrl.getAlumnoPorDNI = async (req, res) => {
-    var alumno = await Alumno.find().where('nro_documento').equals(req.params.nro_documento);
-    res.json(alumno);
-}
-
-alumnoCtrl.getAlumnoPorFechaInicio = async (req, res) => {
-    var alumno = await Alumno.find().where('fecha_inicio').equals(req.params.fecha_inicio);
-    res.json(alumno);
-}
-
+//ABM ASISTENCIA
 alumnoCtrl.addAsistencia = async (req, res) => {
     const vasistencia = new Asistencia(req.body);
     const valumno = await Alumno.findById(req.params.id);
@@ -352,6 +359,7 @@ alumnoCtrl.getAsistencias = async (req, res) => {
     }
 }
 
+//ABM USUARIO
 alumnoCtrl.addUsuario = async (req, res) => {
     const valumno = await Alumno.findById(req.params.id);
         const vusuario = new Usuario(req.body);
