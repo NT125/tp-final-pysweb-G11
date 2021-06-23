@@ -1,84 +1,109 @@
 <header class="container p-3 bg-dark text-white">
 
-  <nav class="navbar navbar-expand-lg navbar-dark nav-fill">
-    <div class="container-fluid">
-      <div>
-        <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span class="gym-font">ÉRCULES</span></a>
+   <nav class="navbar navbar-expand-lg navbar-dark nav-fill">
+      <div class="container-fluid">
+         <div>
+            <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span
+                  class="gym-font">ÉRCULES</span></a>
+         </div>
+
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul
+               class="navbar-nav me-auto mb-2 mb-lg-0 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+               <!--Home page (visitante)-->
+               <li class="nav-item" *ngIf="!loginserv.userLoggedIn()">
+                  <a class="nav-link" [routerLink]="['home']">Inicio</a>
+               </li>
+               <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
+                  <a class="nav-link" href="#">Cómo entrenamos</a>
+               </li>
+               <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
+                  <a class="nav-link" href="#">Precios y Planes</a>
+               </li>
+               <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
+                  <a class="nav-link" href="#">Nosotros</a>
+               </li>
+
+               <!--Alumno-->
+               <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['tusAsistencias']">Asistencias </a>
+               </li>
+               <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['tusRutinas']">Rutinas</a>
+               </li>
+               <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['tusPagos']">Tus Pagos</a>
+               </li>
+
+               <!--Entrenador-->
+               <li class="nav-item dropdown" *ngIf="loginserv.perfilLogged()=='entrenador'">
+                  <a class="nav-link dropdown-toggle" id="alumnoDropdown" role="button" data-bs-toggle="dropdown"
+                     aria-expanded="false">Alumnos
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="alumnoDropdown">
+                     <li><a class="dropdown-item" [routerLink]="['entrenador/nuevo-alumno']">Inscribir alumno</a></li>
+                     <li><a class="dropdown-item" [routerLink]="['entrenador']">Actualizar alumno</a></li>
+                     <li><a class="dropdown-item" [routerLink]="['entrenador']">Eliminar alumno</a></li>
+                     <li>
+                        <hr class="dropdown-divider">
+                     </li>
+                     <li><a class="dropdown-item" [routerLink]="['entrenador']">Asignar rutinas</a></li>
+                     <li><a class="dropdown-item" [routerLink]="['entrenador']">Quitar rutinas</a></li>
+                  </ul>
+               </li>
+
+               <!--podría tener un dropdown con su abm también-->
+               <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
+               </li>
+
+               <!--¿cambiamos el menú de rutinas por otro dropdown?-->
+               <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['entrenador/rutina']">Gestionar Rutinas</a>
+               </li>
+
+               <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['entrenador/gestionar-alumno']">Gestionar Alumno</a>
+               </li>
+
+               <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+                  <a class="nav-link" [routerLink]="['entrenador/rutina']">Seguimiento</a>
+               </li>
+
+            </ul>
+
+            <div class="d-flex">
+               <button class="btn primary-custom btn-block btn-sm me-2" style="background-color: #c8f500;"
+                  *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesión</button>
+               <span class="text-large" *ngIf="loginserv.userLoggedIn()"></span>
+
+               <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='alumno'">
+                  ALUMNO
+               </div>
+               <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='entrenador'">
+                  ENTRENADOR
+               </div>
+
+               <div class="dropdown">
+                  <button class="btn primary-custom btn-block btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown"
+                     id="navbarDropdown" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()">
+                     <b>{{loginserv.userLogged()}}</b>
+                  </button>
+
+                  <ul *ngIf="loginserv.userLoggedIn()" class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                     <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span
+                              class="text-danger">Cerrar Sesión</span></a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
       </div>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          
-          <!--Home page (visitante)-->
-          <li class="nav-item" *ngIf="!loginserv.userLoggedIn()">
-            <a class="nav-link" [routerLink]="['home']">Inicio</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Cómo entrenamos</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Precios y Planes</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
-          </li>
-
-          <!--Alumno-->
-          <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
-            <a class="nav-link" [routerLink]="['tusAsistencias']">Asistencias  </a>
-          </li>
-          <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
-            <a class="nav-link" [routerLink]="['tusRutinas']">Rutinas</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
-            <a class="nav-link" [routerLink]="['tusPagos']">Tus Pagos</a>
-          </li>
-
-          <!--Entrenador-->
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/nuevo-alumno']">Inscribir Alumno</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/rutina']">Gestionar Rutinas</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/gestionar-alumno']">Gestionar Alumno</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/rutina']">Seguimiento</a>
-          </li>
-        </ul>
-
-        <div class="d-flex">
-          <button class="btn primary-custom btn-block btn-sm me-2" style="background-color: #c8f500;" *ngIf="!loginserv.userLoggedIn()" [routerLink]="['login']">Iniciar Sesión</button>
-          <span class="text-large" *ngIf="loginserv.userLoggedIn()"></span>
-
-          <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='alumno'">
-            ALUMNO
-          </div>
-          <div class="nav-item bg-gradient rounded p-2 mx-3" *ngIf="loginserv.perfilLogged()=='entrenador'">
-            ENTRENADOR
-          </div>
-
-          <div class="dropdown">            
-            <button class="btn primary-custom btn-block btn-sm me-2 dropdown-toggle" data-bs-toggle="dropdown" id="navbarDropdown" style="background-color: #c8f500;" *ngIf="loginserv.userLoggedIn()">
-              <b>{{loginserv.userLogged()}}</b>
-            </button>
-
-            <ul *ngIf="loginserv.userLoggedIn()" class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span class="text-danger">Cerrar Sesión</span></a></li>
-            </ul>            
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
+   </nav>
 
 </header>
