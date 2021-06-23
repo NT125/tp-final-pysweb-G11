@@ -30,6 +30,7 @@ router.post('/:id/plan',autCtrl.verifyToken, alumnoCtrl.addPlan);
 //ABM de Rutina
 router.post('/:id/rutina',autCtrl.verifyToken, alumnoCtrl.addRutina);
 router.get('/:id/rutinas',autCtrl.verifyToken, alumnoCtrl.getRutinas);
+router.delete('/:id/rutina/:indexrutina', alumnoCtrl.deleteRutina);
 
 //ABM de Asistencia
 router.post('/:id/asistencia', autCtrl.verifyToken, alumnoCtrl.addAsistencia);
@@ -48,5 +49,7 @@ router.get('/:nro_documento/dni',autCtrl.verifyToken, alumnoCtrl.getAlumnoPorDNI
 router.get('/:fecha_inicio/fechainicio',autCtrl.verifyToken,alumnoCtrl.getAlumnoPorFechaInicio);
 //Busca alumnos sin usuario
 router.get('/:nada/usuarios',autCtrl.verifyToken,alumnoCtrl.getAlumnosinUsuario)
+//Buscar por Plan
+router.get('/:idplan/plan',alumnoCtrl.getAlumnosPlan)
 //exportamos el modulo de rutas
 module.exports = router;

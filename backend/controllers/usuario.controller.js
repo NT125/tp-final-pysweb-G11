@@ -70,7 +70,8 @@ usuarioCtrl.loginUsuario = async (req, res) => {
                     perfil: user.perfil,
                     token: unToken,
                     userid: user._id,
-                    idalumno: idalumno
+                    idalumno: idalumno,
+                    fotoperfil: user.fotoperfil
                 });
             }
         }

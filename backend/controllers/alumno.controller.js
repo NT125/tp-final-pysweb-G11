@@ -206,6 +206,31 @@ alumnoCtrl.addRutina = async (req, res) => {
     }
 }
 
+alumnoCtrl.deleteRutina = async(req, res) => {
+    var alumno = await Alumno.findById(req.params.id);
+    try {
+          const index = req.params.indexrutina;
+          if(index>=0 && alumno.rutina.length-1>=index){
+                alumno.rutina.splice(index,1);
+                await Alumno.updateOne({_id: req.params.id}, alumno);
+                res.json({
+                      'status': 1,
+                      'msg' : 'x ruina a sido eliminada'
+                })
+          }else{
+                res.json({
+                      'status' : 0,
+                      'msg' : 'Ocurrió un error al eliminar los datos.'
+                })
+          }
+    } catch (error) {
+          res.json({
+                'status' : 0,
+                'msg' : 'Ocurrió un error al eliminar los datos.'
+          })
+    }
+}
+
 alumnoCtrl.getRutinas = async (req, res) => {
     var alumno = await Alumno.findById(req.params.id);
     try{
@@ -427,6 +452,11 @@ alumnoCtrl.editUsuario = async (req, res) => {
 
 alumnoCtrl.getAlumnosinUsuario = async (req, res) => {
     var alumnos = await Alumno.find().where('usuario').equals(null);
+    res.json(alumnos);
+}
+
+alumnoCtrl.getAlumnosPlan = async (req, res) => {
+    var alumnos = await Alumno.find().where('plan').equals(req.params.idplan);
     res.json(alumnos);
 }
 
