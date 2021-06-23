@@ -76,6 +76,11 @@
               <li><a class="dropdown-item bg-dark" (click)="logout()" [routerLink]="['home']"><span class="text-danger">Cerrar Sesión</span></a></li>
             </ul>            
           </div>
+
+          <div *ngIf="loginserv.fotoPerfilLoggedIn()==false">
+            <img src="{{loginserv.fotoPerfilLogged()}}" height="30px" width="40px" alt="">
+          </div>
+        
         </div>
       </div>
     </div>

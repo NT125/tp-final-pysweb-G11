@@ -30,6 +30,7 @@ export class LoginService {
     sessionStorage.removeItem("userid");
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("idalumno");
+    sessionStorage.removeItem("fotoperfil");
   }
 
   public userLoggedIn() {
@@ -41,6 +42,15 @@ export class LoginService {
     return resultado;
   }
   
+  public fotoPerfilLoggedIn() {
+    var resultado = false;
+    var foto = sessionStorage.getItem("fotoperfil");
+    if (foto == undefined || foto == null || foto == "") {
+      resultado = true;
+    }
+    return resultado;
+  }
+
   public userLogged() {
     var usuario = sessionStorage.getItem("user");
     return usuario;
@@ -49,6 +59,11 @@ export class LoginService {
   public perfilLogged() {
     var perfil = sessionStorage.getItem("perfil");
     return perfil;
+  }
+
+  public fotoPerfilLogged() {
+    var foto = sessionStorage.getItem("fotoperfil");
+    return foto;
   }
 
   public alumnoLogged() {
