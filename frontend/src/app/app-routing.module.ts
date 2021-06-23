@@ -12,6 +12,7 @@ import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
 import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { PublicComponent } from './components/public/public.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,8 +31,11 @@ const routes: Routes = [
   { path: 'entrenador/rutina', component: MenuRutinaComponent },
   { path: 'entrenador/rutina/nueva-rutina', component: NuevaRutinaComponent },
   { path: 'entrenador/rutina/add-ejercicios', component: AddEjerciciosComponent },
-  { path: 'entrenador/pagos', component: AnotarPagoComponent }
+  { path: 'entrenador/pagos', component: AnotarPagoComponent },
+
+  { path: 'posteo', component: PublicComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

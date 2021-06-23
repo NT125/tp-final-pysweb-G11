@@ -25,6 +25,8 @@ import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/a
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
+import { FacebookModule } from 'ngx-fb';
+import { PublicComponent } from './components/public/public.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     NuevaRutinaComponent,
     MenuRutinaComponent,
     AddEjerciciosComponent,
+    PublicComponent,
     
   ],
   imports: [
@@ -53,7 +56,8 @@ import { AlifeFileToBase64Module } from 'alife-file-to-base64';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    AlifeFileToBase64Module
+    AlifeFileToBase64Module,
+    FacebookModule.forRoot()    
   ],
   providers: [LoginService,{
     provide: HTTP_INTERCEPTORS,
