@@ -27,6 +27,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AlifeFileToBase64Module } from 'alife-file-to-base64';
 import { FacebookModule } from 'ngx-fb';
 import { PublicComponent } from './components/public/public.component';
+import { AnotarPagoComponent } from './components/entrenador/anotar-pago/anotar-pago.component';
+import { GestionarAlumnoComponent } from './components/entrenador/gestionar-alumno/gestionar-alumno.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { PublicComponent } from './components/public/public.component';
     MenuRutinaComponent,
     AddEjerciciosComponent,
     PublicComponent,
+    AnotarPagoComponent,
+    GestionarAlumnoComponent
     
   ],
   imports: [
