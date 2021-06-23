@@ -1,5 +1,6 @@
 <div class="container">
-    <table class="table table-dark table-striped">
+    <div class="table table-responsive">
+      <table class="table table-dark table-striped">
         <thead>
           <tr>
             <th scope="col">Nombre</th>
@@ -16,8 +17,16 @@
             <td>{{item.nro_documento}}</td>
             <td>{{item.domicilio}}</td>
             <td>{{item.email}}</td>
-            <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button>Rutina</button></td>
+            <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button (click)="creaRutina(item._id)">Rutina</button></td>
           </tr>
         </tbody>
       </table>
+    </div>
+
+    <select name="planseleccionado" id="" [(ngModel)]="planseleccionado">
+      <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
+    </select>
+    <button (click)="buscarporPlan()">Buscar</button>
+
+    <button (click)="cargarAlumnos()">Restaurar Filtro</button>
 </div>

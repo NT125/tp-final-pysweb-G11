@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
 import { Pago } from '../models/pago';
+import { Rutina } from '../models/rutina';
 import { Usuario } from '../models/usuario';
 
 @Injectable({
@@ -87,5 +88,54 @@ export class EntrenadorService {
       })
     }
     return this.http.get(this.url+"alumno/"+id,httpOption);
+  }  
+
+  getAlumnosporPlan(idplan: string):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this.http.get(this.url+"alumno/"+idplan+"/plan",httpOption);
+  } 
+  
+  getRutinasAlumno(id: string):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this.http.get(this.url+"alumno/"+id+"/rutinas",httpOption);
+  } 
+
+  deleteRutina(id: string,indice: number):Observable<any>{
+    let httpOption = {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this.http.delete(this.url+"alumno/"+id+"/rutina/"+indice, httpOption);
+  }
+
+  addRutina(idalumno: string,rutina: Rutina):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    let body= JSON.stringify(rutina);
+    return this.http.post(this.url+"alumno/"+idalumno+"/rutina",body,httpOption);
   }  
 }

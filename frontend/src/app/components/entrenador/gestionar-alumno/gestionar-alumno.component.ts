@@ -2,7 +2,11 @@ import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Alumno } from 'src/app/models/alumno';
+import { Plan } from 'src/app/models/plan';
+import { Rutina } from 'src/app/models/rutina';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
+import { PlanService } from 'src/app/services/plan.service';
+import { RutinaService } from 'src/app/services/rutina.service';
 
 @Component({
   selector: 'app-gestionar-alumno',
@@ -11,9 +15,13 @@ import { EntrenadorService } from 'src/app/services/entrenador.service';
 })
 export class GestionarAlumnoComponent implements OnInit {
 
+  nivel: string;
+  planseleccionado: string;
   arraydeAlumnos:Array<Alumno>;
-  constructor(private entrenenadorserv: EntrenadorService,private route:Router) { 
+  arraydePlan: Array<Plan>;
+  constructor(private entrenenadorserv: EntrenadorService,private route:Router,private planserv: PlanService) { 
     this.cargarAlumnos();
+    this.cargarPlan();
   }
 
   ngOnInit(): void {
@@ -34,6 +42,38 @@ export class GestionarAlumnoComponent implements OnInit {
  
   crearPago(id: string){
     this.route.navigate(["entrenador/pagos/", id])
+  }
+
+  creaRutina(id: string){
+    console.log("xd")
+    this.route.navigate(["entrenador/add-rutina-alumno/", id])
+  }
+
+
+  cargarPlan(){
+    this.arraydePlan=new Array<Plan>();
+    this.planserv.getPlanes().subscribe(
+      result=>{
+        result.forEach(element => {
+          let vPlan= new Plan();
+          Object.assign(vPlan,element);
+          this.arraydePlan.push(vPlan);
+        });
+      }
+    )
+  }
+
+  buscarporPlan(){
+    this.arraydeAlumnos=new Array<Alumno>();
+    this.entrenenadorserv.getAlumnosporPlan(this.planseleccionado).subscribe(
+      result=>{
+        result.forEach(element => {
+          let vAlumno=new Alumno();
+          Object.assign(vAlumno,element);
+          this.arraydeAlumnos.push(vAlumno);
+        });
+      }
+    )
   }
 
 }
