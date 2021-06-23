@@ -17,6 +17,7 @@ const AlumnoSchema = new Schema({
  domicilio:{type:String,required:true},
  email:{type:String,required:true},
  nivel:{type:String},
+ horario:{type:String},
  //Relaciones
  usuario:{type: Schema.Types.ObjectId, ref: Usuario},
  asistencia:[{type:Asistencia.schema}],
