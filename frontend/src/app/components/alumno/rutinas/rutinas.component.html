@@ -1,7 +1,7 @@
-<div class="p-1 text-light m-5 mb-5 rounded">
+<div class="p-1 text-light m-5 mb-5 rounded container">
       <h1 class="display"><b>Tus Rutinas</b></h1>
       <div class="row">
-            <div class="col-8">
+            <div class="col-12">
                   <p class="lead">Todas tus rutinas a seguir, los ejercicios que te tocan hoy y su orden a seguir, etc.
                         Verás un progreso cuando termines con cada una de ellas. Lorem
                         ipsum,
@@ -12,31 +12,39 @@
                         laudantium.</p>
             </div>
       </div>
-      <div class="row">
-            <!--Calendario-->
-            <div class="col-8 row row-cols-4">
+      <div *ngIf="bandera==false" class="container mt-1" >
+            <div class="row row-cols-4 row gap-2 justify-content-center mx-3">
                   <div *ngFor="let item of arraydeRutinas" class="card" style="width: 18rem;">
                         <ul class="list-group list-group-flush">
                           <li class="list-group-item">Nivel: {{item.nivel}}</li>
+                          <li class="list-group-item">Nombre: {{item.nombre}}</li>
                           <li class="list-group-item">
-                              <div *ngFor="let ejercicio of item.ejercicios" class="accordion-item">
-                                    <h2 class="accordion-header" id="flush-headingOne">
-                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        {{ejercicio.zona}}
-                                      </button>
-                                    </h2>
-                                    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                      <div class="accordion-body">{{ejercicio.descripcion}}</div>
-                                    </div>
-                              </div>
+                             <button class="btn btn-secondary" (click)="verEjercicio(item._id)">Ver Ejercicios</button>
                           </li>
                         </ul>
-                      </div>
+                  </div>
             </div>
-            <!--Estadísticas-->
-            <div class="col-4">
-              
-            </div>
+      </div>
+      <div *ngIf="bandera==true" class="container mt-1">
+            <button class="btn btn-danger" (click)="carcelar()">Cerrar</button>
+            <table class="align-middle table table-dark table-hover my-3  text-center">
+                  <thead>
+                      <tr>
+                          <td>Descripcion</td>
+                          <td>Zona</td>
+                          <td>Repeticiones</td>
+                          <td>Intensidad</td>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let item of arraydeEjercicios">
+                          <td>{{item.descripcion}}</td>
+                          <td>{{item.zona}}</td>
+                          <td>{{item.repeticiones}}</td>
+                          <td>{{item.intensidad}}</td>
+                      </tr>
+                  </tbody>
+            </table>
       </div>
 </div>
 <br>
