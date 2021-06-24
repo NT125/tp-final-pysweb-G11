@@ -1,0 +1,8 @@
+ul{
+      list-style-type: none;
+}
+
+.main-bg {
+  background-image: url("../../../../assets/img/main-bg.jpg");
+  background-size: cover;
+}

@@ -1,5 +1,6 @@
 import { Asistencia } from "./asistencia";
 import { Pago } from "./pago";
+import { Plan } from "./plan";
 import { Registro } from "./registro";
 import { Rutina } from "./rutina";
 import { Usuario } from "./usuario";
@@ -20,7 +21,7 @@ export class Alumno {
     asistencia: Array<Asistencia>;
     registro: Array<Registro>;
     pago: Array<Pago>;
-    plan: String;
+    plan: Plan;
     rutina: Array<Rutina>;
 
 }

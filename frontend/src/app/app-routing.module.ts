@@ -42,9 +42,10 @@ const routes: Routes = [
   { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent},
   { path: 'entrenador/asistencia/:id', component: AsistenciaComponent },
   { path: 'entrenador/registro/:id', component: AgregarRegistroComponent },
-  { path: 'entrenador/seguimiento/:id', component: SeguimientoComponent},
+  { path: 'entrenador/seguimiento/:id', component: SeguimientoComponent },
   { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent },
-  { path: 'public', component: PublicComponent }
+  { path: 'public', component: PublicComponent },
+  { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent }
 ];
 
 
