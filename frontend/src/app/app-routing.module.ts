@@ -42,9 +42,9 @@ const routes: Routes = [
   { path: 'entrenador/registro/:id', component: AgregarRegistroComponent}
 ];
 
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
