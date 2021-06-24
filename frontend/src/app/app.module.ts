@@ -59,7 +59,9 @@ import { ContarPalabra, DirectivesDirective, SinMayuscula, SoloNumeros, Verifica
     AddRutinaAlumnoComponent,
     AsistenciaComponent,
     AgregarRegistroComponent,
-    DirectivesDirective
+    DirectivesDirective,
+    SinMayuscula,
+    VerificarNegativo
   ],
   imports: [
     HttpClientModule,

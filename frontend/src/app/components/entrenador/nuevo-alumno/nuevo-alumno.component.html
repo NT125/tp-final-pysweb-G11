@@ -4,84 +4,182 @@
             <div class="col-lg-6 col-sm-12">
                   <form #nuevoalumno="ngForm" class="mb-5 card bg-dark p-5 rounded bg-gradient">
                         <legend>Ingrese los datos del alumno</legend><br>
-                        Nombre:
-                        <input type="text" name="nombre" id="nombre" class="form-control"
-                              [(ngModel)]="alumno.nombre" autocomplete=off><br>
-                        Apellido:
-                        <input type="text" name="apellido" id="apellido" class="form-control"
-                              [(ngModel)]="alumno.apellido" autocomplete=off><br>
-                        Número de Documento:
-                        <input type="text" name="nro_documento" id="nro_documento" class="form-control"
-                              [(ngModel)]="alumno.nro_documento" autocomplete=off><br>
-                        Fecha de Nacimiento:
-                        <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control"
-                              [(ngModel)]="alumno.fecha_nacimiento"><br>
-                        Número de teléfono:
-                        <input type="text" name="celular" id="celular" class="form-control"
-                              [(ngModel)]="alumno.celular" autocomplete=off><br>
-                        Domicilio:
-                        <input type="text" name="domicilio" id="domicilio" class="form-control"
-                              [(ngModel)]="alumno.domicilio" autocomplete=off><br>
-                        Correo electrónico:
-                        <input type="text" name="email" id="email" class="form-control" [(ngModel)]="alumno.email" autocomplete=off><br>
-                        Fecha de Inicio:
-                        <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control"
-                              [(ngModel)]="alumno.fecha_inicio"><br>
-                        Plan:
-                        <select name="plan" id="plan" class="form-select mb-3" [(ngModel)]="alumno.plan" >
-                              <option *ngFor="let item of arraydePlanes" [ngValue]="item._id">Tipo: {{item.tipo}}, Dias: {{item.cantidadDias}}, Precio: {{item.precio}}</option>
-                        </select>
-                        <br>
+                        <div class="mb-3">
+                              Nombre:
+                              <input type="text" name="nombre" id="nombre" class="form-control " #nombre="ngModel"
+                                    required sin-mayuscula [(ngModel)]="alumno.nombre" autocomplete=off>
+                              <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="p-0">
+                                    <div *ngIf="nombre.errors.required" class="text text-danger  is-invalid">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="nombre.errors.sinLetraMayuscula" class="text text-danger">
+                                          <small> La primera letra debe estar en mayúscula </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Apellido:
+                              <input class="mt-3" type="text" name="apellido" id="apellido" class="form-control"
+                                    [(ngModel)]="alumno.apellido" #apellido="ngModel" autocomplete=off required
+                                    sin-mayuscula>
+                              <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)" class="p-0">
+                                    <div *ngIf="apellido.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="apellido.errors.sinLetraMayuscula" class="text text-danger">
+                                          <small> La primera letra debe estar en mayúscula </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Número de Documento:
+                              <input type="number" name="nro_documento" id="nro_documento" class="form-control"
+                                    [(ngModel)]="alumno.nro_documento" #dni="ngModel" required autocomplete=off
+                                    ver-negativo>
+                              <div *ngIf="dni.invalid && (dni.dirty || dni.touched)" class="p-0">
+                                    <div *ngIf="dni.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="dni.errors.verNumNegativo" class="text text-danger">
+                                          <small> El numero no debe ser negativo </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Fecha de Nacimiento:
+                              <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" class="form-control"
+                                    [(ngModel)]="alumno.fecha_nacimiento" #fechaN="ngModel" required max="2006-12-31">
+                              <div *ngIf="fechaN.invalid && (fechaN.dirty || fechaN.touched)" class="p-0">
+                                    <div *ngIf="fechaN.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Número de teléfono:
+                              <input type="text" name="celular" id="celular" class="form-control"
+                                    [(ngModel)]="alumno.celular" #telefono="ngModel" required autocomplete=off>
+                              <div *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)" class="p-0">
+                                    <div *ngIf="telefono.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Domicilio:
+                              <input type="text" name="domicilio" id="domicilio" class="form-control"
+                                    [(ngModel)]="alumno.domicilio" #domicilio="ngModel" required sin-mayuscula
+                                    autocomplete=off>
+                              <div *ngIf="domicilio.invalid && (domicilio.dirty || domicilio.touched)" class="p-0">
+                                    <div *ngIf="domicilio.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="domicilio.errors.sinLetraMayuscula" class="text text-danger">
+                                          <small> La primera letra debe estar en mayúscula </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Correo electrónico:
+                              <input type="email" name="email" id="email" class="form-control"
+                                    [(ngModel)]="alumno.email" #correo="ngModel" email required autocomplete=off>
+                              <div *ngIf="correo.invalid && (correo.dirty || correo.touched)" class="p-0">
+                                    <div *ngIf="correo.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="correo.errors.email" class="text text-danger">
+                                          <small> Escriba una dirección de correo válida</small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Fecha de Inicio:
+                              <input type="date" name="fecha_inicio" id="fecha_inicio" class="form-control"
+                                    [(ngModel)]="alumno.fecha_inicio" #fechaI="ngModel" min="2021-06-24" required>
+                              <div *ngIf="fechaI.invalid && (fechaI.dirty || fechaI.touched)" class="p-0">
+                                    <div *ngIf="fechaI.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="!fechaI.errors.min" class="text text-danger">
+                                          <small>La fecha debe ser mayor al dia de hoy </small>
+                                    </div>
 
-                        <div class="mb-3"  >
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Plan:
+                              <select name="plan" id="plan" class="form-select mb-3" [(ngModel)]="alumno.plan"
+                                    #plan="ngModel" required>
+                                    <option *ngFor="let item of arraydePlanes" [ngValue]="item">Tipo: {{item.tipo}},
+                                          Dias:
+                                          {{item.cantidadDias}}, Precio: {{item.precio}}</option>
+                              </select>
+                              <div *ngIf="plan.invalid && (plan.dirty || plan.touched)" class="p-0">
+                                    <div *ngIf="plan.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
+                              Nivel:
+                              <select [(ngModel)]="alumno.nivel" name="nivel" class="form-select" #nivel="ngModel"
+                                    required>
+                                    <option value="Principiante">Principiante</option>
+                                    <option value="Medio">Medio</option>
+                                    <option value="Experto">Experto</option>
+                                    <option value="Mamadisimo">Mamadisimo</option>
+                              </select>
+                              <div *ngIf="nivel.invalid && (nivel.dirty || nivel.touched)" class="p-0">
+                                    <div *ngIf="nivel.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="mb-3">
                               Seleccione los días que asistirá: <br>
-                              <div class="form-check form-check-inline" >
-                                    <input (click)="horario='Lunes'"   class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"
-                                          >
-                                    <label class="form-check-label" for="horario" >L</label>
+                              <div class="form-check form-check-inline">
+                                    <input [(ngModel)]="lun" class="form-check-input" type="checkbox" id="lun"
+                                          name="lun">
+                                    <label class="form-check-label" for="lunes">L</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                    <input [ngModel]="horario"  class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"   value="Martes">
-                                    <label class="form-check-label" for="horario"  >Ma</label>
+                                    <input [(ngModel)]="mar" class="form-check-input" type="checkbox" id="martes"
+                                          name="martes">
+                                    <label class="form-check-label" for="martes">Ma</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                    <input   class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"   value="Miercoles">
-                                    <label class="form-check-label" for="horario" >Mi</label>
+                                    <input [(ngModel)]="mie" class="form-check-input" type="checkbox" id="miercoles"
+                                          name="miercoles" value="Miercoles">
+                                    <label class="form-check-label" for="miercoles">Mi</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                    <input   class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"   value="Jueves">
-                                    <label class="form-check-label" for="horario" >J</label>
+                                    <input [(ngModel)]="jue" class="form-check-input" type="checkbox" id="jueves"
+                                          name="jueves" value="Jueves">
+                                    <label class="form-check-label" for="jueves">J</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                    <input   class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"    value="Viernes">
-                                    <label class="form-check-label" for="horario" >V</label>
+                                    <input [(ngModel)]="vie" class="form-check-input" type="checkbox" id="viernes"
+                                          name="viernes" value="Viernes">
+                                    <label class="form-check-label" for="viernes">V</label>
                               </div>
                               <div class="form-check form-check-inline">
-                                    <input   class="form-check-input" type="checkbox" id="horario"
-                                    name="horario"  value="Sabado">
-                                    <label class="form-check-label" for="horario" >S</label>
+                                    <input [(ngModel)]="sab" class="form-check-input" type="checkbox" id="sabado"
+                                          name="sabado" value="Sabado">
+                                    <label class="form-check-label" for="sabado">S</label>
                               </div>
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom"
-                                    (click)="createAlumno(nuevoalumno)">Inscribir</button>
+                              <button type="button" class="btn outline-custom" (click)="createAlumno(nuevoalumno)"
+                                    [disabled]="!nuevoalumno.form.valid">Inscribir</button>
                         </div>
-                        {{horario}}
+
                   </form>
             </div>
-         
+
             <div class="text-center col-lg-6 col-sm-12">
                   <h1 class="title display-1">Inscribir Alumno</h1>
-                  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
-                        obcaecati
-                        nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
-                        esse
-                        explicabo voluptatem commodi vero, cachai? <br>
+                  <p class="lead">En esta seccion podras inscribir
+                        a los alumnos que quieran entrar al gimasio Hercúles <br>
                   </p>
             </div>
       </div>
