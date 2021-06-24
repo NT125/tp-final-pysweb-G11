@@ -1,13 +1,9 @@
 <header class="p-3 bg-dark text-white">
-      <!--userbar (qsy como se llama)-->
+      <!--userbar-->
       <div class="bg-dark bg-gradient">
             <div class="text-end">
                   <div class="dropdown">
-                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              Dropdown link
-                        </a>
-
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Dropdown link</a>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                               <li><a class="dropdown-item" href="#">Action</a></li>
                               <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -19,7 +15,8 @@
       <!---->
       <div class="container">
             <div class="my-3 display-1 text-start"><b>¡Hola, &lt;username&gt;!</b></div>
-            <div class="lead">En esta página podrás gestionar todo acerca de tu cursada, Podrás saber acerca de tus asistencias, tus rutinas a seguir, y tus pagos pendientes.
+            <div class="lead">En esta página podrás gestionar todo acerca de tu cursada, Podrás saber acerca de tus
+                  asistencias, tus rutinas a seguir, y tus pagos pendientes.
             </div>
       </div>
       <br><br>
@@ -29,17 +26,25 @@
                   <!--ngStyle para aplicar estilos por condición-->
                   <ul class="nav nav-tabs" style="border-bottom-color: #c8f500;">
                         <li class="nav-item">
-                              <a class="nav-link" [routerLink]="[ 'tusAsistencias']" [ngStyle]="{'background-color' : tabAsist ? '#c8f500' : 'transparent'}" (click)="clickAsist()">
+                              <a class="nav-link" [routerLink]="[ 'tusAsistencias']"
+                                    [ngStyle]="{'background-color' : tabAsist ? '#c8f500' : 'transparent'}"
+                                    (click)="clickAsist()">
                                     <div [ngStyle]="{'color' : tabAsist ? 'black' : '#c8f500'}">Asistencias</div>
                               </a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" [routerLink]="[ 'tusRutinas']" [ngStyle]="{'background-color' : tabRutina ? '#c8f500' : 'transparent'}" (click)="clickRutina()">
-                                    <div [ngStyle]="{'color' : tabRutina ? 'black' : '#c8f500'}">Rutinas</div></a>
+                              <a class="nav-link" [routerLink]="[ 'tusRutinas']"
+                                    [ngStyle]="{'background-color' : tabRutina ? '#c8f500' : 'transparent'}"
+                                    (click)="clickRutina()">
+                                    <div [ngStyle]="{'color' : tabRutina ? 'black' : '#c8f500'}">Rutinas</div>
+                              </a>
                         </li>
                         <li class="nav-item">
-                              <a class="nav-link" [routerLink]="[ 'tusPagos']" [ngStyle]="{'background-color' : tabPago ? '#c8f500' : 'transparent'}" (click)="clickPago()">
-                                    <div [ngStyle]="{'color' : tabPago ? 'black' : '#c8f500'}">Pagos</div></a>
+                              <a class="nav-link" [routerLink]="[ 'tusPagos']"
+                                    [ngStyle]="{'background-color' : tabPago ? '#c8f500' : 'transparent'}"
+                                    (click)="clickPago()">
+                                    <div [ngStyle]="{'color' : tabPago ? 'black' : '#c8f500'}">Pagos</div>
+                              </a>
                         </li>
                   </ul>
             </nav>

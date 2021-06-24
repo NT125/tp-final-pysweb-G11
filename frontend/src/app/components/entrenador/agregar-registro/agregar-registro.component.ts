@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Registro } from 'src/app/models/registro';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
@@ -17,7 +18,7 @@ export class AgregarRegistroComponent implements OnInit {
   alumno: Alumno=new Alumno();
   idalumno: string;
   vregistro: Registro=new Registro();
-  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute) { 
+  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute, private toastr: ToastrService) { 
     this.arraydeImagenes=new Array<String>();
   }
 
@@ -44,15 +45,20 @@ export class AgregarRegistroComponent implements OnInit {
     this.entrenadorserv.addRegistro(this.idalumno,this.vregistro).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se agrego el registro");
+          this.toastr.success('Se agrego el registro correctamente', ' ', {
+            timeOut: 2000,
+          });        
         }else{
-          alert("no se agregoxd");
+          this.toastr.error('Ocurrió un error al agregar', ' ', {
+            timeOut: 2000,
+          });          
         }
       }
     )
       this.arraydeImagenes=null;
       formPago.reset();
   }
+
   onFileChanged(e){
     this.vregistro.imagenes=null;
     if(e[0]==null){
@@ -65,12 +71,16 @@ export class AgregarRegistroComponent implements OnInit {
           console.log(e[0])
         }else{
           this.imagennoagregada=true;
-          alert("Solo se permiten imagenes menores a 30kb")
+          this.toastr.error('Solo se permiten imagenes menores a 30kb', ' ', {
+            timeOut: 2000,
+          });    
           console.log(e[0])
         }
       }else{
         this.imagennoagregada=true;
-        alert("No esta permitido este tipo de imagen")
+        this.toastr.error('No esta permitido este tipo de imagen', ' ', {
+          timeOut: 2000,
+        });   
         console.log(e[0])
       }
     }
@@ -78,18 +88,20 @@ export class AgregarRegistroComponent implements OnInit {
 
   agregarOtraImagen(imagen: string){
     if(this.arraydeImagenes.length<3){
-      console.log("xd")
       this.arraydeImagenes.push(imagen);
-      
     }else{
-      alert("Maximo 3 Imagenes");
+      this.toastr.error('Solo se permiten 3 imagenes como maximo', ' ', {
+        timeOut: 2000,
+      });  
     }
    }
  
    eliminarImagen(index: number){
      if(index>=0 && index<=this.arraydeImagenes.length-1){
        this.arraydeImagenes.splice(index,1);
+       this.toastr.warning('Imagen eliminada', ' ', {
+        timeOut: 2000,
+      });
      }
    }
-
 }

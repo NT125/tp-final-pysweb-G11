@@ -1,31 +1,34 @@
 <div class="container">
-
       <div class="p-1 text-light mb-5 rounded">
             <h1 class="display"><b>Pagos mensuales</b></h1>
-                  <div>
-                        <p class="lead">Aquí podrás observar tus cuotas pagadas. Lorem
-                              ipsum,
-                              dolor sit amet consectetur adipisicing elit. Et voluptatum ex est non expedita sunt
-                              reprehenderit fugiat
-                              soluta praesentium perspiciatis. Commodi quo debitis quisquam earum eaque laboriosam repellendus
-                              repellat
-                              laudantium, cachai?.</p>
-                  </div>
-      
+            <div>
+                  <p class="lead">Aquí podrás observar tus cuotas pagadas. Lorem
+                        ipsum,
+                        dolor sit amet consectetur adipisicing elit. Et voluptatum ex est non expedita sunt
+                        reprehenderit fugiat
+                        soluta praesentium perspiciatis. Commodi quo debitis quisquam earum eaque laboriosam repellendus
+                        repellat
+                        laudantium, cachai?.</p>
+            </div>
             <div class="mx-auto">
                   <div class="row gap-2 justify-content-center mx-3">
                         <div class="col-lg-3 col-sm-12 card text-dark h-100" *ngFor="let item of arraydePagos">
                               <span class="m-2 h4 text-center gym-name"><b>RECIBO</b></span>
                               <div class="row my-3 txtsmall">
                                     <div class="col-6 text-start">Monto: </div>
-                                    <div class="col-6 text-end">${{item.monto }} </div><hr>
+                                    <div class="col-6 text-end">${{item.monto }} </div>
+                                    <hr>
                                     <div class="col-6 text-start">Fecha de Pago: </div>
-                                    <div class="col-6 text-end">{{item.fechaPago}} </div><hr>
+                                    <div class="col-6 text-end">{{item.fechaPago}} </div>
+                                    <hr>
                                     <div class="col-6 text-start">Forma de Pago: </div>
-                                    <div class="col-6 text-end">{{item.metodoPago}} </div>      
-                                    <button class= "btn btn-primary" style="background-color: #c8f500; border-color: black;" (click)="imprimirRecibo()"><i class="fa fa-print" aria-hidden="true"></i></button>
+                                    <div class="col-6 text-end">{{item.metodoPago}} </div>
+                                    <button class="btn btn-primary"
+                                          style="background-color: #c8f500; border-color: black;"
+                                          (click)="imprimirRecibo()"><i class="fa fa-print"
+                                                aria-hidden="true"></i></button>
                               </div>
-            
+
                               <!--
                               <ul class="list-group">
                                     <li class="list-group-item title text-center">PAGO</li>
@@ -37,7 +40,7 @@
                   </div>
             </div>
 
-            </div>
+      </div>
       <br>
 
 </div>
