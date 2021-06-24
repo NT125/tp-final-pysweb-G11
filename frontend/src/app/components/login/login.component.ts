@@ -12,8 +12,10 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   msglogin: string;
-  constructor(private loginserv: LoginService,private router:Router,private route:ActivatedRoute, private toastr: ToastrService) { 
 
+  passwd: boolean;
+
+  constructor(private loginserv: LoginService,private router:Router,private route:ActivatedRoute, private toastr: ToastrService) { 
   }
 
   ngOnInit(): void {
@@ -56,4 +58,9 @@ export class LoginComponent implements OnInit {
        
   }
   
+  showHidePwd(){
+    this.passwd = !this.passwd;
+    console.log(this.passwd)
+  }
+
 }
