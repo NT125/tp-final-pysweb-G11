@@ -1,3 +1,5 @@
+import { Plan } from "./plan";
+
 export class Alumno {
     _id: string;
     usuario:'Usuario';
@@ -14,11 +16,11 @@ export class Alumno {
     asistencia: 'Asistencia.schema';
     registro: 'Registro.schema';
     pago: 'Pago.schema';
-    plan: String;
+    plan: Plan;
     rutina: 'Rutina';
 
     alumno(id?: string, usuario?: 'Usuario', apellido?: String, nombre?: String, nro_documento?: String, fecha_nacimiento?: String, celular?: Number, fecha_inicio?: String, domicilio?: String,
-           email?: String, nivel?: String, asistencia?: 'Asistencia.schema', registro?: 'Registro.schema', pago?: 'Pago.schema', plan?: 'Plan', rutina?: 'Rutina',horario?:Array<string>){
+           email?: String, nivel?: String, asistencia?: 'Asistencia.schema', registro?: 'Registro.schema', pago?: 'Pago.schema', plan?: Plan, rutina?: 'Rutina',horario?:Array<string>){
         this._id = id;
         this.usuario = usuario;
         this.apellido = apellido;
