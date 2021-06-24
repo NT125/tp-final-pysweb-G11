@@ -75,7 +75,7 @@ export class AddEjerciciosComponent implements OnInit {
     this.rutinaserv.deleteEjercicio(this.idrutina,ide).subscribe(
       result=>{
         if(result.status=="1"){
-          this.toastr.error('Ejercicio eliminado', ' ', {
+          this.toastr.warning('Ejercicio eliminado', ' ', {
             timeOut: 2000,
           });
           this.cargarEjercicios(this.idrutina);
