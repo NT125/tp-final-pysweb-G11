@@ -38,8 +38,9 @@ const routes: Routes = [
   { path: 'entrenador/pagos/:id', component: AnotarPagoComponent },
   { path: 'entrenador/gestionar-alumno', component: GestionarAlumnoComponent},
   { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent},
-  { path: 'entrenador/asistencia/:id', component: AsistenciaComponent},
-  { path: 'entrenador/registro/:id', component: AgregarRegistroComponent}
+  { path: 'entrenador/asistencia/:id', component: AsistenciaComponent },
+  { path: 'entrenador/registro/:id', component: AgregarRegistroComponent },
+  { path: 'public', component: PublicComponent }
 ];
 
 

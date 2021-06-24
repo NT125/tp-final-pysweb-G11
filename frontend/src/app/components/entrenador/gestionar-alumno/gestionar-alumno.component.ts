@@ -7,6 +7,7 @@ import { Rutina } from 'src/app/models/rutina';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
 import { PlanService } from 'src/app/services/plan.service';
 import { RutinaService } from 'src/app/services/rutina.service';
+import { GoogleChartComponent } from 'angular-google-charts';  
 
 @Component({
   selector: 'app-gestionar-alumno',
@@ -20,12 +21,36 @@ export class GestionarAlumnoComponent implements OnInit {
   planseleccionado: string;
   arraydeAlumnos:Array<Alumno>;
   arraydePlan: Array<Plan>;
+
+  noseperoenstring: String = "holaaa"
+
+  nose: Number;
+
+  title = 'matiputo cagaste el login';  
+  type = 'PieChart';  
+  data = [  
+  ];  
+  columnNames = ['Name', 'Percentage'];  
+  options = {      
+    is3D: true
+  };  
+  width = 500;  
+  height = 300;
+  
   constructor(private entrenenadorserv: EntrenadorService,private route:Router,private planserv: PlanService) { 
+    this.nose = 44;
     this.cargarAlumnos();
     this.cargarPlan();
+    
   }
 
   ngOnInit(): void {
+  }
+
+  chingadamadre(){
+    this.data = [
+      [this.noseperoenstring, this.nose]
+    ]    
   }
 
   cargarAlumnos(){
@@ -94,4 +119,6 @@ export class GestionarAlumnoComponent implements OnInit {
       }
     )
   }
+
+  
 }
