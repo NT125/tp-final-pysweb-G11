@@ -33,6 +33,7 @@ import { AddRutinaAlumnoComponent } from './components/entrenador/add-rutina-alu
 import { AsistenciaComponent } from './components/entrenador/asistencia/asistencia.component';
 import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { ContarPalabra, DirectivesDirective, SinMayuscula, SoloNumeros, VerificarFechaIn, VerificarFechaNac, VerificarNegativo } from './directives/directives.directive';
 
 @NgModule({
   declarations: [
@@ -57,8 +58,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
     GestionarAlumnoComponent,
     AddRutinaAlumnoComponent,
     AsistenciaComponent,
-    AgregarRegistroComponent
-    
+    AgregarRegistroComponent,
+    DirectivesDirective
   ],
   imports: [
     HttpClientModule,
