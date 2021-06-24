@@ -14,6 +14,8 @@ import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-ru
 import { NuevaRutinaComponent } from './components/entrenador/nueva-rutina/nueva-rutina.component';
 import { NuevoAlumnoComponent } from './components/entrenador/nuevo-alumno/nuevo-alumno.component';
 import { NuevoUsuarioComponent } from './components/entrenador/nuevo-usuario/nuevo-usuario.component';
+import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
+import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
 import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PublicComponent } from './components/public/public.component';
@@ -40,12 +42,14 @@ const routes: Routes = [
   { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent},
   { path: 'entrenador/asistencia/:id', component: AsistenciaComponent },
   { path: 'entrenador/registro/:id', component: AgregarRegistroComponent },
+  { path: 'entrenador/seguimiento/:id', component: SeguimientoComponent},
+  { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent },
   { path: 'public', component: PublicComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-
 export class AppRoutingModule { }

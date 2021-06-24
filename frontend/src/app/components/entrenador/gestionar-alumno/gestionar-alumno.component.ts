@@ -79,6 +79,9 @@ export class GestionarAlumnoComponent implements OnInit {
     console.log("xd")
     this.route.navigate(["entrenador/add-rutina-alumno/", id])
   }
+  irSeguimiento(id: string){
+    this.route.navigate(["entrenador/seguimiento/", id])
+  }
 
 
   cargarPlan(){
