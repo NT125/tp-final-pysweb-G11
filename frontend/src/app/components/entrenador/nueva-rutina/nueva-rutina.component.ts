@@ -21,11 +21,11 @@ export class NuevaRutinaComponent implements OnInit {
     this.rutinaserv.addRutina(this.rutina).subscribe(
       result=>{
         if(result.status=="1"){
-          this.toastr.success('Se agrego correctamente', ' ', {
+          this.toastr.success('Se agrego la rutina correctamente', ' ', {
             timeOut: 2000,
           });
-        }else{
-          this.toastr.error('Error inesperado', ' ', {
+        }else{  
+          this.toastr.error('Ocurrió un error al agregar', ' ', {
             timeOut: 2000,
           });
         }

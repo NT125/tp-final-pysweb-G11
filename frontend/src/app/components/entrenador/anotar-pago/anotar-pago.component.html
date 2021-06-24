@@ -4,8 +4,8 @@
     <div class="row my-auto text-white">
           <div class="col-lg-6 col-sm-12">
                 <form #formPago="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
-                      <legend>Anotar pago de alumno</legend><br>
-                      <p class="mb-3">Alumno: {{alumno.nombre}}, {{alumno.apellido}}</p>
+                      <legend>Anotar pago de alumno</legend>
+                      <p class="mb-3">Alumno: {{alumno.apellido}}, {{alumno.nombre}}</p>
                       <div class="mb-2">
                             Monto (ARS):
                       </div>
@@ -14,7 +14,7 @@
                                   <i class="fa fa-dollar-sign" aria-hidden="true" style="font-size: 35px;"></i>
                             </div>
                             <div class="col-11">
-                                  <input [(ngModel)]="pago.monto" type="number" name="monto" class="form-control"><br>
+                                  <input [(ngModel)]="pago.monto" type="number" name="monto" class="form-control" autocomplete=off><br>
                             </div>
                       </div>
                       Forma de Pago:

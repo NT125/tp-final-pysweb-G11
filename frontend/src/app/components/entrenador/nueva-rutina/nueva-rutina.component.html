@@ -1,30 +1,29 @@
 <div class="container">
-      <a class="btn" [routerLink]="['/entrenador/rutina']" ><i class="fa fa-caret-left text-custom" aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
+      <a class="btn" [routerLink]="['/entrenador/rutina']"><i class="fa fa-caret-left text-custom"
+                  aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
       <div class="row my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <div class=" card bg-dark rounded bg-gradient">
                         <form class="p-5" #rutinaForm="ngForm">
-                        <legend>Crear una rutina</legend><br>
-                        Nombre:
-                        <input type="text" name="nombre" id="" class="form-control" [(ngModel)]="rutina.nombre">
-                        <br>
-                        Nivel:
-                        <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
-                              <option value="1">1</option>
-                              <option value="2">2</option>
-                              <option value="3">3</option>
-                              <option value="4">4</option>
-                              <option value="5">5</option>
-                        </select>
-
-                        <div class="d-grid mt-5 gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom" (click)="createRutina()">Crear
-                                    Rutina</button>
-                        </div>
-                  </form>
-
+                              <legend>Crear una rutina</legend><br>
+                              Nombre:
+                              <input type="text" name="nombre" id="" class="form-control" [(ngModel)]="rutina.nombre"
+                                    autocomplete=off>
+                              <br>
+                              Nivel:
+                              <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                              </select>
+                              <div class="d-grid mt-5 gap-2 col-6 mx-auto">
+                                    <button type="button" class="btn outline-custom" (click)="createRutina()">Crear
+                                          Rutina</button>
+                              </div>
+                        </form>
                   </div>
-                  
             </div>
             <div class="text-center col-lg-6 col-sm-12">
                   <h1 class="title display-1">Generar Nuevas Rutinas</h1>

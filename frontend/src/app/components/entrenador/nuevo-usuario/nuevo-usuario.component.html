@@ -1,23 +1,24 @@
 <div class="container">
-      
+
       <div class="row py-5 my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <form #nuevousuario="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
                         <legend>Crear un nuevo usuario</legend><br>
                         Alumno:
                         <select name="idalumno" id="alumno" class="form-select mb-3" [(ngModel)]="idalumno">
-                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.nombre}}
-                                    {{item.apellido}}</option>
+                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.apellido}}
+                                    {{item.nombre}}</option>
                         </select>
                         Nombre de Usuario:
                         <input type="text" name="username" id="username" class="form-control"
-                              [(ngModel)]="usuario.username"><br>
+                              [(ngModel)]="usuario.username" autocomplete=off><br>
                         Contraseña:
                         <input type="text" name="password" id="password" class="form-control"
                               [(ngModel)]="usuario.password"><br>
                         Foto de Perfil:
                         <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
-                        <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img" id="imagen" class="form-control">
+                        <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img"
+                              id="imagen" class="form-control">
                         <br>
                         <div *ngIf="imagennoagregada==false" class="text-center">
                               <img src="{{usuario.fotoperfil}}" height="100px" width="100px" alt="">

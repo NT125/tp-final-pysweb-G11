@@ -71,16 +71,16 @@ export class AgregarRegistroComponent implements OnInit {
           console.log(e[0])
         }else{
           this.imagennoagregada=true;
-          this.toastr.error('Solo se permiten imagenes menores a 30kb', ' ', {
+          this.toastr.error('Solo se permiten imagenes menores a 30kb', 'Error ', {
             timeOut: 2000,
-          });    
+            });     
           console.log(e[0])
         }
       }else{
         this.imagennoagregada=true;
-        this.toastr.error('No esta permitido este tipo de imagen', ' ', {
+        this.toastr.error('No esta permitido este tipo de imagen', 'Error ', {
           timeOut: 2000,
-        });   
+          }); 
         console.log(e[0])
       }
     }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Asistencia } from 'src/app/models/asistencia';
 import { EntrenadorService } from 'src/app/services/entrenador.service';
@@ -15,7 +16,7 @@ export class AsistenciaComponent implements OnInit {
   alumno: Alumno=new Alumno();
   idalumno: string;
   asistencia: Asistencia=new Asistencia();
-  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute) { }
+  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(
@@ -38,10 +39,14 @@ export class AsistenciaComponent implements OnInit {
     this.entrenadorserv.addAsistencia(this.idalumno,this.asistencia).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se agrego la asistencia");
+          this.toastr.success('Se agrego la asistencia correctamente', ' ', {
+            timeOut: 2000,
+          });
         }else{
-          alert("no se agregoxd");
-        }
+          this.toastr.error('Ocurrió un error al agregar', ' ', {
+            timeOut: 2000,
+            });    
+          }
       }
     )
       formPago.reset();
