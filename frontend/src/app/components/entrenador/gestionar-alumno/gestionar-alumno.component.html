@@ -1,34 +1,48 @@
 <div class="container">
-    <div class="table table-responsive">
-      <table class="table table-dark table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Apellido</th>
-            <th scope="col">DNI</th>
-            <th scope="col">Domicilio</th>
-            <th scope="col">Email</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of arraydeAlumnos">
-            <td>{{item.nombre}}</td>
-            <td>{{item.apellido}}</td>
-            <td>{{item.nro_documento}}</td>
-            <td>{{item.domicilio}}</td>
-            <td>{{item.email}}</td>
-            <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button (click)="creaRutina(item._id)">Rutina</button><button (click)="crearRegistro(item._id)">Registro</button><button (click)="crearAsistencia(item._id)">Asistencia</button></td>
-     
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <select name="planseleccionado" id="" [(ngModel)]="planseleccionado">
-      <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
-    </select>
-    <button (click)="buscarporPlan()">Buscar</button>
-    <input  [(ngModel)]="dni" type="number" class="form-control" name="dni" id="dni">
-    <button (click)="buscarporDni()">Buscar</button>
-   
-    <button (click)="cargarAlumnos()">Restaurar Filtro</button>
+  <div class="table table-responsive">
+    <table class="table table-dark table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Domicilio</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of arraydeAlumnos">
+          <td>{{item.nombre}}</td>
+          <td>{{item.apellido}}</td>
+          <td>{{item.nro_documento}}</td>
+          <td>{{item.domicilio}}</td>
+          <td>{{item.email}}</td>
+          <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button
+              (click)="creaRutina(item._id)">Rutina</button><button
+              (click)="crearRegistro(item._id)">Registro</button><button
+              (click)="crearAsistencia(item._id)">Asistencia</button></td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <select name="planseleccionado" id="" [(ngModel)]="planseleccionado">
+    <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
+  </select>
+  <button (click)="buscarporPlan()">Buscar</button>
+  <input [(ngModel)]="dni" type="number" class="form-control" name="dni" id="dni">
+  <button (click)="buscarporDni()">Buscar</button>
+
+  <button (click)="cargarAlumnos()">Restaurar Filtro</button>
+
+  <br>
+
+  <input type="number" name="nose" [(ngModel)]="nose"> <div class="text-white">{{nose}}</div>
+
+  <button class="btn btn-dark" (click)="chingadamadre()">nose</button>
+
+  <google-chart #chart [title]="title" [type]="type" [data]="data" [options]="options"
+    [width]="width" [height]="height">
+  </google-chart>
+
 </div>

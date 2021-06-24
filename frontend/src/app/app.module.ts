@@ -32,6 +32,7 @@ import { GestionarAlumnoComponent } from './components/entrenador/gestionar-alum
 import { AddRutinaAlumnoComponent } from './components/entrenador/add-rutina-alumno/add-rutina-alumno.component';
 import { AsistenciaComponent } from './components/entrenador/asistencia/asistencia.component';
 import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AgregarRegistroComponent } from './components/entrenador/agregar-regist
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     AlifeFileToBase64Module,
-    FacebookModule.forRoot()    
+    FacebookModule.forRoot(),
+    GoogleChartsModule
   ],
   providers: [LoginService,{
     provide: HTTP_INTERCEPTORS,
