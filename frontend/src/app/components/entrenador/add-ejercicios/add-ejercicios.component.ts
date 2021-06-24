@@ -35,7 +35,8 @@ export class AddEjerciciosComponent implements OnInit {
         }else{
           this.toastr.error('Ocurrió un error al agregar', ' ', {
           timeOut: 2000,
-          });        }
+          });        
+        }
       }
     )
     this.ejercicios.descripcion="";

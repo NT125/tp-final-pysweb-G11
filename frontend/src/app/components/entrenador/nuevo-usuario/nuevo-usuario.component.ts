@@ -43,10 +43,9 @@ export class NuevoUsuarioComponent implements OnInit {
     this.entrenadorserv.addUsuario(this.usuario,this.idalumno).subscribe(
       result=>{
         if(result.status=="1"){
-          this.toastr.success('Usuario Creado', ' ', {
+          this.toastr.success('Se agrego el usuario correctamente', ' ', {
             timeOut: 2000,
-          });
-          
+          });          
         }else if(result.status=="2"){
           this.toastr.warning('Este nombre de usuario ya existe', ' ', {
             timeOut: 2000,
@@ -75,12 +74,16 @@ export class NuevoUsuarioComponent implements OnInit {
           console.log(e[0])
         }else{
           this.imagennoagregada=true;
-          alert("Solo se permiten imagenes menores a 30kb")
+          this.toastr.error('Solo se permiten imagenes menores a 30kb', 'Error ', {
+            timeOut: 2000,
+            });   
           console.log(e[0])
         }
       }else{
         this.imagennoagregada=true;
-        alert("No esta permitido este tipo de imagen")
+        this.toastr.error('No esta permitido este tipo de imagen', 'Error ', {
+          timeOut: 2000,
+          }); 
         console.log(e[0])
       }
     }

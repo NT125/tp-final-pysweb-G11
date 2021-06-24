@@ -110,7 +110,7 @@ export class AddRutinaAlumnoComponent implements OnInit {
     this.entrenadorserv.deleteRutina(this.idalumno, indice).subscribe(
       result => {
         if (result.status == "1") {
-          this.toastr.warning('Rutina eliminada', ' ', {
+          this.toastr.warning('Ejercicio rutina', ' ', {
             timeOut: 2000,
           });
           this.cargarRutinasAlumno();
