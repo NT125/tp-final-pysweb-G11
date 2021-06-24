@@ -50,4 +50,16 @@ export class AlumnoService {
     return this.http.get(this.url+"/asistencias",httpOption);
   }
 
+  getAlumnos():Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this.http.get("http://localhost:3000/api/alumno/",httpOption);
+  }
+
 }

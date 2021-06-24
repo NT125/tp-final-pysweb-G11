@@ -4,7 +4,7 @@
 }
 
 .title{
-      font-family: Bungee;
+      font-family: "Russo One";
 }
 
 .gym-font{
@@ -20,7 +20,14 @@
       color:#c8f500;
 }
 
+
+.primary-custom{
+      color: black;
+      background-color: #c8f500;
+}
+
 /*botones*/
+
 button.primary-custom{
       color: black;
       background-color: #c8f500;

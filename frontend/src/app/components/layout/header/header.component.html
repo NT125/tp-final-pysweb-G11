@@ -3,7 +3,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark nav-fill">
     <div class="container-fluid">
       <div>
-        <a class="navbar-brand"><i class="fa fa-dumbbell" aria-hidden="true"></i><span class="gym-font">ÉRCULES</span></a>
+        <img class="me-3" src="../../../../assets/img/Hercules logo brand title.png" alt="HÉRCULES GYM" style="width: 175px;">
       </div>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,7 +40,7 @@
 
           <!--Entrenador-->
        
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" >
+          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" [routerLink]="['entrenador/nuevo-alumno']">Inscribir Alumno</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
@@ -53,7 +53,7 @@
             <a class="nav-link" [routerLink]="['entrenador/gestionar-alumno']">Gestionar Alumno</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/rutina']">Seguimiento</a>
+            <a class="nav-link" [routerLink]="['entrenador/seguimientogeneral']">Seguimiento</a>
           </li>
         </ul>
 
