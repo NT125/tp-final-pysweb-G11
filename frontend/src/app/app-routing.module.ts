@@ -6,6 +6,7 @@ import { RutinasComponent } from './components/alumno/rutinas/rutinas.component'
 import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
 import { AddRutinaAlumnoComponent } from './components/entrenador/add-rutina-alumno/add-rutina-alumno.component';
 import { AnotarPagoComponent } from './components/entrenador/anotar-pago/anotar-pago.component';
+import { AsistenciaComponent } from './components/entrenador/asistencia/asistencia.component';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
 import { GestionarAlumnoComponent } from './components/entrenador/gestionar-alumno/gestionar-alumno.component';
 import { MenuRutinaComponent } from './components/entrenador/menu-rutina/menu-rutina.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'entrenador/rutina/add-ejercicios', component: AddEjerciciosComponent },
   { path: 'entrenador/pagos/:id', component: AnotarPagoComponent },
   { path: 'entrenador/gestionar-alumno', component: GestionarAlumnoComponent},
-  { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent}
+  { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent},
+  { path: 'entrenador/asistencia/:id', component: AsistenciaComponent}
 ];
 
 

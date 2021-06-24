@@ -10,6 +10,7 @@ import { AlumnoService } from 'src/app/services/alumno.service';
 export class AsistenciasComponent implements OnInit {
 
   asistenciascont: number=0;
+  inasistenciacont: number=0;
   asistencia: Asistencia;
   arraydeAsistencias: Array<Asistencia>;
   constructor(private alumnoserv: AlumnoService) {
@@ -26,8 +27,14 @@ export class AsistenciasComponent implements OnInit {
         result.forEach(element => {
           let vAsistencia=new Asistencia();
           Object.assign(vAsistencia,element);
+          if(vAsistencia.asistio==true){
+            this.asistenciascont++;
+          }
+          else
+          {
+            this.inasistenciacont++;
+          }
           this.arraydeAsistencias.push(vAsistencia);
-          this.asistenciascont++;
         });
       }
     )

@@ -10,6 +10,7 @@ export class Alumno {
     domicilio: String;
     email: String;
     nivel: String;
+    horario:Array<String>;
     asistencia: 'Asistencia.schema';
     registro: 'Registro.schema';
     pago: 'Pago.schema';
@@ -17,7 +18,7 @@ export class Alumno {
     rutina: 'Rutina';
 
     alumno(id?: string, usuario?: 'Usuario', apellido?: String, nombre?: String, nro_documento?: String, fecha_nacimiento?: String, celular?: Number, fecha_inicio?: String, domicilio?: String,
-           email?: String, nivel?: String, asistencia?: 'Asistencia.schema', registro?: 'Registro.schema', pago?: 'Pago.schema', plan?: 'Plan', rutina?: 'Rutina'){
+           email?: String, nivel?: String, asistencia?: 'Asistencia.schema', registro?: 'Registro.schema', pago?: 'Pago.schema', plan?: 'Plan', rutina?: 'Rutina',horario?:Array<string>){
         this._id = id;
         this.usuario = usuario;
         this.apellido = apellido;
@@ -34,6 +35,7 @@ export class Alumno {
         this.pago = pago;
         this.plan = plan;
         this.rutina = rutina;
+        this.horario=horario;
 
     }
 }

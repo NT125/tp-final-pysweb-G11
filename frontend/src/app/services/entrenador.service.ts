@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
+import { Asistencia } from '../models/asistencia';
 import { Pago } from '../models/pago';
 import { Rutina } from '../models/rutina';
 import { Usuario } from '../models/usuario';
@@ -52,6 +53,18 @@ export class EntrenadorService {
     }
     let body= JSON.stringify(pago);
     return this.http.post(this.url+"alumno/"+id+"/pago",body,httpOption);
+  }  
+  addAsistencia(id: string, asistencia: Asistencia):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    let body= JSON.stringify(asistencia);
+    return this.http.post(this.url+"alumno/"+id+"/asistencia",body,httpOption);
   }  
 
   getAlumnosSinCuenta():Observable<any>{

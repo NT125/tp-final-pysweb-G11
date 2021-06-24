@@ -18,12 +18,15 @@
                         <thead>
                           <tr>
                             <th scope="col">Fecha de Asistencia</th>
+                            <th scope="col">Hora de Asistencia</th>
                             <th style="text-align: right;">¿Asistió?</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr *ngFor="let item of arraydeAsistencias">
                             <td>{{item.fechaasistencia}}</td>
+                            <td>{{item.horaAsistencia}}</td>
+                            <td>{{item.asistio}}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -33,6 +36,10 @@
                   <div class="my-5 text-end">
                         <span class="display-5" style="color: #83ff8d;">ASISTENCIAS: </span>
                         <span class="display-5">{{asistenciascont}}</span>
+                  </div>
+                  <div class="my-5 text-end">
+                        <span class="display-5" style="color:red;">INASISTENCIAS: </span>
+                        <span class="display-5">{{inasistenciacont}}</span>
                   </div>
             </div>
       </div>

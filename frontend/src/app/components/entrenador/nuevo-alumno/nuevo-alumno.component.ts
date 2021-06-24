@@ -16,7 +16,7 @@ import { PlanService } from 'src/app/services/plan.service';
 export class NuevoAlumnoComponent implements OnInit {
   plan: Plan = new Plan();
   alumno: Alumno = new Alumno();
-
+  horario:String;
   tipoPlan: String;
 
   arraydePlanes: Array<Plan>;
@@ -39,7 +39,8 @@ export class NuevoAlumnoComponent implements OnInit {
   }
 
   createAlumno(nuevoalumno: NgForm) {
-    console.log(this.alumno)
+    console.log(this.alumno);
+    console.log(this.horario);
     this.entrenadorserv.addAlumno(this.alumno).subscribe(
         (result) => {
           this.toastr.success('Alumno inscripto', ' ', {

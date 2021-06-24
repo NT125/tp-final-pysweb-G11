@@ -1,0 +1,34 @@
+<div class="container">
+    <a class="btn" [routerLink]="['/entrenador/gestionar-alumno']"><i class="fa fa-caret-left text-custom"
+        aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
+    <div class="row py-5 my-auto text-white">
+        
+          <div class="col-lg-6 col-sm-12">
+                <form #formAsistencia="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
+                      <legend>Anotar pago de alumno</legend><br>
+                      <p class="mb-3">Alumno: {{alumno.nombre}}, {{alumno.apellido}}</p>     
+                <div class="mb-2">
+                        <label for="fecha" class="form-check-label">Fecha de Asistencia</label>
+                        <input  [(ngModel)]="asistencia.fechaasistencia" type="date" name="fecha" id="fecha" class="form-control">
+                        <label for="hora" class="form-check-label">Hora</label>
+                        <input [(ngModel)]="asistencia.horaAsistencia" type="time" name="hora" id="hora" class="form-control">
+                  </div>
+                      
+                      <div class="form-check form-check-inline">
+                            <label for="asistio" class="form-check-label">¿Estuvo presente?</label>
+                            <input  [(ngModel)]="asistencia.asistio" type="checkbox" class="form-check-input" name="asistio" id="asistio">
+                      </div>
+                      <br>
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                            <button type="button" class="btn outline-custom" (click)="addAsistencia(formAsistencia)">Agregar Asistencia</button>
+                      </div>
+                </form>
+          </div>
+          <div class="text-center col-lg-6 col-sm-12">
+                <h1 class="title display-1">Anotar Asistencia</h1>
+                <p class="lead"><br>
+                </p>
+          </div>
+    </div>
+
+</div>

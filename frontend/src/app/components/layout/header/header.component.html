@@ -39,7 +39,8 @@
           </li>
 
           <!--Entrenador-->
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+       
+          <li *ngIf="loginserv.perfilLogged()=='entrenador'" >
             <a class="nav-link" [routerLink]="['entrenador/nuevo-alumno']">Inscribir Alumno</a>
           </li>          
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
