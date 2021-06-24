@@ -12,11 +12,14 @@ import { EntrenadorService } from 'src/app/services/entrenador.service';
 })
 export class AgregarRegistroComponent implements OnInit {
 
+  arraydeImagenes: Array<String>;
   imagennoagregada:boolean=true;
   alumno: Alumno=new Alumno();
   idalumno: string;
-  registro: Registro=new Registro();
-  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute) { }
+  vregistro: Registro=new Registro();
+  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute) { 
+    this.arraydeImagenes=new Array<String>();
+  }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(
@@ -36,7 +39,9 @@ export class AgregarRegistroComponent implements OnInit {
   }
 
   addRegistro(formPago: NgForm){
-    this.entrenadorserv.addRegistro(this.idalumno,this.registro).subscribe(
+    this.vregistro.imagenes=this.arraydeImagenes;
+    console.log(this.vregistro);
+    this.entrenadorserv.addRegistro(this.idalumno,this.vregistro).subscribe(
       result=>{
         if(result.status=="1"){
           alert("Se agrego el registro");
@@ -45,16 +50,17 @@ export class AgregarRegistroComponent implements OnInit {
         }
       }
     )
+      this.arraydeImagenes=null;
       formPago.reset();
   }
   onFileChanged(e){
-    this.registro.imagen=null;
+    this.vregistro.imagenes=null;
     if(e[0]==null){
       this.imagennoagregada=true;
     }else{
       if(/.(gif|jpeg|jpg|png|webp)$/i.test(e[0].name)){
         if(e[0].size<30000){
-          this.registro.imagen=e[0].base64;
+          this.agregarOtraImagen(e[0].base64);
          this.imagennoagregada=false;
           console.log(e[0])
         }else{
@@ -69,5 +75,21 @@ export class AgregarRegistroComponent implements OnInit {
       }
     }
   }
+
+  agregarOtraImagen(imagen: string){
+    if(this.arraydeImagenes.length<3){
+      console.log("xd")
+      this.arraydeImagenes.push(imagen);
+      
+    }else{
+      alert("Maximo 3 Imagenes");
+    }
+   }
+ 
+   eliminarImagen(index: number){
+     if(index>=0 && index<=this.arraydeImagenes.length-1){
+       this.arraydeImagenes.splice(index,1);
+     }
+   }
 
 }

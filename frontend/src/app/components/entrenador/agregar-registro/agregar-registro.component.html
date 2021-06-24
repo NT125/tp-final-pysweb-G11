@@ -7,20 +7,35 @@
                 <p class="mb-3">Alumno: {{alumno.nombre}}, {{alumno.apellido}}</p>
                 <div class="mb-2">
                     Peso :
-                    <input [ngModel]="registro.peso" type="number" name="peso" class="form-control"><br>
+                    <input [(ngModel)]="vregistro.peso" type="number" name="peso" class="form-control"><br>
                     <label for="fecha" class="form-check-label">Fecha de Registro</label>
-                    <input [ngModel]="registro.fecha_registro" type="date" name="fecha" id="fecha"
+                    <input [(ngModel)]="vregistro.fecha_registro" type="date" name="fecha" id="fecha"
                         class="form-control">
                     Dieta:
                     <textarea rows="4" type="text" name="dieta" id="dieta" class="form-control"
-                      [ngModel]="registro.dieta"  ></textarea><br>
-                    Imagen:
+                      [(ngModel)]="vregistro.dieta"></textarea><br>
+                    <div>
+                        Imagen:
                     <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
                     <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img"
                         id="imagen" class="form-control">
                     <br>
-                    <div *ngIf="imagennoagregada==false" class="text-center">
-                        <img src="{{registro.imagen}}" height="100px" width="100px" alt="">
+                    <table
+                                    class="align-middle table table-borderless table-hover my-3 table-dark text-center">
+                                    <thead>
+                                          <tr>
+                                                <td>Imagen</td>
+                                                <td></td>
+                                          </tr>
+                                    </thead>
+                                    <tbody>
+                                          <tr *ngFor="let item of arraydeImagenes;let indice=index">
+                                                <td><img src="{{item}}" width="30px" height="30px" alt=""></td>
+                                                <td><button class="btn text-light" (click)="eliminarImagen(indice)"><i class="fa fa-times"
+                                                                  aria-hidden="true"></i></button></td>
+                                          </tr>
+                                    </tbody>
+                              </table>
                     </div>
                     <br>
                     <div class="d-grid gap-2 col-6 mx-auto">
