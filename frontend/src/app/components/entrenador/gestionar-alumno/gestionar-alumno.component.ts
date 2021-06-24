@@ -16,6 +16,7 @@ import { RutinaService } from 'src/app/services/rutina.service';
 export class GestionarAlumnoComponent implements OnInit {
 
   nivel: string;
+  dni:number;
   planseleccionado: string;
   arraydeAlumnos:Array<Alumno>;
   arraydePlan: Array<Plan>;
@@ -46,7 +47,9 @@ export class GestionarAlumnoComponent implements OnInit {
   crearAsistencia(id: string){
     this.route.navigate(["entrenador/asistencia/", id])
   }
-
+  crearRegistro(id: string){
+    this.route.navigate(["entrenador/registro/", id])
+  }
   creaRutina(id: string){
     console.log("xd")
     this.route.navigate(["entrenador/add-rutina-alumno/", id])
@@ -79,4 +82,16 @@ export class GestionarAlumnoComponent implements OnInit {
     )
   }
 
+  buscarporDni(){
+    this.arraydeAlumnos=new Array<Alumno>();
+    this.entrenenadorserv.getAlumnosporDni(this.dni).subscribe(
+      result=>{
+        result.forEach(element => {
+          let vAlumno=new Alumno();
+          Object.assign(vAlumno,element);
+          this.arraydeAlumnos.push(vAlumno);
+        });
+      }
+    )
+  }
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
 import { Asistencia } from '../models/asistencia';
 import { Pago } from '../models/pago';
+import { Registro } from '../models/registro';
 import { Rutina } from '../models/rutina';
 import { Usuario } from '../models/usuario';
 
@@ -53,6 +54,18 @@ export class EntrenadorService {
     }
     let body= JSON.stringify(pago);
     return this.http.post(this.url+"alumno/"+id+"/pago",body,httpOption);
+  }  
+  addRegistro(id: string, registro: Registro):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    let body= JSON.stringify(registro);
+    return this.http.post(this.url+"alumno/"+id+"/registro",body,httpOption);
   }  
   addAsistencia(id: string, asistencia: Asistencia):Observable<any>{
     let httpOption= {
@@ -114,7 +127,17 @@ export class EntrenadorService {
     }
     return this.http.get(this.url+"alumno/"+idplan+"/plan",httpOption);
   } 
-  
+  getAlumnosporDni(dni: number):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    return this.http.get(this.url+"alumno/"+dni+"/dni",httpOption);
+  } 
   getRutinasAlumno(id: string):Observable<any>{
     let httpOption= {
       headers: new HttpHeaders({

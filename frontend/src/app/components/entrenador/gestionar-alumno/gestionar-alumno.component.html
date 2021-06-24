@@ -17,16 +17,18 @@
             <td>{{item.nro_documento}}</td>
             <td>{{item.domicilio}}</td>
             <td>{{item.email}}</td>
-            <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button (click)="creaRutina(item._id)">Rutina</button><button (click)="crearAsistencia(item._id)">Asistencia</button></td>
+            <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button (click)="creaRutina(item._id)">Rutina</button><button (click)="crearRegistro(item._id)">Registro</button><button (click)="crearAsistencia(item._id)">Asistencia</button></td>
+     
           </tr>
         </tbody>
       </table>
     </div>
-
     <select name="planseleccionado" id="" [(ngModel)]="planseleccionado">
       <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
     </select>
     <button (click)="buscarporPlan()">Buscar</button>
-
+    <input  [(ngModel)]="dni" type="number" class="form-control" name="dni" id="dni">
+    <button (click)="buscarporDni()">Buscar</button>
+   
     <button (click)="cargarAlumnos()">Restaurar Filtro</button>
 </div>

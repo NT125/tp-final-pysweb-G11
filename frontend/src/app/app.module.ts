@@ -31,6 +31,7 @@ import { AnotarPagoComponent } from './components/entrenador/anotar-pago/anotar-
 import { GestionarAlumnoComponent } from './components/entrenador/gestionar-alumno/gestionar-alumno.component';
 import { AddRutinaAlumnoComponent } from './components/entrenador/add-rutina-alumno/add-rutina-alumno.component';
 import { AsistenciaComponent } from './components/entrenador/asistencia/asistencia.component';
+import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { AsistenciaComponent } from './components/entrenador/asistencia/asistenc
     AnotarPagoComponent,
     GestionarAlumnoComponent,
     AddRutinaAlumnoComponent,
-    AsistenciaComponent
+    AsistenciaComponent,
+    AgregarRegistroComponent
     
   ],
   imports: [

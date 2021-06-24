@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="row py-5 my-auto text-white">
+        <div class="col-lg-6 col-sm-12">
+            <form #registroForm="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
+                <legend>Anotar un registro para el alumno</legend><br>
+                <p class="mb-3">Alumno: {{alumno.nombre}}, {{alumno.apellido}}</p>
+                <div class="mb-2">
+                    Peso :
+                    <input [ngModel]="registro.peso" type="number" name="peso" class="form-control"><br>
+                    <label for="fecha" class="form-check-label">Fecha de Registro</label>
+                    <input [ngModel]="registro.fecha_registro" type="date" name="fecha" id="fecha"
+                        class="form-control">
+                    Dieta:
+                    <textarea rows="4" type="text" name="dieta" id="dieta" class="form-control"
+                      [ngModel]="registro.dieta"  ></textarea><br>
+                    Imagen:
+                    <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
+                    <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img"
+                        id="imagen" class="form-control">
+                    <br>
+                    <div *ngIf="imagennoagregada==false" class="text-center">
+                        <img src="{{registro.imagen}}" height="100px" width="100px" alt="">
+                    </div>
+                    <br>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button type="button" class="btn outline-custom" (click)="addRegistro(registroForm)">Agregar
+                            Registro</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="text-center col-lg-6 col-sm-12">
+            <h1 class="title display-1">Agregar Registro</h1>
+            <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
+                obcaecati
+                nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
+                esse
+                explicabo voluptatem commodi vero, cachai? <br>
+            </p>
+        </div>
+    </div>
+
+</div>

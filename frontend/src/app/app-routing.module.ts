@@ -5,6 +5,7 @@ import { PagosComponent } from './components/alumno/pagos/pagos.component';
 import { RutinasComponent } from './components/alumno/rutinas/rutinas.component';
 import { AddEjerciciosComponent } from './components/entrenador/add-ejercicios/add-ejercicios.component';
 import { AddRutinaAlumnoComponent } from './components/entrenador/add-rutina-alumno/add-rutina-alumno.component';
+import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
 import { AnotarPagoComponent } from './components/entrenador/anotar-pago/anotar-pago.component';
 import { AsistenciaComponent } from './components/entrenador/asistencia/asistencia.component';
 import { EntrenadorHomeComponent } from './components/entrenador/entrenador-home/entrenador-home.component';
@@ -37,7 +38,8 @@ const routes: Routes = [
   { path: 'entrenador/pagos/:id', component: AnotarPagoComponent },
   { path: 'entrenador/gestionar-alumno', component: GestionarAlumnoComponent},
   { path: 'entrenador/add-rutina-alumno/:id', component: AddRutinaAlumnoComponent},
-  { path: 'entrenador/asistencia/:id', component: AsistenciaComponent}
+  { path: 'entrenador/asistencia/:id', component: AsistenciaComponent},
+  { path: 'entrenador/registro/:id', component: AgregarRegistroComponent}
 ];
 
 
