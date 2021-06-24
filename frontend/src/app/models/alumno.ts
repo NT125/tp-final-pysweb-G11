@@ -1,9 +1,12 @@
 import { Asistencia } from "./asistencia";
 import { Pago } from "./pago";
+import { Registro } from "./registro";
+import { Rutina } from "./rutina";
+import { Usuario } from "./usuario";
 
 export class Alumno {
     _id: string;
-    usuario:'Usuario';
+    usuario: Usuario;
     apellido: String;
     nombre: String;
     nro_documento: String;
@@ -15,9 +18,9 @@ export class Alumno {
     nivel: String;
     horario:Array<String>;
     asistencia: Array<Asistencia>;
-    registro: 'Registro.schema';
+    registro: Array<Registro>;
     pago: Array<Pago>;
     plan: String;
-    rutina: 'Rutina';
+    rutina: Array<Rutina>;
 
 }
