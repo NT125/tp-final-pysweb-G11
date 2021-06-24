@@ -34,8 +34,6 @@ import { AsistenciaComponent } from './components/entrenador/asistencia/asistenc
 import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { ContarPalabra, DirectivesDirective, SinMayuscula, SoloNumeros, VerificarFechaIn, VerificarFechaNac, VerificarNegativo } from './directives/directives.directive';
-import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
-import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
 
 @NgModule({
   declarations: [
@@ -62,8 +60,8 @@ import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento
     AsistenciaComponent,
     AgregarRegistroComponent,
     DirectivesDirective,
-    SeguimientoComponent,
-    SeguimientoGeneralComponent
+    SinMayuscula,
+    VerificarNegativo
   ],
   imports: [
     HttpClientModule,
