@@ -57,9 +57,13 @@ export class NuevoAlumnoComponent implements OnInit {
     this.entrenadorserv.editAlumno(this.alumno).subscribe(
       result=>{
         if(result.status=="1"){
-          alert("Se modificar alumno");
+          this.toastr.success('Alumno actualizado', ' ', {
+            timeOut: 2000,
+          });
         }else{
-          alert("ERROR")
+          this.toastr.error('Ocurrió un error', ' ', {
+            timeOut: 2000,
+          });
         }
       }
     )
@@ -94,7 +98,7 @@ export class NuevoAlumnoComponent implements OnInit {
             }
             else
             {
-              this.toastr.error('Error de inscripcion', ' ', {
+              this.toastr.error('Ocurrió un error', ' ', {
                 timeOut: 2000,
               });
             }
@@ -106,7 +110,7 @@ export class NuevoAlumnoComponent implements OnInit {
       nuevoalumno.reset();
     }
     else{
-      this.toastr.error('Malas fechas', ' ', {
+      this.toastr.error('Seleccione los días correspondientes, por favor', ' ', {
         timeOut: 2000,
       });
     }
