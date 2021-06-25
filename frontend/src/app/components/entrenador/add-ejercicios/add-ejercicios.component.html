@@ -5,48 +5,92 @@
             <div class="col-lg-6 col-sm-12">
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         Rutina:
-                        <select name="idrutina" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina">
+                        <select name="idrutina" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina"
+                              #rut="ngModel" required>
                               <option *ngFor="let item of arraydeRutinas" [value]="item._id">{{item.nombre}}, Nivel
                                     {{item.nivel}}</option>
-                        </select><br>
+                        </select>
+                        <div *ngIf="rut.invalid && (rut.dirty || rut.touched)" class="p-0">
+                              <div *ngIf="rut.errors.required" class="text text-danger">
+                                    <small>Campo obligatorio </small>
+                              </div>
+                        </div>
                         <legend>Crear Ejercicios:</legend>
                         <div class="row">
-                              <form class="rounded">
+                              <div class="rounded">
                                     <div class="row">
                                           <div class="col-6 mb-3">
                                                 Descripción:
                                                 <input type="text" name="descripcion" class="form-control"
-                                                      [(ngModel)]="ejercicios.descripcion" autocomplete=off>
+                                                      [(ngModel)]="ejercicios.descripcion" autocomplete=off
+                                                      #descripcion="ngModel" required sin-mayuscula>
+                                                <div *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)"
+                                                      class="p-0">
+                                                      <div *ngIf="descripcion.errors.required"
+                                                            class="text text-danger is-invalid">
+                                                            <small>Campo obligatorio </small>
+                                                      </div>
+                                                      <div *ngIf="descripcion.errors.sinLetraMayuscula"
+                                                            class="text text-danger">
+                                                            <small> La primera letra debe estar en mayúscula </small>
+                                                      </div>
+                                                </div>
                                           </div>
                                           <div class="col-6 mb-3">
                                                 Zona:
-                                                <select name="zona" class="form-select" [(ngModel)]="ejercicios.zona">
+                                                <select name="zona" class="form-select" [(ngModel)]="ejercicios.zona"
+                                                      #zona="ngModel" required>
                                                       <option value="Brazo">Brazo</option>
                                                       <option value="Pierna">Pierna</option>
                                                       <option value="Espalda">Espalda</option>
                                                       <option value="Abdominal">Abdominal</option>
                                                       <option value="Pecho">Pecho</option>
                                                 </select>
+                                                <div *ngIf="zona.invalid && (zona.dirty || zona.touched)" class="p-0">
+                                                      <div *ngIf="zona.errors.required" class="text text-danger">
+                                                            <small>Campo obligatorio </small>
+                                                      </div>
+                                                </div>
                                           </div>
                                           <div class="col-6">
                                                 Repeticiones:
                                                 <input type="number" name="repeticiones" class="form-control"
-                                                      [(ngModel)]="ejercicios.repeticiones">
+                                                      [(ngModel)]="ejercicios.repeticiones" #repeticiones="ngModel"
+                                                      required ver-negativo>
+                                                <div *ngIf="repeticiones.invalid && (repeticiones.dirty || repeticiones.touched)"
+                                                      class="p-0">
+                                                      <div *ngIf="repeticiones.errors.required"
+                                                            class="text text-danger">
+                                                            <small>Campo obligatorio </small>
+                                                      </div>
+                                                      <div *ngIf="repeticiones.errors.verNumNegativo"
+                                                            class="text text-danger">
+                                                            <small> Las repeticiones tienen que ser mayor a 0 </small>
+                                                      </div>
+                                                </div>
                                           </div>
                                           <div class="col-6">
                                                 Intensidad:
                                                 <select name="intensidad" class="form-select"
-                                                      [(ngModel)]="ejercicios.intensidad">
+                                                      [(ngModel)]="ejercicios.intensidad" #intensidad="ngModel"
+                                                      required>
                                                       <option value="Baja">Baja</option>
                                                       <option value="Media">Media</option>
                                                       <option value="Alta">Alta</option>
                                                 </select>
+                                                <div *ngIf="intensidad.invalid && (intensidad.dirty || intensidad.touched)"
+                                                      class="p-0">
+                                                      <div *ngIf="intensidad.errors.required" class="text text-danger">
+                                                            <small>Campo obligatorio </small>
+                                                      </div>
+                                                </div>
                                           </div>
                                     </div>
-                              </form>
+                              </div>
                               <div class="d-grid mt-3 text-center">
-                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></button>
+                                    <button class="btn btn-lg primary-custom" (click)="addEjerciciosRutina()"
+                                          [disabled]="!rutinaForm.form.valid"><i class="fa fa-plus"
+                                                aria-hidden="true"></i></button>
                               </div>
                         </div>
                         <br>
