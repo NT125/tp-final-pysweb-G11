@@ -39,8 +39,7 @@ import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rut
 import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
 import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
 import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
-import { ReciboComponent } from './components/entrenador/recibo/recibo.component';
-import { YesNoPipe } from './pipes/yes-no.pipe';
+import { ListaUsuariosComponent } from './components/entrenador/lista-usuarios/lista-usuarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,8 +72,7 @@ import { YesNoPipe } from './pipes/yes-no.pipe';
     VerificarNegativo,
     VerRutinasComponent,
     ListaPagosComponent,
-    ReciboComponent,
-    YesNoPipe
+    ListaUsuariosComponent
   ],
   imports: [
     HttpClientModule,

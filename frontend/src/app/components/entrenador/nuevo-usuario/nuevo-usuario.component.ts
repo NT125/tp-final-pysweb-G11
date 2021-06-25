@@ -17,12 +17,16 @@ export class NuevoUsuarioComponent implements OnInit {
   arraydeAlumnos: Array<Alumno>;
   imagennoagregada:boolean=true;
 
-  constructor(private router: Router,private entrenadorserv:EntrenadorService, private toastr: ToastrService) {
+  constructor(private router: Router,private entrenadorserv:EntrenadorService, private route:Router,private toastr: ToastrService) {
     this.usuario = new Usuario();
     this.cargarAlumnos();
   }
 
   ngOnInit(): void {
+  }
+
+  irListaUsuarios(){
+    this.route.navigate(["entrenador/lista-usuarios/"])
   }
 
   cargarAlumnos(){
