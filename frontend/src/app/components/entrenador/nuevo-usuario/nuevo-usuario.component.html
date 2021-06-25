@@ -5,7 +5,8 @@
                   <form #nuevousuario="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
                         <legend>Crear un nuevo usuario</legend><br>
                         Alumno:
-                        <select name="idalumno" id="alumno" class="form-select " [(ngModel)]="idalumno" #alumno="ngModel"required>
+                        <select name="idalumno" id="alumno" class="form-select " [(ngModel)]="idalumno"
+                              #alumno="ngModel" required>
                               <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.apellido}}
                                     {{item.nombre}}</option>
                         </select>
@@ -16,7 +17,7 @@
                         </div><br>
                         Nombre de Usuario:
                         <input type="text" name="username" id="username" class="form-control"
-                              [(ngModel)]="usuario.username" #usuario="ngModel"required autocomplete=off>
+                              [(ngModel)]="usuario.username" #usuario="ngModel" required autocomplete=off>
                         <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)" class="p-0">
                               <div *ngIf="usuario.errors.required" class="text text-danger">
                                     <small>Campo obligatorio </small>
@@ -24,12 +25,12 @@
                         </div><br>
                         Contraseña:
                         <input type="text" name="password" id="password" class="form-control"
-                              [(ngModel)]="usuario.password" #contra= "ngModel" required >
-                              <div *ngIf="contra.invalid && (contra.dirty || contra.touched)" class="p-0">
-                                    <div *ngIf="contra.errors.required" class="text text-danger">
-                                          <small>Campo obligatorio </small>
-                                    </div>
-                              </div><br>
+                              [(ngModel)]="usuario.password" #contra="ngModel" required>
+                        <div *ngIf="contra.invalid && (contra.dirty || contra.touched)" class="p-0">
+                              <div *ngIf="contra.errors.required" class="text text-danger">
+                                    <small>Campo obligatorio </small>
+                              </div>
+                        </div><br>
                         Foto de Perfil:
                         <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
                         <input type="file" alife-file-to-base64 (onFileChanged)="onFileChanged($event)" name="img"
@@ -40,19 +41,17 @@
                         </div>
                         <br>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom"
-                                    (click)="createUsuario(nuevousuario)" [disabled] = "!nuevousuario.form.valid" >Crear
+                              <button type="button" class="btn outline-custom" (click)="createUsuario(nuevousuario)"
+                                    [disabled]="!nuevousuario.form.valid">Crear
                                     Usuario</button>
                         </div>
                   </form>
             </div>
             <div class="text-center col-lg-6 col-sm-12">
                   <h1 class="title display-1">Generar Usuario</h1>
-                  <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo aliquam quo, voluptatem
-                        obcaecati
-                        nemo explicabo dolore, a fugiat iusto aperiam consequatur? Aspernatur corporis voluptatum omnis
-                        esse
-                        explicabo voluptatem commodi vero, cachai? <br>
+                  <p class="lead">Una vez creado el alumno se procederá a completar el formulario de usuario. Aca el
+                        alumno decidira su nombre de usuario y su respectiva contraseña. Tambien puede poner foto de
+                        perfil, aunque no sea requerida.<br>
                   </p>
             </div>
       </div>
