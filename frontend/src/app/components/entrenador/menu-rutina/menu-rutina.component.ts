@@ -16,7 +16,7 @@ export class MenuRutinaComponent implements OnInit {
   }
 
   goAddEjercicios(){
-    this.router.navigateByUrl("/entrenador/rutina/add-ejercicios")
+    this.router.navigateByUrl("/entrenador/verRutinas")
   }
 
   ngOnInit(): void {

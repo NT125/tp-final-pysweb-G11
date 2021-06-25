@@ -1,20 +1,11 @@
 <div class="container">
-      <a class="btn" [routerLink]="['/entrenador/rutina']"><i class="fa fa-caret-left text-custom"
+      <a class="btn" [routerLink]="['/entrenador/verRutinas']"><i class="fa fa-caret-left text-custom"
                   aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
       <div class="row my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <form class="mb-5 p-5 card bg-dark rounded bg-gradient" #rutinaForm="ngForm">
                         Rutina:
-                        <select name="idrutina" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina"
-                              #rut="ngModel" required>
-                              <option *ngFor="let item of arraydeRutinas" [value]="item._id">{{item.nombre}}, Nivel
-                                    {{item.nivel}}</option>
-                        </select>
-                        <div *ngIf="rut.invalid && (rut.dirty || rut.touched)" class="p-0">
-                              <div *ngIf="rut.errors.required" class="text text-danger">
-                                    <small>Campo obligatorio </small>
-                              </div>
-                        </div>
+                        {{rutina.nombre}} Nivel: {{rutina.nivel}}
                         <legend>Crear Ejercicios:</legend>
                         <div class="row">
                               <div class="rounded">

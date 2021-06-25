@@ -25,6 +25,18 @@ export class RutinaService {
 
     return this._http.get(this.url, httpOption);
   }
+  getRutina(id:String):Observable<any>{
+    let httpOption = {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+
+    return this._http.get(this.url+"/"+id, httpOption);
+  }
 
   addRutina(rutina: Rutina):Observable<any>{    
     let httpOption = {

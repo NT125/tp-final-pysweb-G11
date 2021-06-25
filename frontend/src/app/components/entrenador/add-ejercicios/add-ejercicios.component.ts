@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Ejercicio } from 'src/app/models/ejercicio';
 import { Rutina } from 'src/app/models/rutina';
@@ -14,13 +15,13 @@ export class AddEjerciciosComponent implements OnInit {
   table: boolean;
   ejercicios: Ejercicio;
   idrutina: string;
-
-  arraydeRutinas: Array<Rutina>;
+  rutina:Rutina=new Rutina();
+  
   arraydeEjercicios: Array<Ejercicio>;
-  constructor(private rutinaserv: RutinaService, private toastr: ToastrService) {
-    this.table = false;  
+  constructor(private rutinaserv: RutinaService, private toastr: ToastrService, private activedroute:ActivatedRoute) {
+    this.table = true;  
     this.ejercicios=new Ejercicio();
-    this.cargarRutinas();
+  
   }
 
   addEjerciciosRutina(){
@@ -31,7 +32,7 @@ export class AddEjerciciosComponent implements OnInit {
           this.toastr.success('Se agrego el ejercicio correctamente', ' ', {
             timeOut: 2000,
           });
-          this.cargarEjercicios(this.idrutina);
+          this.cargarEjercicios();
         }else{
           this.toastr.error('Ocurrió un error al agregar', ' ', {
           timeOut: 2000,
@@ -45,9 +46,9 @@ export class AddEjerciciosComponent implements OnInit {
     this.ejercicios.intensidad="";
   }
 
-  cargarEjercicios(idru: string){
+  cargarEjercicios(){
     this.arraydeEjercicios=new Array<Ejercicio>();
-    this.rutinaserv.getEjercicios(idru).subscribe(
+    this.rutinaserv.getEjercicios(this.idrutina).subscribe(
       result=>{
         result.forEach(element => {
           let vEjercicio=new Ejercicio();
@@ -59,16 +60,14 @@ export class AddEjerciciosComponent implements OnInit {
     
   }
 
-  cargarRutinas(){
-    this.arraydeRutinas=new Array<Rutina>();
-    this.rutinaserv.getRutinas().subscribe(
-      result=>{
-        result.forEach(element => {
-          let vRutina=new Rutina();
-          Object.assign(vRutina,element);
-          this.arraydeRutinas.push(vRutina);
-        });
-      }
+  getRutina() {
+    console.log("piol")
+    this.rutinaserv.getRutina(this.idrutina).subscribe(
+        result=>{
+          Object.assign(this.rutina,result);
+          console.log(this.rutina)
+        }
+        
     )
   }
 
@@ -79,13 +78,21 @@ export class AddEjerciciosComponent implements OnInit {
           this.toastr.warning('Ejercicio eliminado', ' ', {
             timeOut: 2000,
           });
-          this.cargarEjercicios(this.idrutina);
+          this.cargarEjercicios();
         }
       }
     )
   }
 
   ngOnInit(): void {
+    this.activedroute.params.subscribe(
+      params=>{
+          this.idrutina=params.id;
+          console.log(this.idrutina);
+          this.getRutina();
+          this.cargarEjercicios();
+      }
+    )
   }
 
 }

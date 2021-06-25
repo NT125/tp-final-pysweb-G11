@@ -19,6 +19,7 @@ import { SeguimientoComponent } from './components/entrenador/seguimiento/seguim
 import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PublicComponent } from './components/public/public.component';
+import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -45,7 +46,9 @@ const routes: Routes = [
   { path: 'entrenador/seguimiento/:id', component: SeguimientoComponent },
   { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent },
   { path: 'public', component: PublicComponent },
-  { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent }
+  { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent },
+  { path: 'entrenador/verRutinas', component: VerRutinasComponent },
+    { path: 'entrenador/rutina/add-ejercicios/:id', component: AddEjerciciosComponent },
 ];
 
 

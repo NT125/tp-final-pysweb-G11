@@ -34,9 +34,8 @@ import { AsistenciaComponent } from './components/entrenador/asistencia/asistenc
 import { AgregarRegistroComponent } from './components/entrenador/agregar-registro/agregar-registro.component';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { ContarPalabra, DirectivesDirective, SinMayuscula, SoloNumeros, VerificarFechaIn, VerificarFechaNac, VerificarNegativo } from './directives/directives.directive';
-import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
-import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
-
+import { NgxDataTableModule } from 'angular-9-datatable';
+import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,13 +61,10 @@ import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento
     AsistenciaComponent,
     AgregarRegistroComponent,
     DirectivesDirective,
-<<<<<<< HEAD
-=======
     SinMayuscula,
+    SoloNumeros,
     VerificarNegativo,
->>>>>>> 0368e25a1ccb8274542dfa5a4024b1b5087c897c
-    SeguimientoComponent,
-    SeguimientoGeneralComponent
+    VerRutinasComponent
   ],
   imports: [
     HttpClientModule,
@@ -79,7 +75,8 @@ import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento
     ToastrModule.forRoot(), // ToastrModule added
     AlifeFileToBase64Module,
     FacebookModule.forRoot(),
-    GoogleChartsModule
+    GoogleChartsModule,
+    NgxDataTableModule
   ],
   providers: [LoginService,{
     provide: HTTP_INTERCEPTORS,
