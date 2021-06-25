@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Pago } from 'src/app/models/pago';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import * as printJS from 'print-js'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class PagosComponent implements OnInit {
   totaldepagos: number=0;
   arraydePagos: Array<Pago>;
   pago: Pago;
-  constructor(private alumnoserv: AlumnoService) {
+  constructor(private alumnoserv: AlumnoService,  private router:Router) {
     this.cargarPagos();
    }
 
@@ -28,6 +29,9 @@ export class PagosComponent implements OnInit {
       properties: ['monto', 'fechaPago', 'metodoPago'],
       type: 'json'
     })
+  }
+  irImprimir(id:string){
+    this.router.navigate(["tusPagos/",id]);
   }
 
   cargarPagos(){

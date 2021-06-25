@@ -16,7 +16,9 @@ export class AsistenciaComponent implements OnInit {
   alumno: Alumno=new Alumno();
   idalumno: string;
   asistencia: Asistencia=new Asistencia();
-  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute, private toastr: ToastrService) { 
+    this.asistencia.asistio=false;
+  }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(

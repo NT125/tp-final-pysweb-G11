@@ -32,6 +32,7 @@
                 <td>{{item.monto | currency: 'ARS ' }}</td>
                 <td>{{item.metodoPago | uppercase}}</td>
                 <td>{{item.cuota}}</td>
+                <td>{{item.completo | yesNo}}</td>
                 <td scope="col">
                     <button type="button" class="btn outline-custom w-auto"
                         (click)="imprimirPago(item._id)">Imprimir</button>

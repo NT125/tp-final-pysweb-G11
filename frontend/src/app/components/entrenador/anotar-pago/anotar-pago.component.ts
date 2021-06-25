@@ -17,7 +17,10 @@ export class AnotarPagoComponent implements OnInit {
   alumno: Alumno=new Alumno();
   idalumno: string;
   pago: Pago=new Pago;
-  constructor(private entrenadorserv: EntrenadorService,private route: Router, private activatedroute:ActivatedRoute, private toastr: ToastrService) { }
+
+  constructor(private entrenadorserv: EntrenadorService,private route: Router, private activatedroute:ActivatedRoute, private toastr: ToastrService) { 
+    this.pago.completo=false;
+  }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(
@@ -27,7 +30,7 @@ export class AnotarPagoComponent implements OnInit {
       }
     )
   }
-
+  
   cargarAlumno(){
     this.entrenadorserv.getAlumno(this.idalumno).subscribe(
       result=>{

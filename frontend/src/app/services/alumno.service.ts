@@ -23,6 +23,20 @@ export class AlumnoService {
     console.log(this.url);
     return this.http.get(this.url+"/pagos",httpOption);
   }
+  
+
+  getPago(id:String):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+      
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    console.log(this.url);
+    return this.http.get(this.url+"/pago/"+id,httpOption);
+  }
 
   getRutinas():Observable<any>{
     let httpOption= {

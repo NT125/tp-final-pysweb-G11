@@ -22,6 +22,7 @@ import { PublicComponent } from './components/public/public.component';
 import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
 import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
 import { ListaUsuariosComponent } from './components/entrenador/lista-usuarios/lista-usuarios.component';
+import { ReciboComponent } from './components/entrenador/recibo/recibo.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -52,7 +53,8 @@ const routes: Routes = [
   { path: 'entrenador/verRutinas', component: VerRutinasComponent },
   { path: 'entrenador/rutina/add-ejercicios/:id', component: AddEjerciciosComponent },
   { path: 'entrenador/lista-pagos/:id', component: ListaPagosComponent },
-  { path: 'entrenador/lista-usuarios', component: ListaUsuariosComponent}
+  { path: 'entrenador/lista-usuarios', component: ListaUsuariosComponent},
+  { path: 'tusPagos/:id', component: ReciboComponent }
 ];
 
 
