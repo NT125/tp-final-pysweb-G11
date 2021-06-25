@@ -173,23 +173,19 @@
                               <button *ngIf="accion=='agregar'" type="button" class="btn outline-custom" (click)="createAlumno(nuevoalumno)"
                                     [disabled]="!nuevoalumno.form.valid">Inscribir</button>
                               <button *ngIf="accion=='editar'" type="button" class="btn outline-custom" (click)="editarAlumno(nuevoalumno)"
-                              [disabled]="!nuevoalumno.form.valid">Modificar</button>
+                              [disabled]="!nuevoalumno.form.valid">Actualizar</button>
                         </div>
                   </form>
             </div>
 
             <div *ngIf="accion=='agregar'" class="text-center col-lg-6 col-sm-12">
-                  <h1 class="title display-1">Inscribir Alumno</h1>
-                  <p class="lead">En esta seccion podemos inscribir a los alumnos que quieran formar parte del gimnasio
-                        Hercules. El boton para "Inscribir" se activara al completar todos los campos de forma
-                        correcta. <br>
+                  <h1 class="title display-1">INSCRIBIR ALUMNO</h1>
+                  <p class="lead">Anote a los nuevos ingresante que deseen formar parte de HÉRCULES. El botón "Inscribir" se habilitará una vez los datos ingresados estén completos y sean válidos.<br>
                   </p>
             </div>
             <div *ngIf="accion=='editar'" class="text-center col-lg-6 col-sm-12">
-                  <h1 class="title display-1">Modificar Alumno</h1>
-                  <p class="lead">En esta seccion podemos modificar a los alumnos que formar parte del gimnasio
-                        Hercules. El boton para "Modificar" se activara al completar todos los campos de forma
-                        correcta. <br>
+                  <h1 class="title display-1">ACTUALIZAR ALUMNO</h1>
+                  <p class="lead">Actualize la información del alumno seleccionado. El botón "Actualizar" se habilitará una vez los datos ingresados estén completos y sean válidos.<br>
                   </p>
             </div>
       </div>
