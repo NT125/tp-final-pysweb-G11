@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors({ origin: "http://localhost:4200" }));
 
 iniciadorCtrl.createRol();
-iniciadorCtrl.createHorarios();
+iniciadorCtrl.createPlan();
 app.use('/api/plan', require('./routes/plan.route.js'));
 app.use('/api/rutina', require('./routes/rutina.routes'));
 app.use('/api/usuarios', require('./routes/usuario.route'));
