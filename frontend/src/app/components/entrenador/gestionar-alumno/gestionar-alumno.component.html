@@ -17,7 +17,7 @@
           <td>{{item.nro_documento}}</td>
           <td>{{item.domicilio}}</td>
           <td>{{item.email}}</td>
-          <td><button>Modificar</button><button (click)="crearPago(item._id)">Pago</button><button
+          <td><button (click)="modificarAlumno(item._id)">Modificar</button><button (click)="crearPago(item._id)">Pago</button><button
               (click)="creaRutina(item._id)">Rutina</button><button
               (click)="crearRegistro(item._id)">Registro</button><button
               (click)="crearAsistencia(item._id)">Asistencia</button>
@@ -37,13 +37,4 @@
   <button (click)="cargarAlumnos()">Restaurar Filtro</button>
 
   <br>
-
-  <input type="number" name="nose" [(ngModel)]="nose"> <div class="text-white">{{nose}}</div>
-
-  <button class="btn btn-dark" (click)="chingadamadre()">nose</button>
-
-  <google-chart #chart [title]="title" [type]="type" [data]="data" [options]="options"
-    [width]="width" [height]="height">
-  </google-chart>
-
 </div>

@@ -119,6 +119,7 @@
                                           <small>Campo obligatorio </small>
                                     </div>
                               </div>
+                              
                         </div>
                         <div class="mb-3">
                               Nivel:
@@ -169,10 +170,11 @@
                               </div>
                         </div>
                         <div class="d-grid gap-2 col-6 mx-auto">
-                              <button type="button" class="btn outline-custom" (click)="createAlumno(nuevoalumno)"
+                              <button *ngIf="accion=='agregar'" type="button" class="btn outline-custom" (click)="createAlumno(nuevoalumno)"
                                     [disabled]="!nuevoalumno.form.valid">Inscribir</button>
+                              <button *ngIf="accion=='editar'" type="button" class="btn outline-custom" (click)="editarAlumno(nuevoalumno)"
+                              [disabled]="!nuevoalumno.form.valid">Modificar</button>
                         </div>
-
                   </form>
             </div>
 

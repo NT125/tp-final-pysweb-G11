@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Plan } from 'src/app/models/plan';
@@ -22,10 +22,51 @@ export class NuevoAlumnoComponent implements OnInit {
   lun:Boolean=false;mar:Boolean=false;mie:Boolean=false;jue:Boolean=false;vie:Boolean=false;sab:Boolean=false;
   aprobado:Boolean;
   arraydePlanes: Array<Plan>;
-  constructor(private entrenadorserv: EntrenadorService,private planserv: PlanService, private router: Router,private toastr: ToastrService) {
+  accion: string;
+  idalumno: string;
+  constructor(private entrenadorserv: EntrenadorService,private planserv: PlanService, private router: Router,private toastr: ToastrService,private activatedroute: ActivatedRoute) {
     this.alumno = new Alumno();    
   
     this.cargarPlanes();
+  }
+
+  ngOnInit(): void {
+    this.activatedroute.params.subscribe(
+      params=>{
+          if(params.id==0){
+            this.alumno=new Alumno();
+            this.accion="agregar";
+          }else{
+            this.accion="editar";
+            this.idalumno=params.id;
+            this.cargarAlumno();
+          
+          }
+      }
+    )
+  }
+
+  cargarAlumno(){
+    this.entrenadorserv.getAlumno(this.idalumno).subscribe(
+      result=>{
+        Object.assign(this.alumno,result);
+      }
+    )
+    
+  }
+
+  editarAlumno(nuevoalumno: NgForm){
+    console.log(this.alumno);
+    this.entrenadorserv.editAlumno(this.alumno).subscribe(
+      result=>{
+        if(result.status=="1"){
+          alert("Se modificar alumno");
+        }else{
+          alert("ERROR")
+        }
+      }
+    )
+    nuevoalumno.reset();
   }
 
   cargarPlanes(){
@@ -119,5 +160,5 @@ export class NuevoAlumnoComponent implements OnInit {
     this.router.navigate(['/entrenador']);
   }
 
-  ngOnInit(): void {}
+  
 }

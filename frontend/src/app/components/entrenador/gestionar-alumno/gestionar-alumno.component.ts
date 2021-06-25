@@ -69,9 +69,15 @@ export class GestionarAlumnoComponent implements OnInit {
   crearPago(id: string){
     this.route.navigate(["entrenador/pagos/", id])
   }
+  
   crearAsistencia(id: string){
     this.route.navigate(["entrenador/asistencia/", id])
   }
+
+  modificarAlumno(id: string){
+    this.route.navigate(["entrenador/nuevo-alumno/", id])
+  }
+
   crearRegistro(id: string){
     this.route.navigate(["entrenador/registro/", id])
   }
