@@ -1,7 +1,12 @@
-<form action="">
-    <div class="">
-        <label for="">Text</label>
-        <input type="text" name="mensaje" id="" [(ngModel)]="mensaje">
-    </div>
-    <button class="btn btn-secondary" (click)="postFb()">Postear</button>
-</form>
+<div class="text-center  container mt-4">
+    <h2 class="title text-white" style="font-size: 300%;">NUEVA PUBLICACION</h2>
+    <br>
+    <form class="" action="">
+        <div class="text-center d-flex col-6 mx-auto">
+            <textarea type="text" name="mensaje" id="" [(ngModel)]="mensaje" rows="5" class="form-control d-flex col-6"></textarea>
+        </div>
+        <div class="d-grid gap-2 col-6 text-center m-auto">
+            <button class="btn btn-primary mt-4 btn-lg" (click)="postFb()">Postear en <i class="fab fa-facebook" aria-hidden="true"></i></button>
+        </div>
+        </form>
+</div>
