@@ -37,6 +37,9 @@ export class AnotarPagoComponent implements OnInit {
   }
 
   addPago(formPago: NgForm){
+    const tiempoTranscurrido = Date.now();
+    const hoy = new Date(tiempoTranscurrido);
+    this.pago.fechaPago=hoy.toLocaleDateString();
     this.entrenadorserv.addPago(this.idalumno,this.pago).subscribe(
       result=>{
         if(result.status=="1"){

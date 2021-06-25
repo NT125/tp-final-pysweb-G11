@@ -33,7 +33,7 @@ const routes: Routes = [
 
   //rutas entrenador
   { path: 'entrenador', component: EntrenadorHomeComponent }, 
-  { path: 'entrenador/nuevo-alumno', component: NuevoAlumnoComponent },
+  { path: 'entrenador/nuevo-alumno/:id', component: NuevoAlumnoComponent },
   { path: 'entrenador/nuevo-usuario', component: NuevoUsuarioComponent },
   { path: 'entrenador/rutina', component: MenuRutinaComponent },
   { path: 'entrenador/rutina/nueva-rutina', component: NuevaRutinaComponent },

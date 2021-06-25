@@ -26,7 +26,6 @@ export class NuevoAlumnoComponent implements OnInit {
   idalumno: string;
   constructor(private entrenadorserv: EntrenadorService,private planserv: PlanService, private router: Router,private toastr: ToastrService,private activatedroute: ActivatedRoute) {
     this.alumno = new Alumno();    
-  
     this.cargarPlanes();
   }
 
@@ -39,8 +38,7 @@ export class NuevoAlumnoComponent implements OnInit {
           }else{
             this.accion="editar";
             this.idalumno=params.id;
-            this.cargarAlumno();
-          
+            this.cargarAlumno();   
           }
       }
     )
@@ -52,7 +50,6 @@ export class NuevoAlumnoComponent implements OnInit {
         Object.assign(this.alumno,result);
       }
     )
-    
   }
 
   editarAlumno(nuevoalumno: NgForm){
