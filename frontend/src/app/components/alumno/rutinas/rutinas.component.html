@@ -1,51 +1,58 @@
-<div class="p-1 text-light m-5 mb-5 rounded container">
-      <h1 class="display"><b>Tus Rutinas</b></h1>
-      <div class="row">
-            <div class="col-12">
-                  <p class="lead">Todas tus rutinas a seguir, los ejercicios que te tocan hoy y su orden a seguir, etc.
-                        Verás un progreso cuando termines con cada una de ellas. Lorem
-                        ipsum,
-                        dolor sit amet consectetur adipisicing elit. Et voluptatum ex est non expedita sunt
-                        reprehenderit fugiat
-                        soluta praesentium perspiciatis. Commodi quo debitis quisquam earum eaque laboriosam repellendus
-                        repellat
-                        laudantium.</p>
-            </div>
+<div class="p-3 text-light mb-5 rounded container light-bg shadow h-100">
+   <div class="m-3 text-center">
+      <h1 class="title display-2">TUS RUTINAS</h1>
+      <p class="lead">Todas tus rutinas a seguir, los ejercicios que te tocan hoy, los que realizaste, y los que te
+         tocarán.</p>
+   </div>
+
+   <hr>
+
+   <div *ngFor="let item of arraydeRutinas" class=" d-grid col-10 gap-3 mb-3 mx-auto card bg-dark row" style="background-image:url('../../../../assets/img/bg1.jpg')">
+      <div class="text-start col fs-5 m-3">
+         Rutina: {{item.nombre}}, Nivel: {{item.nivel}}
       </div>
-      <div *ngIf="bandera==false" class="container mt-1">
-            <div class="row row-cols-4 row gap-2 justify-content-center mx-3">
-                  <div *ngFor="let item of arraydeRutinas" class="card" style="width: 18rem;">
-                        <ul class="list-group list-group-flush">
-                              <li class="list-group-item">Nivel: {{item.nivel}}</li>
-                              <li class="list-group-item">Nombre: {{item.nombre}}</li>
-                              <li class="list-group-item">
-                                    <button class="btn btn-secondary" (click)="verEjercicio(item._id)">Ver
-                                          Ejercicios</button>
-                              </li>
-                        </ul>
-                  </div>
-            </div>
+      <div class="text-end col p-3">
+         <button class="btn primary-custom" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            (click)="verEjercicio(item._id)">Ver
+            Ejercicios</button>            
       </div>
-      <div *ngIf="bandera==true" class="container mt-1">
-            <button class="btn btn-danger" (click)="carcelar()">Cerrar</button>
-            <table class="align-middle table table-dark table-hover my-3  text-center">
-                  <thead>
+   </div>
+
+   <div class="modal fade" id="staticBackdrop" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+         <div class="modal-content bg-dark">
+            <div class="modal-header">
+               <h5 class="modal-title" id="staticBackdropLabel">Ejercicios</h5>
+               <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+               <div *ngIf="bandera==true" class="container mt-1">
+                  <table class="align-middle table table-responsive table-dark table-hover my-3  text-center">
+                     <thead>
                         <tr>
-                              <td>Descripcion</td>
-                              <td>Zona</td>
-                              <td>Repeticiones</td>
-                              <td>Intensidad</td>
+                           <td>Ejercicio</td>
+                           <td>Zona</td>
+                           <td>Repeticiones</td>
+                           <td>Intensidad</td>
                         </tr>
-                  </thead>
-                  <tbody>
+                     </thead>
+                     <tbody>
                         <tr *ngFor="let item of arraydeEjercicios">
-                              <td>{{item.descripcion}}</td>
-                              <td>{{item.zona}}</td>
-                              <td>{{item.repeticiones}}</td>
-                              <td>{{item.intensidad}}</td>
+                           <td>{{item.descripcion}}</td>
+                           <td>{{item.zona}}</td>
+                           <td>{{item.repeticiones}}</td>
+                           <td>{{item.intensidad}}</td>
                         </tr>
-                  </tbody>
-            </table>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
       </div>
+   </div>
 </div>
 <br>

@@ -43,10 +43,6 @@ export class RutinasComponent implements OnInit {
     this.cargarEjercicios();
   }
 
-  carcelar(){
-    this.bandera=false;
-  }
-
   cargarEjercicios(){
     this.arraydeEjercicios=new Array<Ejercicio>();
     console.log(this.idRutina);
