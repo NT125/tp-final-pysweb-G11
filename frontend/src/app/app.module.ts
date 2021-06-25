@@ -40,6 +40,7 @@ import { SeguimientoComponent } from './components/entrenador/seguimiento/seguim
 import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
 import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
 import { ListaUsuariosComponent } from './components/entrenador/lista-usuarios/lista-usuarios.component';
+import { ActivoPipe, YesNoPipe } from './pipes/activo.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,7 +73,9 @@ import { ListaUsuariosComponent } from './components/entrenador/lista-usuarios/l
     VerificarNegativo,
     VerRutinasComponent,
     ListaPagosComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    YesNoPipe,
+    ActivoPipe
   ],
   imports: [
     HttpClientModule,
