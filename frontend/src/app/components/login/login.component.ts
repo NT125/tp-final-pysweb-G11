@@ -44,9 +44,7 @@ export class LoginComponent implements OnInit {
         } else {
           //usuario no encontrado muestro mensaje en la vista
           console.log(user.status);
-          this.toastr.error('Usuario y/o contraseña incorrectos', ' ', {
-            timeOut: 2000,
-          });
+          this.msglogin = "Usuario y/o contraseña incorrectos"
         }
       },
       error => {
