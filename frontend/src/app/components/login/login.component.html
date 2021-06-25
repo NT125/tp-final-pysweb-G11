@@ -1,9 +1,13 @@
 <div>
-
+   <br><br>
    <div class="my-5 d-flex align-items-center justify-content-center" style="height: 28rem;">
       <form class="bg-gradient p-5 rounded" style="width: 28rem;">
-         <div class="text-center mb-3">
-            <h1 class="text-white"><b><small>Iniciar Sesión</small></b></h1>
+         <div class="text-center">
+            <img src="../../../assets/img/Hercules brand lg.png" alt="Hércules GYM" class="img-fluid"
+               style="width: 200px;">
+         </div>
+         <div class="text-center mb-3"><br>
+            <h1 class="text-white"><b>Iniciar Sesión</b></h1>
             <small class="text-secondary">Acceda a su espacio</small>
          </div>
          <br>
@@ -11,7 +15,8 @@
                class="fa fa-exclamation-circle" aria-hidden="true"></i> {{msglogin}}</div>
 
          <div class="form-floating mb-3">
-            <input type="text" class="form-control" placeholder="Usuario123" name="username" [(ngModel)]="username" autocomplete=off>
+            <input type="text" class="form-control" placeholder="Usuario123" name="username" [(ngModel)]="username"
+               autocomplete=off>
             <label for="floatingInput">Usuario</label>
          </div>
 
@@ -25,7 +30,7 @@
                <label for="showPwd" class="form-check-label"><small>Mostrar contraseña</small></label>
             </div>
          </div>
-
+         <br>
          <div class="text-center">
             <button type="reset" class="w-100 btn btn-lg primary-custom" (click)="login()">Iniciar Sesión</button>
          </div>
