@@ -4,7 +4,7 @@
       <div class="row my-auto text-white">
             <div class="col-lg-6 col-sm-12">
                   <form #formPago="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
-                        <legend>Anotar pago de alumno</legend>
+                        <legend>Anotar pago:</legend>
                         <p class="mb-3">Alumno: {{alumno.apellido}}, {{alumno.nombre}}</p>
                         <div class="mb-2">
                               Monto (ARS):
@@ -18,10 +18,10 @@
                                           autocomplete=off #monto="ngModel" required ver-negativo>
                                     <div *ngIf="monto.invalid && (monto.dirty || monto.touched)" class="p-0">
                                           <div *ngIf="monto.errors.required" class="text text-danger">
-                                                <small>Campo obligatorio </small>
+                                                <small>Campo obligatorio</small>
                                           </div>
                                           <div *ngIf="monto.errors.verNumNegativo" class="text text-danger">
-                                                <small> El monto tienen que ser mayor a 0 </small>
+                                                <small> El monto tiene que ser mayor a 0 </small>
                                           </div>
                                     </div>
                               </div>
@@ -37,10 +37,10 @@
                         </select>
                         <div *ngIf="fpago.invalid && (fpago.dirty || fpago.touched)" class="p-0">
                               <div *ngIf="fpago.errors.required" class="text text-danger">
-                                    <small>Campo obligatorio </small>
+                                    <small>Campo obligatorio</small>
                               </div>
                         </div><br>
-                        Nro. de Cuota:
+                        N° de Cuota:
                         <input [(ngModel)]="pago.cuota" type="number" name="cuota" class="form-control" #cuota="ngModel"
                               required ver-negativo>
                         <div *ngIf="cuota.invalid && (cuota.dirty || cuota.touched)" class="p-0">
@@ -48,7 +48,7 @@
                                     <small>Campo obligatorio </small>
                               </div>
                               <div *ngIf="cuota.errors.verNumNegativo" class="text text-danger">
-                                    <small> El monto tienen que ser mayor a 0 </small>
+                                    <small> El monto tiene que ser mayor a 0 </small>
                               </div>
                         </div><br>
                         <div class="form-check form-check-inline">
@@ -66,13 +66,13 @@
                   </form>
             </div>
             <div class="text-center col-lg-6 col-sm-12">
-                  <h1 class="title display-1">Anotar Pagos</h1>
+                  <h1 class="title display-1">ANOTAR PAGOS</h1>
                   <p class="lead">Los alumnos que hayan pagado su cuota debidamente deberán obtener un recibo desde su
                         página. Desde aquí podrá anotar dichos pagos para que los alumnos obtengan su recibo
                         correspondiente.<br>
                   </p>
                   <br>
-                  <button type="button" class="btn outline-custom" (click)="verListaPagos()">Ver Lista Pagos</button>
+                  <button type="button" class="btn outline-custom" (click)="verListaPagos()">Ver Lista de pagos</button>
             </div>
       </div>
       

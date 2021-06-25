@@ -42,7 +42,7 @@
                             <tr *ngFor="let item of arraydeRutinasAlumno;let indice=index">
                                 <td>{{item.nombre}}</td>
                                 <td>{{item.nivel}}</td>
-                                <td><button class="btn btn-secondary" (click)="verEjercicios(item._id)">Ver
+                                <td><button class="btn outline-custom" (click)="verEjercicios(item._id)">Ver
                                         Ejercicios</button></td>
                                 <td><button class="btn btn text-light" (click)="deleteRutina(indice)"><i
                                             class="fa fa-times" aria-hidden="true"></i></button></td>
@@ -56,9 +56,8 @@
             </form>
         </div>
         <div class="text-center col-lg-6 col-sm-12">
-            <h1 class="title display-1">Añadir Rutina a Alumno</h1>
-            <p class="lead">Complete las rutinas que creó añadiéndole ejercicios para realizar. Anote la zona a
-                trabajar, la intensidad, las repeticiones y añada una descripción.<br>
+            <h1 class="title display-1">ASIGNAR RUTINA</h1>
+            <p class="lead">Asígnele rutinas a sus alumnos para que entrenene. Seleccione rutinas existente y agréguelas<br>
             </p>
 
             <div *ngIf="bandera==true" class="table table-responsive">
@@ -66,7 +65,7 @@
                 <table class="align-middle table table-borderless table-hover my-3 table-dark text-center">
                     <thead>
                         <tr>
-                            <td>Descripcion</td>
+                            <td>Descripción</td>
                             <td>Zona</td>
                             <td>Repeticiones</td>
                             <td>Intensidad</td>
