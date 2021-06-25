@@ -174,4 +174,18 @@ export class EntrenadorService {
     let body= JSON.stringify(rutina);
     return this.http.post(this.url+"alumno/"+idalumno+"/rutina",body,httpOption);
   }  
+
+  editAlumno(alumno: Alumno):Observable<any>{
+    let httpOption= {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json"
+      }),
+      params: new HttpParams({
+    
+      })
+    }
+    let body= JSON.stringify(alumno);
+    return this.http.put(this.url+"alumno/",body,httpOption);
+  }
+
 }
