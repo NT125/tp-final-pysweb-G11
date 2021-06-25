@@ -22,10 +22,6 @@ export class Alumno {
     registro: Array<Registro>;
     pago: Array<Pago>;
     plan: Plan;
-<<<<<<< HEAD
-    rutina: Array<Rutina>;    
-=======
     rutina: Array<Rutina>;
 
->>>>>>> 0368e25a1ccb8274542dfa5a4024b1b5087c897c
 }

@@ -36,6 +36,8 @@ import { GoogleChartsModule } from 'angular-google-charts';
 import { ContarPalabra, DirectivesDirective, SinMayuscula, SoloNumeros, VerificarFechaIn, VerificarFechaNac, VerificarNegativo } from './directives/directives.directive';
 import { NgxDataTableModule } from 'angular-9-datatable';
 import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
+import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
+import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,6 +56,8 @@ import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rut
     NuevaRutinaComponent,
     MenuRutinaComponent,
     AddEjerciciosComponent,
+    SeguimientoComponent,
+    SeguimientoGeneralComponent,
     PublicComponent,
     AnotarPagoComponent,
     GestionarAlumnoComponent,
