@@ -64,6 +64,7 @@ export class GestionarAlumnoComponent implements OnInit {
         });
       }
     )
+
   }
  
   crearPago(id: string){
@@ -114,6 +115,7 @@ export class GestionarAlumnoComponent implements OnInit {
         });
       }
     )
+    this.planseleccionado=null;
   }
 
   buscarporDni(){
@@ -127,6 +129,7 @@ export class GestionarAlumnoComponent implements OnInit {
         });
       }
     )
+    this.dni=null;
   }
 
   

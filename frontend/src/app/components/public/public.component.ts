@@ -33,5 +33,6 @@ export class PublicComponent implements OnInit {
       "message": this.mensaje,
       "access_token": "EAAErqQp6OzkBAGODxqnpyz9TdQNr6wery6o9LRuBdDS3HeuIuccFbeild8nN9Y7laJ7KQkpIOrmz7RVZBL3dcy2AnnpsJsKdhmxchZCZCFznX1qt3GF3mntcqW9kBmsEfZCk4697VRBZC4PhPxPZB8zKnZAAvXxQZB27lxtgnOo5e59I8AKNAPwM4StHu2rQkAgZD"
     });
+    this.mensaje=null;
   }
 }
