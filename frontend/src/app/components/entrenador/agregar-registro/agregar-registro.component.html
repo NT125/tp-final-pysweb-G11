@@ -6,13 +6,33 @@
                 <p class="mb-3">Alumno: {{alumno.nombre}}, {{alumno.apellido}}</p>
                 <div class="mb-2">
                     Peso :
-                    <input [(ngModel)]="vregistro.peso" type="number" name="peso" class="form-control"><br>
-                    <label for="fecha" class="form-check-label">Fecha de Registro</label>
+                    <input [(ngModel)]="vregistro.peso" type="number" name="peso" class="form-control" #peso="ngModel"
+                        required ver-negativo>
+                    <div *ngIf="peso.invalid && (peso.dirty || peso.touched)" class="p-0">
+                        <div *ngIf="peso.errors.required" class="text text-danger">
+                            <small>Campo obligatorio </small>
+                        </div>
+                        <div *ngIf="peso.errors.verNumNegativo" class="text text-danger">
+                            <small> El peso tienen que ser mayor a 0 </small>
+                        </div>
+                    </div><br>
+                    <label for="fecha" class="form-check-label">
+                        Fecha de Registro</label>
                     <input [(ngModel)]="vregistro.fecha_registro" type="date" name="fecha" id="fecha"
-                        class="form-control">
+                        class="form-control" #fecha="ngModel" required>
+                    <div *ngIf="fecha.invalid && (fecha.dirty || fecha.touched)" class="p-0">
+                        <div *ngIf="fecha.errors.required" class="text text-danger">
+                            <small>Campo obligatorio </small>
+                        </div>
+                    </div>
                     Dieta:
                     <textarea rows="4" type="text" name="dieta" id="dieta" class="form-control"
-                        [(ngModel)]="vregistro.dieta"></textarea><br>
+                        [(ngModel)]="vregistro.dieta" #dieta="ngModel" required></textarea>
+                    <div *ngIf="dieta.invalid && (dieta.dirty || dieta.touched)" class="p-0">
+                        <div *ngIf="dieta.errors.required" class="text text-danger">
+                            <small>Campo obligatorio </small>
+                        </div>
+                    </div><br>
                     <div>
                         Imagen:
                         <small class="txtsmall">(Tamaño maximo de archivo 30KB)</small>
@@ -37,7 +57,8 @@
                     </div>
                     <br>
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn outline-custom" (click)="addRegistro(registroForm)">Agregar
+                        <button type="button" class="btn outline-custom" (click)="addRegistro(registroForm)"
+                            [disabled]="!registroForm.form.valid">Agregar
                             Registro</button>
                     </div>
                 </div>

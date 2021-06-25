@@ -1,52 +1,79 @@
 <div class="container">
       <a class="btn" [routerLink]="['/entrenador/gestionar-alumno']"><i class="fa fa-caret-left text-custom"
-            aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
-    <div class="row my-auto text-white">
-          <div class="col-lg-6 col-sm-12">
-                <form #formPago="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
-                      <legend>Anotar pago de alumno</legend>
-                      <p class="mb-3">Alumno: {{alumno.apellido}}, {{alumno.nombre}}</p>
-                      <div class="mb-2">
-                            Monto (ARS):
-                      </div>
-                      <div class="row">
-                            <div class="col-1 text-center">
-                                  <i class="fa fa-dollar-sign" aria-hidden="true" style="font-size: 35px;"></i>
-                            </div>
-                            <div class="col-11">
-                                  <input [(ngModel)]="pago.monto" type="number" name="monto" class="form-control" autocomplete=off><br>
-                            </div>
-                      </div>
-                      Forma de Pago:
-                      <select  [(ngModel)]="pago.metodoPago" name="metodoPago" class="form-select">
-                            <option value="Efectivo">Efectivo</option>
-                            <option value="Débito">Débito</option>
-                            <option value="Crédito">Crédito</option>
-                            <option value="Transf. Bancaria">Transferencia Bancaria</option>
-                            <option value="Debin">Debin</option>
-                      </select><br>
-                      Cuota N°:
-                      <input  [(ngModel)]="pago.cuota" type="number" name="cuota" class="form-control"><br>
+                  aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
+      <div class="row my-auto text-white">
+            <div class="col-lg-6 col-sm-12">
+                  <form #formPago="ngForm" class="mb-5 p-5 card bg-dark rounded bg-gradient">
+                        <legend>Anotar pago de alumno</legend>
+                        <p class="mb-3">Alumno: {{alumno.apellido}}, {{alumno.nombre}}</p>
+                        <div class="mb-2">
+                              Monto (ARS):
+                        </div>
+                        <div class="row">
+                              <div class="col-1 text-center">
+                                    <i class="fa fa-dollar-sign" aria-hidden="true" style="font-size: 35px;"></i>
+                              </div>
+                              <div class="col-11">
+                                    <input [(ngModel)]="pago.monto" type="number" name="monto" class="form-control"
+                                          autocomplete=off #monto="ngModel" required ver-negativo>
+                                    <div *ngIf="monto.invalid && (monto.dirty || monto.touched)" class="p-0">
+                                          <div *ngIf="monto.errors.required" class="text text-danger">
+                                                <small>Campo obligatorio </small>
+                                          </div>
+                                          <div *ngIf="monto.errors.verNumNegativo" class="text text-danger">
+                                                <small> El monto tienen que ser mayor a 0 </small>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div><br>
+                        Forma de Pago:
+                        <select [(ngModel)]="pago.metodoPago" name="metodoPago" class="form-select" #fpago="ngModel"
+                              required>
+                              <option value="Efectivo">Efectivo</option>
+                              <option value="Débito">Débito</option>
+                              <option value="Crédito">Crédito</option>
+                              <option value="Transf. Bancaria">Transferencia Bancaria</option>
+                              <option value="Debin">Debin</option>
+                        </select>
+                        <div *ngIf="fpago.invalid && (fpago.dirty || fpago.touched)" class="p-0">
+                              <div *ngIf="fpago.errors.required" class="text text-danger">
+                                    <small>Campo obligatorio </small>
+                              </div>
+                        </div><br>
+                        Nro. de Cuota:
+                        <input [(ngModel)]="pago.cuota" type="number" name="cuota" class="form-control" #cuota="ngModel"
+                              required ver-negativo>
+                        <div *ngIf="cuota.invalid && (cuota.dirty || cuota.touched)" class="p-0">
+                              <div *ngIf="cuota.errors.required" class="text text-danger">
+                                    <small>Campo obligatorio </small>
+                              </div>
+                              <div *ngIf="cuota.errors.verNumNegativo" class="text text-danger">
+                                    <small> El monto tienen que ser mayor a 0 </small>
+                              </div>
+                        </div><br>
+                        <div class="form-check form-check-inline">
+                              <label for="completo" class="form-check-label">¿Última cuota?</label>
+                              <input [(ngModel)]="pago.completo" type="checkbox" class="form-check-input"
+                                    name="completo" id="completo">
 
-                      <div class="form-check form-check-inline">
-                            <label for="completo" class="form-check-label">¿Última cuota?</label>
-                            <input  [(ngModel)]="pago.completo" type="checkbox" class="form-check-input" name="completo" id="completo">
-                      </div>
-                      <br>
-                      <div class="d-grid gap-2 col-6 mx-auto">
-                            <button type="button" class="btn outline-custom" (click)="addPago(formPago)">Anotar Pago</button>
-                      </div>
-                </form>
-          </div>
-          <div class="text-center col-lg-6 col-sm-12">
-                <h1 class="title display-1">Anotar Pagos</h1>
-                <p class="lead">Los alumnos que hayan pagado su cuota debidamente deberán obtener un recibo desde su
-                      página. Desde aquí podrá anotar dichos pagos para que los alumnos obtengan su recibo
-                      correspondiente.<br>
-                </p>
-                <br>
-                <button type="button" class="btn outline-custom" (click)="verListaPagos()">Ver Lista Pagos</button>
-          </div>
-    </div>
+                        </div>
+                        <br>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                              <button type="button" class="btn outline-custom" (click)="addPago(formPago)"
+                                    [disabled]="!formPago.form.valid">Anotar
+                                    Pago</button>
+                        </div>
+                  </form>
+            </div>
+            <div class="text-center col-lg-6 col-sm-12">
+                  <h1 class="title display-1">Anotar Pagos</h1>
+                  <p class="lead">Los alumnos que hayan pagado su cuota debidamente deberán obtener un recibo desde su
+                        página. Desde aquí podrá anotar dichos pagos para que los alumnos obtengan su recibo
+                        correspondiente.<br>
+                  </p>
+                  <br>
+                  <button type="button" class="btn outline-custom" (click)="verListaPagos()">Ver Lista Pagos</button>
+            </div>
+      </div>
 
 </div>

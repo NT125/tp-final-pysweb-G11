@@ -10,10 +10,20 @@
                         <div class="mb-2">
                               <label for="fecha" class="form-check-label">Fecha de Asistencia</label>
                               <input [(ngModel)]="asistencia.fechaasistencia" type="date" name="fecha" id="fecha"
-                                    class="form-control">
+                                    class="form-control" #afecha="ngModel" required>
+                              <div *ngIf="afecha.invalid && (afecha.dirty || afecha.touched)" class="p-0">
+                                    <div *ngIf="afecha.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
                               <label for="hora" class="form-check-label">Hora</label>
                               <input [(ngModel)]="asistencia.horaAsistencia" type="time" name="hora" id="hora"
-                                    class="form-control">
+                                    class="form-control" #hora="ngModel" required>
+                              <div *ngIf="hora.invalid && (hora.dirty || hora.touched)" class="p-0">
+                                    <div *ngIf="hora.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
                         </div>
 
                         <div class="form-check form-check-inline">
@@ -24,7 +34,7 @@
                         <br>
                         <div class="d-grid gap-2 col-6 mx-auto">
                               <button type="button" class="btn outline-custom"
-                                    (click)="addAsistencia(formAsistencia)">Agregar Asistencia</button>
+                                    (click)="addAsistencia(formAsistencia)"[disabled]="!formAsistencia.form.valid">Agregar Asistencia</button>
                         </div>
                   </form>
             </div>

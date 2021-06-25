@@ -9,15 +9,21 @@
                 <br>
                 <br>
                 Agregar Rutina:
-                <select name="_id" id="" class="form-select form-select-sm mb-3" [(ngModel)]="idrutina._id">
+                <select name="_id" id="" class="form-select form-select-sm" [(ngModel)]="idrutina._id"
+                    #arutina="ngModel" required>
                     <option *ngFor="let item of arraydeRutinas" [value]="item._id">{{item.nombre}}, Nivel:
                         {{item.nivel}}
                     </option>
                 </select>
+                <div *ngIf="arutina.invalid && (arutina.dirty || arutina.touched)" class="p-0">
+                    <div *ngIf="arutina.errors.required" class="text text-danger">
+                        <small>Campo obligatorio </small>
+                    </div>
+                </div><br>
                 <div class="row">
                     <div class="d-grid mt-3 text-center">
-                        <button class="btn btn-lg primary-custom" (click)="addRutina(rutinaForm)"><i class="fa fa-plus"
-                                aria-hidden="true"></i></button>
+                        <button class="btn btn-lg primary-custom" (click)="addRutina(rutinaForm)"
+                            [disabled]="!rutinaForm.form.valid"><i class="fa fa-plus" aria-hidden="true"></i></button>
                     </div>
                 </div>
                 <br>
