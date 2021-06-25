@@ -5,14 +5,16 @@
       <select class="col-5" name="planseleccionado" id="" [(ngModel)]="planseleccionado">
         <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
       </select>
-      <button class="col-2 btn outline-custom" type="button" id="button-addon2" (click)="buscarporPlan()">Buscar</button>
+      <button class="col-2 btn outline-custom" type="button" id="button-addon2"
+        (click)="buscarporPlan()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
     </div>
     <div class="input-group mb-3 w-25">
-      <input [(ngModel)]="dni" type="number" class="form-control" placeholder="Ingrese DNI" aria-label="Ingrese DNI" aria-describedby="button-addon2" name="dni" id="dni">
-      <button class="btn outline-custom" type="button" id="button-addon2" (click)="buscarporDni()">Buscar</button>
+      <input [(ngModel)]="dni" type="number" class="form-control" placeholder="Ingrese DNI" aria-label="Ingrese DNI"
+        aria-describedby="button-addon2" name="dni" id="dni">
+      <button class="btn outline-custom" type="button" id="button-addon2" (click)="buscarporDni()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
     </div>
   </div>
-  
+
   <div class="text-end">
     <button class="btn primary-custom btn-sm" (click)="cargarAlumnos()">Restaurar Filtro</button>
   </div>
@@ -36,13 +38,18 @@
           <td>{{item.nro_documento}}</td>
           <td>{{item.domicilio}}</td>
           <td>{{item.email}}</td>
-          <td>
-              <button (click)="modificarAlumno(item._id)">Modificar</button><button (click)="crearPago(item._id)">Pago</button><button
-              (click)="creaRutina(item._id)">Rutina</button><button
-              (click)="crearRegistro(item._id)">Registro</button><button
-              (click)="crearAsistencia(item._id)">Asistencia</button>
-              <button
-              (click)="irSeguimiento(item._id)">Seguimiento</button></td>
+          <td class="text-center mx-auto ">
+           
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn-sm btn btn-info" (click)="modificarAlumno(item._id)"><i class="fa fa-edit" aria-hidden="true"></i> Modificar</button>
+              <button type="button" class="btn btn-sm outline-custom" (click)="crearPago(item._id)">Pago</button>
+              <button type="button" class="btn btn-sm outline-custom" (click)="creaRutina(item._id)">Rutina</button>
+              <button type="button" class="btn btn-sm outline-custom" (click)="crearRegistro(item._id)">Registro</button>
+              <button type="button" class="btn btn-sm outline-custom" (click)="crearAsistencia(item._id)">Asistencia</button>
+              <button type="button" class="btn btn-sm primary-custom" (click)="irSeguimiento(item._id)"><i class="fa fa-pencil-alt" aria-hidden="true"></i> Seguimiento</button>
+            </div>
+              
+          </td>
         </tr>
       </tbody>
     </table>
