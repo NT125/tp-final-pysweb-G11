@@ -1,10 +1,13 @@
 <div class="container">
+    <a class="btn" [routerLink]="['/entrenador/pagos',idalumno]"><i class="fa fa-caret-left text-custom"
+        aria-hidden="true"></i><span class="m-2 text-custom"> Volver</span></a>
+<div class="row my-auto text-white">
     <div class="table-responsive">
         <table class="table table-dark table-striped" [mfData]="arraydePagos" #mf="mfDataTable" [mfRowsOnPage]="10">
             <thead>
                 <tr>
                     <th scope="col">
-                        <mfDefaultSorter by="_id">ID</mfDefaultSorter>
+                        <mfDefaultSorter by="_id">Fecha de Pago</mfDefaultSorter>
                     </th>
                     <th scope="col">
                         <mfDefaultSorter by="monto">Monto</mfDefaultSorter>
@@ -25,12 +28,10 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of mf.data">
-                <td>{{item._id}}</td>
-                <td>{{item.monto}}</td>
-                <td>{{item.metodoPago}}</td>
+                <td>{{item.fechaPago}}</td>
+                <td>{{item.monto | currency: 'ARS ' }}</td>
+                <td>{{item.metodoPago | uppercase}}</td>
                 <td>{{item.cuota}}</td>
-                <td>{{item.metodoPago}}</td>    
-                <td>{{item.completo}}</td>
                 <td scope="col">
                     <button type="button" class="btn outline-custom w-auto"
                         (click)="imprimirPago(item._id)">Imprimir</button>
