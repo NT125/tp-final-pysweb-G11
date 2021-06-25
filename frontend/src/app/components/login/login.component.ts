@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("fotoperfil", user.fotoperfil);
           if(user.perfil.nombre=="alumno"){
             sessionStorage.setItem("idalumno", user.idalumno._id);
-            this.router.navigateByUrl('/home');
+            this.router.navigateByUrl('/tusAsistencias');
           }
           if(user.perfil.nombre=="entrenador"){
             this.router.navigateByUrl('/entrenador');
