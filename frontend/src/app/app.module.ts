@@ -39,6 +39,7 @@ import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rut
 import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
 import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
 import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
+import { ReciboComponent } from './components/entrenador/recibo/recibo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,7 +71,8 @@ import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-p
     SoloNumeros,
     VerificarNegativo,
     VerRutinasComponent,
-    ListaPagosComponent
+    ListaPagosComponent,
+    ReciboComponent
   ],
   imports: [
     HttpClientModule,
