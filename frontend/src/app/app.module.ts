@@ -38,6 +38,7 @@ import { NgxDataTableModule } from 'angular-9-datatable';
 import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
 import { SeguimientoComponent } from './components/entrenador/seguimiento/seguimiento.component';
 import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento-general/seguimiento-general.component';
+import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,8 @@ import { SeguimientoGeneralComponent } from './components/entrenador/seguimiento
     SinMayuscula,
     SoloNumeros,
     VerificarNegativo,
-    VerRutinasComponent
+    VerRutinasComponent,
+    ListaPagosComponent
   ],
   imports: [
     HttpClientModule,

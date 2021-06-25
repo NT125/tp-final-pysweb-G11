@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Alumno } from 'src/app/models/alumno';
 import { Pago } from 'src/app/models/pago';
@@ -17,7 +17,7 @@ export class AnotarPagoComponent implements OnInit {
   alumno: Alumno=new Alumno();
   idalumno: string;
   pago: Pago=new Pago;
-  constructor(private entrenadorserv: EntrenadorService, private activatedroute:ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private entrenadorserv: EntrenadorService,private route: Router, private activatedroute:ActivatedRoute, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.activatedroute.params.subscribe(
@@ -34,6 +34,10 @@ export class AnotarPagoComponent implements OnInit {
         Object.assign(this.alumno,result);
       }
     )
+  }
+
+  verListaPagos(){
+    this.route.navigate(["entrenador/lista-pagos/",this.idalumno])
   }
 
   addPago(formPago: NgForm){

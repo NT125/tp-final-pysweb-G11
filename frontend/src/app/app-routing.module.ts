@@ -20,6 +20,7 @@ import { HomeComponent } from './components/layout/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PublicComponent } from './components/public/public.component';
 import { VerRutinasComponent } from './components/entrenador/ver-rutinas/ver-rutinas.component';
+import { ListaPagosComponent } from './components/entrenador/lista-pagos/lista-pagos.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'entrenador/seguimientogeneral', component: SeguimientoGeneralComponent },
   { path: 'entrenador/verRutinas', component: VerRutinasComponent },
     { path: 'entrenador/rutina/add-ejercicios/:id', component: AddEjerciciosComponent },
+    { path: 'entrenador/lista-pagos/:id', component: ListaPagosComponent },
 ];
 
 
