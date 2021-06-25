@@ -1,42 +1,32 @@
 <div class="container">
-      <div class="p-1 text-light mb-5 rounded">
-            <h1 class="title">
-                  Tus Rutinas
-            </h1>
-            <div>
-                  <p class="lead">Aquí podrás observar tus cuotas </p>
-            </div>
-            <div class="mx-auto">
-                  <div class="row gap-2 justify-content-center mx-3">
-                        <div class="col-lg-3 col-sm-12 card text-dark h-100" *ngFor="let item of arraydePagos">
-                              <span class="m-2 h4 text-center gym-name"><b>RECIBO</b></span>
-                              <div class="row my-3 txtsmall">
-                                    <div class="col-6 text-start">Monto: </div>
-                                    <div class="col-6 text-end">${{item.monto }} </div>
-                                    <hr>
-                                    <div class="col-6 text-start">Fecha de Pago: </div>
-                                    <div class="col-6 text-end">{{item.fechaPago}} </div>
-                                    <hr>
-                                    <div class="col-6 text-start">Forma de Pago: </div>
-                                    <div class="col-6 text-end">{{item.metodoPago}} </div>
-                                    <button class="btn btn-primary"
-                                          style="background-color: #c8f500; border-color: black;"
-                                          (click)="imprimirRecibo()"><i class="fa fa-print"
-                                                aria-hidden="true"></i></button>
-                              </div>
-
-                              <!--
-                              <ul class="list-group">
-                                    <li class="list-group-item title text-center">PAGO</li>
-                                    <li class="list-group-item">{{item.monto}}</li>
-                                    <li class="list-group-item">{{item.fechaPago}}</li>
-                                    <li class="list-group-item">{{item.metodoPago}}</li>
-                              </ul>-->
-                        </div>
-                  </div>
-            </div>
-
+   <div class="p-3 text-light mb-5 rounded container light-bg shadow h-100">
+      <div class="m-3 text-center">
+         <h1 class="title display-2">TUS PAGOS</h1>
+         <p class="lead">Los recibos de las cuotas que pagaste en tiempo y forma, podrás descargarlos desde
+            acá.</p>
       </div>
-      <br>
 
+      <hr>
+      <br>
+      <div class="mx-auto">
+         <div class="row gap-3 justify-content-center mx-3">
+            <div class="col-lg-3 col-sm-12 card text-dark h-100" *ngFor="let item of arraydePagos">
+               <span class="m-2 h4 text-center gym-name"><b>RECIBO</b></span>
+               <div class="row my-3 txtsmall">
+                  <div class="col-6 text-start">Monto: </div>
+                  <div class="col-6 text-end">${{item.monto}} </div>
+                  <hr>
+                  <div class="col-6 text-start">Fecha de Pago: </div>
+                  <div class="col-6 text-end">{{item.fechaPago}} </div>
+                  <hr>
+                  <div class="col-6 text-start">Forma de Pago: </div>
+                  <div class="col-6 text-end">{{item.metodoPago}} </div>
+                  <button class="btn btn-light mt-3" (click)="imprimirRecibo()"><i class="fa fa-print"
+                        aria-hidden="true"></i> IMPRIMIR</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <br>
 </div>
