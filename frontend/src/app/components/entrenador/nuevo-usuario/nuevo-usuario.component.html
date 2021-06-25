@@ -7,7 +7,7 @@
                         Alumno:
                         <select name="idalumno" id="alumno" class="form-select " [(ngModel)]="idalumno"
                               #alumno="ngModel" required>
-                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">Nombre: {{item.apellido}}
+                              <option *ngFor="let item of arraydeAlumnos" [value]="item._id">{{item.apellido}}
                                     {{item.nombre}}</option>
                         </select>
                         <div *ngIf="alumno.invalid && (alumno.dirty || alumno.touched)" class="p-0">
@@ -17,9 +17,9 @@
                         </div><br>
                         Nombre de Usuario:
                         <input type="text" name="username" id="username" class="form-control"
-                              [(ngModel)]="usuario.username" #usuario="ngModel" required autocomplete=off>
-                        <div *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)" class="p-0">
-                              <div *ngIf="usuario.errors.required" class="text text-danger">
+                              [(ngModel)]="usuario.username" #user="ngModel" required autocomplete=off>
+                        <div *ngIf="user.invalid && (user.dirty || user.touched)" class="p-0">
+                              <div *ngIf="user.errors.required" class="text text-danger">
                                     <small>Campo obligatorio </small>
                               </div>
                         </div><br>
