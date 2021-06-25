@@ -38,22 +38,32 @@
             <a class="nav-link" [routerLink]="['tusPagos']">Tus Pagos</a>
           </li>
 
-          <!--Entrenador-->
-       
+          <!--Entrenador--> 
+          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="alumnoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Alumnos
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="alumnoDropdown">
+              <li><a class="dropdown-item" [routerLink]="['entrenador/nuevo-alumno',0]">Inscribir Alumno</a></li>
+              <li><a class="dropdown-item" [routerLink]="['entrenador/nuevo-alumno',0]">Dar de baja a un Alumno</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a></li>
+              <li><a class="dropdown-item" [routerLink]="['entrenador/gestionar-alumno']">Gestionar todos los Alumnos</a></li>
+            </ul>
+          </li>     
+
+          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="alumnoDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Rutinas
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="alumnoDropdown">
+              <li><a class="dropdown-item" [routerLink]="['entrenador/rutina/nueva-rutina']">Generar Rutina</a></li>
+              <li><a class="dropdown-item" [routerLink]="['entrenador/verRutinas']">Añadir Ejercicios</a></li>
+            </ul>
+          </li>
+
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/nuevo-alumno',0]">Inscribir Alumno</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/nuevo-usuario']">Generar Usuario</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/rutina']">Gestionar Rutinas</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/gestionar-alumno']">Gestionar Alumno</a>
-          </li>          
-          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
-            <a class="nav-link" [routerLink]="['entrenador/seguimientogeneral']">Seguimiento</a>
+            <a class="nav-link" [routerLink]="['entrenador/seguimientogeneral']">Seguimiento de la cursada</a>
           </li>
         </ul>
 
