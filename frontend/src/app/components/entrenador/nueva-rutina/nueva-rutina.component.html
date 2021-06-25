@@ -8,18 +8,31 @@
                               <legend>Crear una rutina</legend><br>
                               Nombre:
                               <input type="text" name="nombre" id="" class="form-control" [(ngModel)]="rutina.nombre"
-                                    autocomplete=off>
+                                    autocomplete=off #nombre="ngModel" required sin-mayuscula>
+                              <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="p-0">
+                                    <div *ngIf="nombre.errors.required" class="text text-danger  is-invalid">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                                    <div *ngIf="nombre.errors.sinLetraMayuscula" class="text text-danger">
+                                          <small> La primera letra debe estar en mayúscula </small>
+                                    </div>
+                              </div>
                               <br>
                               Nivel:
-                              <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel">
+                              <select name="nivel" id="nivel" class="form-select" [(ngModel)]="rutina.nivel" #nivel="ngModel"required>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5</option>
                               </select>
+                              <div *ngIf="nivel.invalid && (nivel.dirty || nivel.touched)" class="p-0">
+                                    <div *ngIf="nivel.errors.required" class="text text-danger">
+                                          <small>Campo obligatorio </small>
+                                    </div>
+                              </div>
                               <div class="d-grid mt-5 gap-2 col-6 mx-auto">
-                                    <button type="button" class="btn outline-custom" (click)="createRutina()">Crear
+                                    <button type="button" class="btn outline-custom" (click)="createRutina()" [disabled] = "!rutinaForm.form.valid">Crear
                                           Rutina</button>
                               </div>
                         </form>
