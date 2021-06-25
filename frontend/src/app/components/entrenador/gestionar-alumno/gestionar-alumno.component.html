@@ -1,15 +1,19 @@
 <div class="container">
+  <div class="m-3 text-white">
+    <h1 class="title">Gestión de Alumnos</h1>
+  </div><br>
   <br>
-  <div class="row row-cols-2 w-75 text-center m-auto">
-    <div class="row input-group mb-3 w-75">
-      <select class="col-5" name="planseleccionado" id="" [(ngModel)]="planseleccionado">
+    <h5 class="text-center text-white mb-3">Consultas</h5>
+  <div class="mb-2 d-flex gap-5 w-75 text-center m-auto">
+    <div class="input-group col">
+      <select class="col-5 form-select" name="planseleccionado" id="" [(ngModel)]="planseleccionado">
         <option *ngFor="let item of arraydePlan" [value]="item._id">{{item.tipo}}, Dias: {{item.cantidadDias}}</option>
       </select>
-      <button class="col-2 btn outline-custom" type="button" id="button-addon2"
+      <button class="btn outline-custom" type="button" id="button-addon2"
         (click)="buscarporPlan()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
     </div>
-    <div class="input-group mb-3 w-25">
-      <input [(ngModel)]="dni" type="number" class="form-control" placeholder="Ingrese DNI" aria-label="Ingrese DNI"
+    <div class="input-group col">
+      <input [(ngModel)]="dni" type="number" class="form-control" placeholder="DNI" aria-label="DNI"
         aria-describedby="button-addon2" name="dni" id="dni">
       <button class="btn outline-custom" type="button" id="button-addon2" (click)="buscarporDni()"><i class="fa fa-search" aria-hidden="true"></i> Buscar</button>
     </div>
