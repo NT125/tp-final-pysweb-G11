@@ -24,7 +24,7 @@ export class AddEjerciciosComponent implements OnInit {
   
   }
 
-  addEjerciciosRutina(){
+  addEjerciciosRutina(rutina: NgForm){
     this.table = true;
     this.rutinaserv.addEjercicio(this.idrutina,this.ejercicios).subscribe(
       result=>{
@@ -40,10 +40,7 @@ export class AddEjerciciosComponent implements OnInit {
         }
       }
     )
-    this.ejercicios.descripcion="";
-    this.ejercicios.zona="";
-    this.ejercicios.repeticiones=null;
-    this.ejercicios.intensidad="";
+    rutina.reset()
   }
 
   cargarEjercicios(){

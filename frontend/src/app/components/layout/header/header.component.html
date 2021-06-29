@@ -13,19 +13,6 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           
-          <!--Home page (visitante)-->
-          <li class="nav-item" *ngIf="!loginserv.userLoggedIn()">
-            <a class="nav-link" [routerLink]="['home']">Inicio</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Cómo entrenamos</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Precios y Planes</a>
-          </li>
-          <li *ngIf="!loginserv.userLoggedIn()" class="nav-item">
-            <a class="nav-link" href="#">Nosotros</a>
-          </li>
 
           <!--Alumno-->
           <li *ngIf="loginserv.perfilLogged()=='alumno'" class="nav-item">
@@ -64,6 +51,11 @@
           <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
             <a class="nav-link" [routerLink]="['entrenador/seguimientogeneral']">Seguimiento de la cursada</a>
           </li>
+
+          <li *ngIf="loginserv.perfilLogged()=='entrenador'" class="nav-item">
+            <a class="nav-link" [routerLink]="['public']"> <i class="fab fa-facebook" aria-hidden="true"></i> Postear Novedades</a>
+          </li>
+
         </ul>
 
         <div class="d-flex">
@@ -88,7 +80,7 @@
           </div>
 
           <div *ngIf="loginserv.fotoPerfilLoggedIn()==false">
-            <img src="{{loginserv.fotoPerfilLogged()}}" height="30px" width="30px" alt="">
+            <img *ngIf="loginserv.perfilLogged()=='alumno'" src="{{loginserv.fotoPerfilLogged()}}" height="30px" width="30px" alt="">
           </div>
         
         </div>

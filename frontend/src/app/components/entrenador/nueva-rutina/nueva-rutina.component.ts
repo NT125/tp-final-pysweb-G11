@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Ejercicio } from 'src/app/models/ejercicio';
 import { Rutina } from 'src/app/models/rutina';
@@ -17,10 +18,11 @@ export class NuevaRutinaComponent implements OnInit {
     this.rutina=new Rutina();
   }
 
-  createRutina() {
+  createRutina(newRutina: NgForm) {
     this.rutinaserv.addRutina(this.rutina).subscribe(
       result=>{
         if(result.status=="1"){
+          this.rutina = new Rutina()
           this.toastr.success('Se agrego la rutina correctamente', ' ', {
             timeOut: 2000,
           });
@@ -31,6 +33,7 @@ export class NuevaRutinaComponent implements OnInit {
         }
       }
     )
+      newRutina.reset()
   }
 
   ngOnInit(): void {
